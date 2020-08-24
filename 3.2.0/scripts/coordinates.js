@@ -4,9 +4,9 @@
  * IP3 (IB908C), VT 2020 Web Development, Client Side
  *
  * Assignment: 3.2,
- * DOM-objekt och jQuery.
+ * DOM-object och jQuery.
  *
- * Using JavsScript with ES6 features.
+ * Using JavaScript with ES6 features.
  *
  * A hover displaying picked color which demonstrate following parts:
  *
@@ -20,15 +20,15 @@
  * - Usage of event property "pageX"
  * - Usage of event property "pageY"
  * - Usage of .on (jquery) to attach/add an event listener
- * - Usage of .off (jquery) to deattach/remove an event listener
+ * - Usage of .off (jquery) to detach/remove an event listener
  *
  * Mouse events:
  * - Usage of the "mousemove" event
  *
  * Notice!
  * A stylesheet is being used for easy to read and clean code,
- * it is possible to inject styles directly on elements using jQuery or ƒetching
- * them directy using the document and then setting the styles explicitly.
+ * it is possible to inject styles directly on elements using jQuery or fetching
+ * them directly using the document and then setting the styles explicitly.
  *
  * It is also a possible to create a style element and then append any
  * classes or styles in its content and then injecting it into the DOM.

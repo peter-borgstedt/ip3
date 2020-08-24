@@ -89,5 +89,5 @@ a.link-image:visited img {
 }
 
 .cursor-custom {
-  cursor: url(c64-logo.png) 32 32, auto;
+  cursor: url(../images/c64-logo.png) 32 32, auto;
 }

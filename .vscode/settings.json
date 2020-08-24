@@ -26,5 +26,6 @@
   "java.debug.settings.hotCodeReplace": "auto",
   "java.autobuild.enabled": true,
   "java.saveActions.organizeImports": true,
-  "java.configuration.updateBuildConfiguration": "automatic"
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "liveServer.settings.port": 5501
 }

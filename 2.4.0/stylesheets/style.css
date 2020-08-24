@@ -31,20 +31,20 @@
 }
 
 body.demo-background {
-  background: #454C56 url(../assets/orange.png) top left / 50px;
+  background: #454C56 url(../../assets/orange.png) top left / 50px;
 }
 
 h1.demo-background {
-  background: url(../assets/orange.png) right center / 30px no-repeat;
+  background: url(../../assets/orange.png) right center / 30px no-repeat;
 }
 
 li.demo-background {
-  background: bisque url(../assets/orange.png) center center / 15px no-repeat;
+  background: bisque url(../../assets/orange.png) center center / 15px no-repeat;
 }
 
 div.demo-background {
   width: 150px;
   height: 150px;
   color: white;
-  background: green url(../assets/orange.png) left center / 50px repeat-x;
+  background: green url(../../assets/orange.png) left center / 50px repeat-x;
 }

@@ -65,3 +65,12 @@ td {
 tr:nth-child(odd) > td {
   background: #f8f8f8;
 }
+
+.button-column {
+  width: 75px;
+}
+
+.refresh-button {
+  width: 75px;
+  margin-right: 9px;
+}

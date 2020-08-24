@@ -44,12 +44,11 @@ $(document).ready(() => {
     animate.text(originalText);
   });
 
-  // Animate with jQuery is really a hastle and any advanced stuff needs
+  // Animate with jQuery is really a hassle and any advanced stuff needs
   // a lot of coding, also colors are not supported, only unit properties.
   // It's much simpler with regular javascript if any advance logic is needed
-  // and the use of CSS 'transition', 'animate' with or without '@keyframes',
-  // they are more powerful, see my example above.
-  // 
+  // and the use of CSS 'transition', 'animate' (with or without '@keyframes')
+  // are just so powerful, see my example above.
   const animateJq = $('#animate-jq');
   const animateJqOnClick = () => {
     animateJq.off('click', animateJqOnClick);

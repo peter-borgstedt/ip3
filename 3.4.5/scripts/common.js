@@ -55,7 +55,6 @@ const addListItem = (event, inputId, itemListId) => {
   if (input[0].reportValidity()) {
     const value = input.val();
     const itemList = $('#' + itemListId);
-    console.log(itemList.data('name'));
 
     if (!itemList.children().length) {
       itemList.text('') // Clear
@@ -124,7 +123,7 @@ const save = (event) => {
 
   console.log('Result:');
   console.dir(object);
-  alert('Öppna upp konsolen för att formulärdatat (resultatet får ej plats i en alert ruta)');
+  alert('Öppna upp webbkonsolen för att se formulärdatat (resultatet får ej plats i en alert ruta)');
 }
 
 $(document).ready(() => {

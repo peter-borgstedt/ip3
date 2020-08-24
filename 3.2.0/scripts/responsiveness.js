@@ -4,9 +4,9 @@
  * IP3 (IB908C), VT 2020 Web Development, Client Side
  *
  * Assignment: 3.2,
- * DOM-objekt och jQuery.
+ * DOM-object och jQuery.
  *
- * Using JavsScript with ES6 features.
+ * Using JavaScript with ES6 features.
  *
  * A function object with simple logic for responsiveness,
  * basically a container with an event handler function and change state.
@@ -29,8 +29,8 @@
  *
  * Notice!
  * A stylesheet is being used for easy to read and clean code,
- * it is possible to inject styles directly on elements using jQuery or ƒetching
- * them directy using the document and then setting the styles explicitly.
+ * it is possible to inject styles directly on elements using jQuery or fetching
+ * them directly using the document and then setting the styles explicitly.
  *
  * It is also a possible to create a style element and then append any
  * classes or styles in its content and then injecting it into the DOM.
@@ -58,12 +58,12 @@ function Responsiveness() {
   this.handler(); // Set initial size
 }
 
-// $(selector).load (depricated >= 1.8, now usage is with .on)
+// $(selector).load (deprecated >= 1.8, now usage is with .on)
 $(window).on('load', () => {
   $(window).on('resize', new Responsiveness().handler);
 });
 
-// $(selector).unload (depricated >= 1.8, now usage is with .on)
+// $(selector).unload (deprecated >= 1.8, now usage is with .on)
 $(window).on('unload', () => {
   $(window).off('resize', new Responsiveness().handler);
 });

@@ -4,9 +4,9 @@
  * IP3 (IB908C), VT 2020 Web Development, Client Side
  *
  * Assignment: 3.2,
- * DOM-objekt och jQuery.
+ * DOM-object och jQuery.
  *
- * Using JavsScript with ES6 features.
+ * Using JavaScript with ES6 features.
  *
  * A simple blog that demonstrate the following features:
  *
@@ -39,8 +39,8 @@
  *
  * Notice!
  * A stylesheet is being used for easy to read and clean code,
- * it is possible to inject styles directly on elements using jQuery or ƒetching
- * them directy using the document and then setting the styles explicitly.
+ * it is possible to inject styles directly on elements using jQuery or fetching
+ * them directly using the document and then setting the styles explicitly.
  *
  * It is also a possible to create a style element and then append any
  * classes or styles in its content and then injecting it into the DOM.
@@ -66,7 +66,7 @@ function Blog () {
     const removeElement = $('<span class="float-right clickable">X</span>');
 
     // Explicitly set context "this" (otherwise "this" will be the invoking element)
-    highlightElement.on('click', this.hightlightPost);
+    highlightElement.on('click', this.highlightPost);
     removeElement.on('click', this.removePost.bind(this));
 
     subjectElement.append($('<span class="post-header float-left">Ämne:</span>'));
@@ -146,7 +146,7 @@ function Blog () {
    * Highlights a selected post
    * @param {MouseEvent} event A click event
    */
-  this.hightlightPost = (event) => {
+  this.highlightPost = (event) => {
     const highlightButton = $(event.target);
     const post = highlightButton.parents('.post');
 
