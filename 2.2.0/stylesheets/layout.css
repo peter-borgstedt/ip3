@@ -1,0 +1,89 @@
+/*
+ * This style sheet contains styling for the fundamental layout of the content, which
+ * is done for an increased readability / usability.
+ */
+
+* {
+  /* https://www.w3schools.com/css/css3_box-sizing.asp */
+  box-sizing: border-box; /* We want box sizing on all elements */
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #454C56;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+body, .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 70%;
+  max-width: 1080px;
+  background: white;
+  padding: 20px;
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 0px;
+}
+
+p {
+  margin: 4px 0 4px 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 18px 0 4px 0;
+}
+
+pre {
+  white-space: nowrap; /* Force text to a single line */
+  width: 100%;
+  margin: 16px 0 16px 0;
+}
+
+code {
+  background-color: #eee;
+  border: 1px solid #888;
+  color: #444;
+  display: block;
+  padding: 8px;
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden; /* Do not show any excess chars */
+}
+
+pre > span {
+  color: #222;
+  font-style: italic;
+  margin: 0 0 4px 0;
+}
+
+.demonstration {
+  border: 1px solid #888;
+  padding: 8px;
+  margin: 4px 0 16px 0;
+}
+
+.references > a {
+  display: block; /* Breaks into a new line instead of spanning */
+}
+
+mark {
+  background-color: beige;
+  padding: 2px;
+}
+
+.syntax {
+  border: 1px solid #888;
+  padding: 8px;
+  margin: 8px 0 8px 0;
+}

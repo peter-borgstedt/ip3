@@ -1,0 +1,13 @@
+#transition {
+  border: 2px solid #ccc;
+  background: white;
+  transition: background 1s ease-out;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+
+
+#transition:hover {
+  background: red;
+}

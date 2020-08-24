@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>3.5.2 Filläsning</title>
+    <script src="../lib/jquery-3.5.0.min.js"></script>
+    <script src="./scripts/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css"> 
+  </head>
+
+  <body>
+    <h1>3.5.2 Filläsning</h1>
+    <div class="container">
+      <div id="image-container" class="image-drop-zone">
+        <span>Droppa en bild här!</span>
+      </div>
+
+      <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file -->
+      <label for="text-file-selector">Läs in en eller fler text filer</label>
+      <input id="text-file-selector" type="file" accept=".txt" multiple>
+      <a id="text-file-loader" href="">Alternativt klicka här för ladda text filer</a>
+
+      <div id="text-documents"></div>
+    </div>
+  </body>
+</html>

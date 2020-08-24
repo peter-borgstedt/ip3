@@ -1,0 +1,50 @@
+.demo-overflow-clearfix {
+  overflow: auto;
+}
+
+.demo-image {
+  height: 250px;
+}
+
+.demo-float-left {
+  float: left;
+  margin-right: 8px;
+}
+
+.demo-float-right {
+  float: right;
+  margin-left: 8px;
+}
+
+.demo-clear-right {
+  clear: right;
+}
+
+.demo-image-styled {
+  border: 1px solid #888;
+  width: 200px;
+  padding: 8px;
+  box-shadow: 8px 8px 14px 1px gray;
+  margin: 10px 0 22px 10px;
+  transform: rotate(-5deg);
+  filter: saturate(800%);
+}
+
+body.demo-background {
+  background: #454C56 url(../assets/orange.png) top left / 50px;
+}
+
+h1.demo-background {
+  background: url(../assets/orange.png) right center / 30px no-repeat;
+}
+
+li.demo-background {
+  background: bisque url(../assets/orange.png) center center / 15px no-repeat;
+}
+
+div.demo-background {
+  width: 150px;
+  height: 150px;
+  color: white;
+  background: green url(../assets/orange.png) left center / 50px repeat-x;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>3.5.1 Webblagring</title>
+    <script src="../lib/jquery-3.5.0.min.js"></script>
+    <script src="./scripts/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css"> 
+  </head>
+
+  <body>
+    <h1>3.5.1 Webblagring</h1>
+
+    <form id="storage-form">
+      <label for="forename">Förnamn</label>
+      <input id="forename" name="forename" type="text" placeholder="Förnamn" autofocus/>
+      <label for="surname">Efternamn</label>
+      <input id="surname" name="surname" type="text" placeholder="Efternamn"/>
+      <label for="age">Ålder</label>
+      <input id="age" name="age" type="text" placeholder="Ålder"/>
+      <span></span>
+      <input type="submit" value="Spara"/>
+    </form>
+
+    <br/>
+    <button id="session-data-button">Visa data från session storage</button>
+    <br/>
+    <button id="local-data-button">Visa data från local storage</button>
+  </body>
+</html>

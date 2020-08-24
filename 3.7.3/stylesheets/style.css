@@ -1,0 +1,53 @@
+html, body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: darkseagreen;
+  height: 100vh;
+  width: 100vw;
+}
+
+#container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  min-width: 480px;
+}
+
+#tabs {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+}
+
+#tabs > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(133, 145, 133);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  cursor: pointer;
+}
+
+#tabs > div:not(.active):hover {
+  background: rgb(232, 237, 232);
+}
+
+#tabs > .active {
+  background: white;
+  border-bottom: 0;
+}
+
+#content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  background: white;
+  padding: 20px;
+}

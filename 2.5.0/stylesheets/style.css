@@ -1,0 +1,93 @@
+a.link-button {
+  /*
+   * Default is inline, but as we want links to be acting as buttons and show a
+   * cursor not only when over the text but also over rest of the area, by changing
+   * to inline-block we have that (and possibility to set size etc).
+   */
+  display: inline-block;
+  background: #f5f5f5;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  padding: 8px;
+  text-decoration: none;
+}
+
+a.link-button:link {
+  color: greenyellow;
+}
+
+a.link-button:hover {
+  background: rgb(200, 220, 190);
+  color: #222;
+}
+
+a.link-button:active {
+  background: goldenrod;
+  color: black;
+}
+
+a.link-button:visited {
+  background: #555;
+  color: white;
+  border-color: black;
+}
+
+a.link-image {
+  display: inline-block;
+  background: #f5f5f5;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+a.link-image img {
+  max-width: 200px; /* Max size width for the image */
+}
+
+a.link-image:link, /* Link element */
+a.link-image:link img { /* Image element inside link element */
+  opacity: 0.5;
+  color: greenyellow;
+}
+
+a.link-image:hover,
+a.link-image:hover img {
+  opacity: 1;
+  background: rgb(200, 220, 190);
+  color: #222;
+}
+
+a.link-image:active,
+a.link-image:active img {
+  opacity: 1;
+  background: goldenrod;
+  color: black;
+}
+
+a.link-image:visited,
+a.link-image:visited img {
+  opacity: 0.5;
+  background: #555;
+  color: white;
+  border-color: black;
+}
+
+
+.cursor-crosshair,
+.cursor-custom {
+  display: inline-flex;
+  width: 200px;
+  height: 200px;
+  border: 1px dashed #ccc;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+}
+
+.cursor-crosshair {
+  cursor: crosshair;
+}
+
+.cursor-custom {
+  cursor: url(c64-logo.png) 32 32, auto;
+}

@@ -1,0 +1,67 @@
+* {
+  /* https://www.w3schools.com/css/css3_box-sizing.asp */
+  box-sizing: border-box; /* We want box sizing on all elements */
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(255, 246, 224);
+  height: 100vh;
+  width: 100vw;
+}
+
+#container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#menus {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  align-items: flex-end;
+  background: #454C56;
+}
+
+.menu {
+  position: relative;
+  padding: 10px 20px 10px 20px;
+  height: 40px;
+  background: #ffffff;
+  margin-left: 10px;
+}
+
+.menu:first-child {
+  margin-left: 25px;
+}
+
+.items {
+  display: flex;;
+  position: absolute;
+  width: 0%;
+  top: 100%;
+  left: 0;
+  background-color: #454C56;
+  visibility: hidden;
+}
+
+.items a {
+  display: block;
+  min-width: max-content;
+  padding: 10px;
+  color: #8e9bac;
+  text-decoration: none;
+}
+
+#content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  background: white;
+}

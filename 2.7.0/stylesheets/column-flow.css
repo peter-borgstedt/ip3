@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, Helvetica, Verdana;
+  margin: 1em;
+  font-size: larger;
+}
+
+.text-align--center {
+  text-align: center;
+}
+
+.multi-columns {
+  display: inline-block;
+  position: relative;
+  column-gap: 1.5em;
+  column-rule: 0.5em solid seagreen;
+}
+
+.multi-columns--count {
+  column-count: 4;
+}
+
+.multi-columns--width {
+  column-width: 400px;
+}
+
+.multi-columns--span-all {
+  column-span: all;
+}
+
+main {
+  margin: 0 auto;
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>2.4.0 Bilder och bakgrunder</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/layout.css"> 
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css"> 
+  </head>
+
+  <body class="demo-background">
+    <div class="container">
+      <h1>2.4.0 Bilder och bakgrunder</h1>
+
+      <h2>Innehåll</h2>
+      <ul>
+        <li><a href="#backgrounds">Bakgrunder</a></li>
+        <li><a href="#images-text-flows">Bilder och textflöden</a></li>
+      </ul>
+
+      <div id="backgrounds" class="section">
+        <h2>Bakgrunder</h2>
+        <p>
+          Bakgrunder definierar bakgrundseffekter för element. Det finns ett flertal egenskaper som kan används för att modifera bakgrunden, dessa kommer förklaras kort nedan.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>background</h3>
+        <div>
+          Egenskapen sätter en bakgrund för ett element och är kort för <em>background-color</em>, <em>background-image</em>, <em>background-position</em>, <em>background-size</em>, <em>background-repeat</em>, <em>background-orgin</em>, <em>background-clip</em> och <em>background-attachment</em>.
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>background-image</h3>
+        <div>
+          Egenskapen sätter en backgrund baserad på CSS funktioner bl.a. <em>URL()</em> som laddar in en bildfil. Det går att sätta fler bakgrundsbilder genom att separera dem med ett komma.
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>background-repeat</h3>
+        <div>
+          Egenskapen används för att upprepa en bakgrundbild och de främst använda värdena är <em>no-repeat</em> för ingen upprepning, bilden visas en gång, <em>repeat-y</em> för att upprepa vertikalt, <em>repeat-x</em> för att upprepa horizontieltl och <em>repeat</em> för att upprepas både vertikallt och horizontiellt.
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>background-position</h3>
+        <div>
+          Egenskapen sätter startpositionen för en <em>background-image</em> där <em>top-left</em> är standardvärdet. Egenskapen består av två delar, den horisontella placering och den vertikala placeringen. Om endast en av den anges så sätts det andra värdet med <em>center</em>. Dessa går även att ange med andra enheter som pixel och procent.
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>background-attachment</h3>
+        <div>
+          Egenskapen sätter huruvida en <em>background-image</em> skall följa resten av sidan vid rullning (scroll) eller om den skall vara fixerad. Anger man <em>scroll</em> så kommer bakgrundsbilden att följa sidan vid rullning, anger man <em>fixed</em> så kommer bilden vara fixerad och inte följa vid rullning, anger man <em>local</em> så kommer bilden att rulla med sitt elements innehåll.
+        </div>
+      </div>
+
+      <pre>
+        <span>CSS</span>
+        <code>
+          body.demo-background {<br/>
+          &nbsp;&nbsp;background: #454C56 url(../assets/orange.png) top left / 50px;<br/>
+          }<br/><br/>
+          h1.demo-background {<br/>
+          &nbsp;&nbsp;background: url(../assets/orange.png) right center / 30px no-repeat;<br/>
+          }<br/><br/>
+          li.demo-background {<br/>
+          &nbsp;&nbsp;background: bisque url(../assets/orange.png) center center / 15px no-repeat;<br/>
+          }<br/><br/>
+          div.demo-background {<br/>
+          &nbsp;&nbsp;width: 150px;<br/>
+          &nbsp;&nbsp;height: 150px;<br/>
+          &nbsp;&nbsp;color: white;<br/>
+          &nbsp;&nbsp;background: green url(../assets/orange.png) left center / 50px repeat-x;<br/>
+          }
+        </code>
+      </pre>
+
+      <pre>
+        <span>HTML</span>
+        <code>
+          &lt;body class="demo-background"&gt;...&lt;/body&gt;<br/><br/>
+          &lt;h1 class="demo-background"&gt;Header med bakgrundsbild&lt;/h1&gt;<br/><br/>
+          &lt;ol&gt;<br/>
+          &nbsp;&nbsp;&lt;li class="demo-background"&gt;Artikel med bakgrundsbild&lt;/li&gt;<br/>
+          &lt;/ol&gt;<br/><br/>
+          &lt;div class="demo-background"&gt;Division med bakgrundsbild&lt;/div&gt;<br/>
+        </code>
+      </pre>
+
+      <b>Resultat</b>
+      <div class="demonstration">
+        <h1 class="demo-background">Header med bakgrundsbild</h1>
+
+        <ul>
+          <li class="demo-background">Artikel med bakgrundsbild</li>
+        </ul>
+
+        <div class="demo-background">Division med bakgrundsbild</div>
+      </div>
+
+      <div class="references">
+        <h3>Referenser (läs vidare)</h3>
+        <a href="https://www.w3schools.com/cssref/css3_pr_background.asp">https://www.w3schools.com/cssref/css3_pr_background.asp</a>
+        <a href="https://www.webfx.com/blog/web-design/background-css-shorthand/">https://www.webfx.com/blog/web-design/background-css-shorthand/</a>
+      </div>
+
+      <h2 id="images-text-flows">Bilder och textflöded</h2>
+      <p>
+        För att få text att flöda propert runt bilder så kan det behövas definieras CSS.
+        Det finns ett antal sätt och några av dessa kommer visas nedan, de viktigaste
+        attributen är <b>float</b> och <b>clear</b>.
+      </p>
+
+      <div class="section">
+        <h3>float</h3>
+        <div>
+          Egenskapen specificerar hur ett element skall flyta, d.v.s. huruvida elementet skall placeras på vänster eller höger sida (i sin rymd). Anger man <em>left</em> så placerar sig elementet på vänster sida, anger man <em>right</em> så placerar sig elementet på höger sida och anger man <em>none</em> så placerar sig elementet utefter innehållet.
+        </div>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-overflow-clearfix {<br/>
+            &nbsp;&nbsp;overflow: auto;<br/>
+            }<br/><br/>
+            .demo-image {<br/>
+            &nbsp;&nbsp;height: 250px;<br/>
+            }<br/><br/>
+            .demo-float-left {<br/>
+            &nbsp;&nbsp;float: left;<br/>
+            &nbsp;&nbsp;margin-right: 8px;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-overflow-clearfix"&gt;<br/>
+            &nbsp;&nbsp;&lt;img class="demo-image demo-float-left" src="../assets/neuromancer.jpg" alt="Neuromancer"&gt;<br/>
+            &nbsp;&nbsp;&lt;h1&gt;Part One; Chiba City Blues&lt;/h1&gt;<br/>
+            &nbsp;&nbsp;... text from Neuromancer; Part One; Chiba City Blues<br/>
+            &lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="demo-overflow-clearfix">
+            <img class="demo-image demo-float-left" src="../assets/neuromancer.jpg" alt="Neuromancer">
+            <h1>Part One; Chiba City Blues</h1>
+            The sky above the port was the color of television, tuned to a dead channel.
+            `It's not like I'm using,' Case heard someone say, as he shouldered his way through the crowd around the door of the Chat.
+            `It's like my body's developed this massive drug deficiency.' It was a Sprawl voice and a Sprawl joke.
+            The Chatsubo was a bar for professional expatriates; you could drink there for a week and never hear two words in Japanese.<br/>
+            Ratz was tending bar, his prosthetic arm jerking monotonously as he filled a tray of glasses with draft Kirin.
+            He saw Case and smiled, his teeth a webwork of East European steel and brown decay. Case found a place at the bar,
+            between the unlikely tan on one of Lonny Zone's whores and the crisp naval uniform of a tall African whose cheekbones were ridged with precise rows of tribal scars.
+            `Wage was in here early, with two joeboys,' Ratz said, shoving a draft across the bar with his good hand. `Maybe some business with you, Case?'<br/>
+            Case shrugged. The girl to his right giggled and nudged him.<br/>
+            The bartender's smile widened. His ugliness was the stuff of legend. In an age of affordable beauty, there was something heraldic about his lack of it.
+            The antique arm whined as he reached for another mug. It was a Russian military prosthesis, a seven-function force-feedback manipulator, cased in grubby pink plastic.
+            `You are too much the artiste, Herr Case.' Ratz grunted; the sound served him as laughter. He scratched his overhang of white-shirted belly with the pink claw.
+            `You are the artiste of the slightly funny deal.'<br/>
+            `Sure,' Case said, and sipped his beer. `Somebody's gotta be funny around here. Sure the fuck isn't you.'<br/>
+            The whore's giggle went up an octave.<br/>
+            `Isn't you either, sister. So you vanish, okay? Zone, he's a close personal friend of mine.'
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>clear</h3>
+        <div>
+          Egenskapen specificerar att det inte är tillåtet att flyta bredvid ett element, det går att specificera explicit åt vilket håll som inte är tillåtet; <em>left</em>, <em>right</em>, <em>both</em> eller <em>none (standard)</em>. Anger man <em>left</em> är det därmed inte möjlgt med element som flyter åt vänstersida, anger man <em>right</em> så är det inte möjligt med flytelement på höger sida, anger man <em>both</em> så är det inte möjligt på någon av sidorna och anger man <em>none</em> så är det tillåtet att flyta på båda sidorna. 
+        </div>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-overflow-clearfix {<br/>
+            &nbsp;&nbsp;overflow: auto;<br/>
+            }<br/><br/>
+            .demo-image {<br/>
+            &nbsp;&nbsp;height: 250px;<br/>
+            }<br/><br/>
+            .demo-float-right {<br/>
+            &nbsp;&nbsp;float: right;<br/>
+            &nbsp;&nbsp;margin-left: 8px;<br/>
+            }<br/><br/>
+            .demo-clear-right {<br/>
+            &nbsp;&nbsp;clear: right;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-overflow-clearfix"&gt;<br/>
+            &nbsp;&nbsp;&lt;img class="demo-image demo-float-right" src="../assets/neuromancer.jpg" alt="Neuromancer"&gt;<br/>
+            &nbsp;&nbsp;&lt;h1&gt;Part One; Chiba City Blues&lt;/h1&gt;<br/>
+            &nbsp;&nbsp;... uppdelad text from Neuromancer; Part One; Chiba City Blues<br/>
+            &nbsp;&nbsp;&lt;h2 class="demo-clear-right"&gt;Continuation...&lt;/h2&gt;<br/>
+            &nbsp;&nbsp;... uppdelad text from Neuromancer; Part One; Chiba City Blues<br/>
+            &lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="demo-overflow-clearfix">
+            <img class="demo-image demo-float-right" src="../assets/neuromancer.jpg" alt="Neuromancer">
+            <h1>Part One; Chiba City Blues</h1>
+            The sky above the port was the color of television, tuned to a dead channel.
+            `It's not like I'm using,' Case heard someone say, as he shouldered his way through the crowd around the door of the Chat.
+            `It's like my body's developed this massive drug deficiency.' It was a Sprawl voice and a Sprawl joke.
+            The Chatsubo was a bar for professional expatriates; you could drink there for a week and never hear two words in Japanese.<br/>
+            Ratz was tending bar, his prosthetic arm jerking monotonously as he filled a tray of glasses with draft Kirin.
+            He saw Case and smiled, his teeth a webwork of East European steel and brown decay. Case found a place at the bar,
+            between the unlikely tan on one of Lonny Zone's whores and the crisp naval uniform of a tall African whose cheekbones were ridged with precise rows of tribal scars.
+            `Wage was in here early, with two joeboys,' Ratz said, shoving a draft across the bar with his good hand. `Maybe some business with you, Case?'
+            <h2 class="demo-clear-right">Continuation...</h2>
+            Case shrugged. The girl to his right giggled and nudged him.<br/>
+            The bartender's smile widened. His ugliness was the stuff of legend. In an age of affordable beauty, there was something heraldic about his lack of it.
+            The antique arm whined as he reached for another mug. It was a Russian military prosthesis, a seven-function force-feedback manipulator, cased in grubby pink plastic.
+            `You are too much the artiste, Herr Case.' Ratz grunted; the sound served him as laughter. He scratched his overhang of white-shirted belly with the pink claw.
+            `You are the artiste of the slightly funny deal.'<br/>
+            `Sure,' Case said, and sipped his beer. `Somebody's gotta be funny around here. Sure the fuck isn't you.'<br/>
+            The whore's giggle went up an octave.<br/>
+            `Isn't you either, sister. So you vanish, okay? Zone, he's a close personal friend of mine.'
+          </div>
+        </div>
+
+        <div class="references">
+          <h3>Referenser (läs vidare)</h3>
+          <a href="https://www.w3schools.com/css/css_float.asp">https://www.w3schools.com/css/css_float.asp</a>
+          <a href="https://www.w3schools.com/cssref/pr_class_clear.asp">https://www.w3schools.com/cssref/pr_class_clear.asp</a>
+          <a href="https://www.w3schools.com/css/css_float_clear.asp">https://www.w3schools.com/css/css_float_clear.asp</a>
+          <a href="https://genius.com/William-gibson-neuromancer-chapter-1-annotated">https://genius.com/William-gibson-neuromancer-chapter-1-annotated</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Stylning av bilder</h2>
+        <div>
+          Det går att sätta stil på bilder via CSS bl.a. med skuggor, kantlinjer, rundande kantlinjer, transformeringar, filter, backgrundsfärger med mera.
+        </div>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-image-styled {<br/>
+            &nbsp;&nbsp;border: 1px solid #888;<br/>
+            &nbsp;&nbsp;width: 200px;<br/>
+            &nbsp;&nbsp;padding: 8px;<br/>
+            &nbsp;&nbsp;box-shadow: 8px 8px 14px 1px gray;<br/>
+            &nbsp;&nbsp;margin: 10px 0 24px 8px;<br/>
+            &nbsp;&nbsp;transform: rotate(-5deg);<br/>
+            &nbsp;&nbsp;filter: saturate(800%);<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;img class="demo-image-styled" src="..assets/dandelion.jpg" alt="Maskros"&gt;
+          </code>
+        </pre>
+        <b>Resultat</b>
+        <div class="demonstration">
+          <img class="demo-image-styled" src="../assets/dandelion.jpg" alt="Maskros">
+        </div>
+
+        <div class="references">
+          <h3>Referenser (läs vidare)</h3>
+          <a href="https://www.w3schools.com/css/css3_images.asp">https://www.w3schools.com/css/css3_images.asp</a>
+          <a href="https://www.w3schools.com/cssref/css3_pr_filter.asp">https://www.w3schools.com/cssref/css3_pr_filter.asp</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

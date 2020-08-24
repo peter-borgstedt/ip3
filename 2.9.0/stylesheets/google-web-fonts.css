@@ -1,0 +1,10 @@
+@font-face {
+  font-family: IndieFlower;
+  src: url(../fonts/google-web-fonts/IndieFlower-Regular.ttf);
+  font-style: normal;
+}
+
+p {
+  font-family: IndieFlower;
+  font-size: 24px;
+}

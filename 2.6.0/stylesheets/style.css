@@ -1,0 +1,112 @@
+table.table-fixed {
+  table-layout: fixed;
+  border-collapse: separate; /* Use seperate cell borders */
+  border-spacing: 8px;
+  text-align: left;
+}
+
+table.table-fixed,
+table.table-fixed th,
+table.table-fixed td {
+  border: 1px solid #555;
+}
+
+table.table-fixed tr:first-child {
+  text-align: center;
+  background: rgb(240, 200, 250);
+}
+
+table.table-fixed tr:nth-child(even) {
+  background: rgb(240, 230, 250);
+}
+
+table.table-fixed tr:first-child > th:not(:first-child) {
+  width: 150px; /* Set all except first columns to 150px */
+}
+
+table.table-auto {
+  table-layout: auto;
+  border-collapse: collapse; /* Share border for cells */
+  text-align: left;
+  border: 1px solid #555;
+  padding: 8px;
+}
+
+table.table-auto tr {
+  height: 30px;
+}
+
+table.table-auto tr:first-child {
+  vertical-align: bottom; /* Align text at bottom for first row with headers */
+}
+
+table.table-auto tr:nth-child(even) {
+  background: #eee;
+}
+
+table.table-auto th,
+table.table-auto td {
+  padding: 0 8px 0 8px;
+}
+
+input.input-styled[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+form.form-styled {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #888;
+  background: whitesmoke;
+  padding: 8px;
+  border-radius: 2px;
+  width: 480px;
+}
+
+form.form-styled input[type="email"],
+form.form-styled input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #888;
+  border-radius: 4px;
+}
+
+form.form-styled input[type="submit"] {
+  width: 100px;
+  padding: 4px;
+  border: 1px solid #888;
+  border-radius: 4px;
+}
+
+form.form-styled label {
+  display: block; /* To be able to use margin we cannot use inline */
+  margin: 12px 0 4px 1px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+}
+
+form.form-styled legend {
+  margin: 0 0 8px 0;
+  text-align: center;
+  font-size: 22px;
+  color: #555;
+}
+
+form.form-styled fieldset {
+  background: white;
+  border-radius: 2px;
+  border: 1px solid #888;
+  margin: 0;
+}
+
+form.form-styled .button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 8px;
+}

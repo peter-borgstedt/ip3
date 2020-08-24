@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>3.7.3 Historiehantering</title>
+    <script src="../lib/jquery-3.5.0.min.js"></script>
+    <script src="./scripts/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css"> 
+  </head>
+
+  <body>
+    <h1>3.7.3 Historiehantering</h1>
+
+    <template id="template1">
+      <div>
+        This is page number 1, but where's the content?
+      </div>
+    </template>
+
+    <template id="template2">
+      <div>
+        This is page number 2, still pretty empty!
+      </div>
+    </template>
+
+    <template id="template3">
+      <div>
+        This is page number 3, now this is getting ridiculous empty!
+      </div>
+    </template>
+
+    <template id="template4">
+      <div>
+        This is page number 4, where is all the rich content!
+      </div>
+    </template>
+
+    <template id="template5">
+      <div>
+        This is page number 5, okay I'm out of here!
+      </div>
+    </template>
+
+    <div id="container">
+      <div id="tabs">
+        <div id="tab1" data-template="template1" data-path="pages/1" data-title="Sida ett" class="active">
+          Sida 1
+        </div>
+        <div id="tab2" data-template="template2" data-path="pages/2" data-title="Sida två">
+          Sida 2
+        </div>
+        <div id="tab3" data-template="template3" data-path="pages/3" data-title="Sida tre">
+          Sida 3
+        </div>
+        <div id="tab4" data-template="template4" data-path="pages/4" data-title="Sida fyra">
+          Sida 4
+        </div>
+        <div id="tab5" data-template="template5" data-path="pages/5" data-title="Sida fem">
+          Sida 5
+        </div>
+      </div>
+      <div id="content">
+        <div><!-- A dummy element which will be replaced when run --></div>
+      </div>
+    </div>
+  </body>
+</html>

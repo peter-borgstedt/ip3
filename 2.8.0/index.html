@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>2.7 Sidlayout - Text flöden</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/shared.css"> 
+    <link rel="stylesheet" type="text/css" href="stylesheets/stationary.css"> 
+    <link rel="stylesheet" type="text/css" href="stylesheets/handheld.css"> 
+    <link rel="stylesheet" type="text/css" href="stylesheets/printer.css">
+  </head>
+
+  <body>
+    <nav>
+      <a href="https://www.w3schools.com/css/css_rwd_mediaqueries.asp">Responsive Webdesign</a>
+      <a href="https://developer.mozilla.org/es/docs/CSS/Media_queries">Media Queries</a>
+      <a href="https://www.sitepoint.com/css-printer-friendly-pages">Printer-Friendly Pages</a>
+      <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flexbox</a>
+      <div class="header">2.6 Tabeller och formulär</div>
+    </nav>
+
+    <div class="columns">
+      <h1 class="columns--span-all">CSS for printers</h1>
+      <p>
+        Det finns ett flertal CSS egenskaper som kan användas för att styra hur en utskrift skall se ut, bl.a. <em>@page</em>, <em>break-before</em>, <em>break-after</em>, <em>page-break-after</em>, <em>page-break-before</em>, <em>size</em>, <em>oprhans</em> och <em>widows</em>.
+      </p>
+
+      <div>
+        <h2>@page</h2>
+        <p>
+          Egenskapen används för att modifiera vissa CSS egenskaper såsom <em>margin</em>. <b>Denna egenskap stöds ännu inte av Safari.</b>
+        </p>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@page">https://developer.mozilla.org/en-US/docs/Web/CSS/@page</a>
+        </p>
+      </div>
+
+      <div>
+        <h2>page-break-after</h2>
+        <p>
+          Egenskapen bestämmer huruvida en sidbrytning skall ske efter ett specificerat element. Denna egenskap är idag ersatt med <em>break-after</em>.
+        </p>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-after">https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-after</a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/break-after">https://developer.mozilla.org/en-US/docs/Web/CSS/break-after</a>
+        </p>
+      </div>
+
+
+      <div>
+        <h2>page-break-before</h2>
+        <p>
+          Egenskapen bestämmer huruvida en sidbrytning skall ske före ett specificerat element. Denna egenskap är idag ersatt med <em>break-before</em>.
+        </p>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-before">https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-before</a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/break-before">https://developer.mozilla.org/en-US/docs/Web/CSS/break-before</a>
+        </p>
+      </div>
+
+      <div>
+        <h2>page-break-inside</h2>
+        <p>
+          Egenskapen bestämmer huruvida en sidbrytning skall ske unuti ett specificerat element. Denna egenskap är idag ersatt med <em>break-inside</em>.
+        </p>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-inside">https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-inside</a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/break-inside">https://developer.mozilla.org/en-US/docs/Web/CSS/break-inside</a>
+        </p>
+      </div>
+
+      <div>
+        <h2>size</h2>
+        <p>
+          Definierar storleken och riktningen på rutan som används för att representera en sida. Egenskapen deklareras inanför egenskapen <em>@page</em>. Det finns ett flertal möjliga sätt att definiera värdet, bl.a. med bredd och höjd och det finns fördefinierade värden så som <em>A5</em>, <em>A4</em>, <em>A3</em>, <em>portrait</em>, <em>landscape</em> med flera.
+        </p>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@page/size">https://developer.mozilla.org/en-US/docs/Web/CSS/@page/size</a>
+        </p>
+      </div>
+
+      <div>
+        <h2>orphans</h2>
+        <p>
+          Egenskapen anger minsta antalet rader för ett element som måste vara synligt längst ner på en sida; det minsta antal rader som måste finnas i slutet på en sida innan den får radbrytas. Egenskapen påverkar endast block-element. Om orphans sätts till 5 så betyder det att åtminstående 5 rader måste vara synliga ovanför radbrytningen.
+        </p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/orphans">https://developer.mozilla.org/en-US/docs/Web/CSS/orphans</a>
+      </div>
+
+      <div>
+        <h2>widows</h2>
+        <p>
+          Egenskapen anger minsta antalet rader för ett element som måste vara synligt högst upp på en sida; det minst antal rader som måste finnas i början på en sida efter en radbrytning. Egenskapen påverkar endast block-element. Om widows sätts till 5 så betyder det att åtminstående 5 rader måste vara synliga under sidbrytningen.
+        </p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/widows">https://developer.mozilla.org/en-US/docs/Web/CSS/widows</a>
+      </div>
+    </div>
+  </body>
+</html>

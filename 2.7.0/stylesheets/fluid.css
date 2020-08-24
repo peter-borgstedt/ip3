@@ -1,0 +1,224 @@
+* {
+  /* https://www.w3schools.com/css/css3_box-sizing.asp */
+  box-sizing: border-box; /* We want box sizing on all elements */
+}
+
+body {
+  display: flex;
+  font-family: Arial, Helvetica, Verdana;
+  background: #454C56;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 2%;
+}
+
+
+h2, h3 {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+h3 {
+  margin-top: 4%;
+}
+
+main {
+  background: white;
+  margin: 0 auto; /* Centering with margin */
+  width: 80%;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5% 0 0.5% 0;
+}
+
+/**
+ * Flexbox is definitely what should be used for columns like this,
+ * but for fun I will do this a bit differently and unconvinient, but just as I've used flexbox
+ * alot in previous assignments.
+ */
+.column {
+  padding: 0 0.5% 0 0.5%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.column--size-small {
+  width: 25%;
+}
+
+.column--size-big {
+  width: 50%;
+}
+
+.foto-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-top: 1px solid #888;
+  background-color: #F8F8F8;
+}
+
+.box {
+  /** Set line height for vertical-align to work propertly */
+  width: 23%;
+  margin: 1%;
+}
+
+.box--border {
+  border: 1px solid #888;
+  box-shadow: 0.25em 0.25em 0.5em lightgray; /* W3 validator does not accept that box-shadow uses procent units */ 
+  background: white;
+}
+
+.box--content, 
+.box--image {
+  /* Need to put this to relative to be able to set position on images with absolute (which will be relative to this)*/
+  position: relative;
+  background: #F5F5F5;
+  margin: 5%;
+  height: 175px;
+}
+
+.box--header {
+  font-size: 150%;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5%;
+}
+
+.box--content {
+  /* A hack to get rid of gaps for inline-elements created by empty spaces and new lines  */
+  font-size: 0px;
+}
+
+.box--image {
+  line-height: 175px;
+}
+
+.box--description {
+  position: relative;
+  padding: 0 5% 5% 5%;
+  font-style: italic;
+  color: #555;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: initial; /* Need to be set as it is being inherited */
+}
+
+.clearfix:after {
+  content: '\00a0';
+  clear: both;
+}
+
+.text-align--right {
+  text-align: right;
+}
+
+.text-align--center {
+  text-align: center;
+}
+
+img {
+  width: 50%;
+}
+
+.demo-1 {
+  position: relative;
+  vertical-align: top;
+  top: 5%;
+  left: 5%;
+}
+
+.demo-2 {
+  position: relative;
+  vertical-align: bottom;
+  bottom: 5%;
+  right: 5%;
+}
+
+.demo-3 {
+  vertical-align: middle;
+}
+
+.demo-4a,
+.demo-4b {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  z-index: 1;
+}
+
+.demo-4a {
+  left: -15%;
+  right: 0;
+}
+
+.demo-4b {
+  left: 0;
+  right: -15%;
+}
+
+.demo-4c {
+  vertical-align: middle;
+}
+
+.demo-5a,
+.demo-5b,
+.demo-5c {
+  height: 33.33%;
+}
+
+.demo-5a {
+  float: right;
+}
+
+.demo-5b {
+  float: left;
+  clear: right;
+}
+
+.demo-5c {
+  clear: both;
+  float: right;
+}
+
+.demo-6 {
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  vertical-align: bottom;
+}
+
+.demo-7a,
+.demo-7b {
+  display: inline-block;
+  width: 25%;
+  height: 25%;
+}
+
+.demo-7a {
+  background: red;
+}
+
+.demo-7b {
+  background: green;
+}
+
+.demo-7c {
+  width: 50%;
+  height: 50%;
+  background: blue;
+  line-height: initial;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>3.5.3 Databaslagring</title>
+    <script src="../lib/jquery-3.5.0.min.js"></script>
+    <script src="./scripts/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css"> 
+  </head>
+
+  <body>
+    <h1>3.5.3 Databaslagring</h1>
+
+    <div class="container">
+      <em class="align-center">
+        Notera att vid tillägg och borttag av användare så så sker ingen uppdatering automatiskt på sidan,<br/>
+        detta är medvetet gjort för att demonstrera <b>refresh-knappen</b> som hämtar upp data.<br/><br/>
+        Databasen skapas initiellt med en exempel-användare (se kod).
+      </em>
+
+      <div class="container align-center fixed-width">
+        <form id="storage-form">
+          <label for="forename">Förnamn</label>
+          <input id="forename" name="forename" type="text" placeholder="Förnamn" required autofocus/>
+          <label for="surname">Efternamn</label>
+          <input id="surname" name="surname" type="text" placeholder="Efternamn" required/>
+          <label for="age">Ålder</label>
+          <input id="age" name="age" type="text" placeholder="Ålder" required/>
+          <span></span>
+          <input type="submit" value="Spara"/>
+        </form>
+
+        <table>
+          <tr>
+            <th>Id</th>
+            <th>Förnamn</th>
+            <th>Efternamn</th>
+            <th>Ålder</th>
+            <th style="width: 75px"></th>
+          </tr>
+        </table>
+  
+        <div id="refresh" class="align-right">
+          <button style="width: 75px; margin-right: 9px">Refresh</button>
+        </div>
+      </div>  
+    </div>
+  </body>
+</html>

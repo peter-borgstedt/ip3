@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>3.4.5 Formulärhantering (mer dynamisk)</title>
+    <script src="../lib/jquery-3.5.0.min.js"></script>
+    <script src="./scripts/common.js"></script>
+    <script src="./scripts/advanced.js"></script>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/common.css"> 
+    <link rel="stylesheet" type="text/css" href="./stylesheets/advanced.css"> 
+  </head>
+
+  <body>
+    <h1>3.4.5 Formulärhantering (mer dynamisk)</h1>
+
+    <!-- Validation will be done programatically, thus setting 'novalidate' -->
+    <form id="form" autocomplete="off" onsubmit="save(event)" novalidate>
+      <div class="grid-layout-2">
+        <label for="forename">Förnamn</label>
+        <input type="text" id="forename" name="forename" placeholder="Förnamn" required autofocus>
+
+        <label for="surname">Efternamn</label>
+        <input type="text" id="surname" name="surname" placeholder="Efternamn" required>
+
+        <label for="age">Ålder</label>
+        <input type="text" id="age" name="age" placeholder="Ålder">
+
+        <fieldset id="interests" class="grid-span-2">
+          <legend>Intressen</legend>
+        </fieldset>
+      </div>
+
+      <div id="sub-forms" class="">
+        <!-- Sub forms are created and injected into this placeholder -->
+      </div>
+
+      <input id="form-button" type="submit" value="Spara">
+    </form>
+  </body>
+</html>

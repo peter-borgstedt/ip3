@@ -1,0 +1,8 @@
+# Plugins
+.history
+
+# Build
+bin
+
+# Misc
+.DS_Store

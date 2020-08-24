@@ -1,0 +1,135 @@
+canvas {
+  background: whitesmoke;
+  border: 1px solid darkcyan;
+  color: black;
+}
+
+/*
+ * Styles related to drawing lines
+ */
+.draw-line-container {
+  display: grid;
+  grid-template-columns: 30px 30px 30px 30px;
+  grid-template-rows: 10px 30px 10px 30px 40px;
+  column-gap: 2px;
+  row-gap: 2px;
+}
+
+#draw-line-button {
+  grid-column: span 4;
+}
+
+/*
+ * Styles related to drawing bézier curve
+ */
+.draw-bezier-curve-container {
+  display: grid;
+  grid-template-columns: 30px 30px 30px 30px 30px 30px 30px 30px;
+  grid-template-rows: 10px 30px 10px 30px 40px;
+  column-gap: 2px;
+  row-gap: 2px;
+}
+
+#draw-besier-curve-button {
+  grid-column: span 4/7;
+}
+
+/*
+ * Styles related to drawing bézier curve
+ */
+ .draw-shape-container {
+  display: grid;
+  grid-template-columns: 30px 30px 30px 30px 30px;
+  grid-template-rows: 10px 30px 10px 30px 40px;
+  column-gap: 2px;
+  row-gap: 2px;
+}
+
+#draw-shape-button,
+#shape-label,
+#shape-select {
+  grid-column: span 5;
+}
+
+/*
+ * Styles related to drawing bézier curve
+ */
+ .draw-pattern-container {
+  display: grid;
+  grid-template-columns: 100px;
+  grid-template-rows: 40px;
+  column-gap: 2px;
+  row-gap: 2px;
+}
+
+/*
+ * Styles related to drawing bézier curve
+ */
+ .draw-gradient-container {
+  display: grid;
+  grid-template-columns: 30px 30px 30px;
+  grid-template-rows: 10px 30px 40px;
+  column-gap: 2px;
+  row-gap: 2px;
+}
+
+#draw-gradient-button {
+  grid-column: span 3;
+}
+
+/*
+ * Styles related to drawing text, shadows and transparency
+ */
+.draw-text-container {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 10px 30px 10px 30px 10px 30px 40px;
+  column-gap: 2px;
+  row-gap: 2px;
+}
+
+#text {
+  grid-column: span 3;
+}
+
+#draw-text-button {
+  grid-column: span 3;
+}
+
+/*
+ * Styles related to drawing bitmaps (images)
+ */
+.bitmap-container {
+  display: grid;
+  grid-template-columns: 30px 30px 30px 30px;
+  grid-template-rows: 10px 30px;
+  column-gap: 2px;
+  row-gap: 2px;
+}
+
+#draw-bitmap-button {
+  grid-column: span 4;
+}
+
+.bitmap-load-file {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: whitesmoke;
+  border: 1px solid lightblue;
+  padding: 8px;
+}
+
+.bitmap-load-file-name {
+  font-style: italic;
+}
+
+.bitmap-load-file > :not(:last-child) {
+  margin-bottom: 10px;
+}
+
+#bitmap-file-loader-path {
+  font-style: italic;
+  color: #888;
+  border: 1px solid #ccc;
+}

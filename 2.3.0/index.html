@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>2.3 Marginaler, kantlinjer och paddning</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/layout.css"> 
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css"> 
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>2.3 Marginaler, kantlinjer och paddning</h1>
+
+      <h2>Innehåll</h2>
+      <ul>
+        <li><a href="#box-model">Boxmodell</a></li>
+        <li><a href="#margin">Marginaler</a></li>
+        <li><a href="#border">Kantlinjer</a></li>
+        <li><a href="#padding">Paddning</a></li>
+        <li><a href="#outlines">Outlines</a></li>
+        <li><a href="#related-properties">Relaterade attribut och egenskaper</a></li>
+      </ul>
+
+      <div class="section">
+        <h2 id="box-model">Boxmodell</h2>
+        <p>
+          CSS-boxmodell är i huvudsak en ruta som lindas runt varje HTML-element. Den består av: <em>marginaler</em> (margin), <em>gränser</em> (border), <em>"paddning"</em> (padding) och det faktiska <em>innehållet</em> (content).<br/>
+          Boxmodellen tillåter oss att lägga till en gräns runt elementen och definiera utrymme mellan elementen.
+          Begreppet definieras med de fyra nämnda delarna: <em>content</em>, <em>padding</em>, <em>border</em> och <em>margin</em>.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>Content</h3>
+        <div>
+          Innehållet i rutan, där text och bilder visas.
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Padding</h3>
+        <div>
+          Ett utvidgare transparent område som går runt innehållet.
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Border (kantlinjer)</h3>
+        <div>
+          En kant som går runt det utvidgade transparenta området (padding) och innehållet.
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Margin</h3>
+        <div>
+          Ett utvigande transparent område som går utanför gränsen.
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Referenser (läs vidare)</h3>
+        <a href="https://www.w3schools.com/css/css_boxmodel.asp">https://www.w3schools.com/css/css_boxmodel.asp</a>
+      </div>
+
+      <h2 id="margin">Marginaler</h2>
+      <p>
+        En marginal är en transparent rymd som går att utvdigas på ett element och som befinner sig <b>utanför</b> <em>gränsområdet</em> (border), det är den yttersta området i box-model.
+      </p>
+
+      <div class="section">
+        <h3>margin-[ top / left / bottom / right ]</h3>
+        <div>
+          Egenskapen specificerar margin på en specifik sida (ovandsida, högersida, undersida eller vänstersida).
+        </div>
+
+        <pre>
+          <span>CSS (exempel)</span>
+          <code>
+            div {<br/>
+            &nbsp;&nbsp;margin-top: 8px;<br/>
+            &nbsp;&nbsp;margin-left: 2px;<br/>
+            &nbsp;&nbsp;margin-bottom: 8px;<br/>
+            &nbsp;&nbsp;margin-right: 2px;<br/>
+            }
+          </code>
+        </pre>
+      </div>
+
+      <div class="section">
+        <h3>margin</h3>
+        <div>
+          Egenskapen är kort för <em>margin-top</em>, <em>margin-right</em>, <em>margin-bottom</em> och <em>margin-left</em>.
+        </div>
+
+        <div class="syntax">
+          <b>margin</b>: <mark>length/top</mark> | <mark>right</mark> | <mark>bottom</mark> | <mark>left</mark> | <em>initial</em> | <em>inherit</em>;
+        </div>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-margin {<br/>
+            &nbsp;&nbsp;display: inline-block;<br/>
+            &nbsp;&nbsp;background: #ccc;<br/>
+            }<br/><br/>
+            .demo-margin > div {<br/>
+            &nbsp;&nbsp;margin: 12px;<br/>
+            &nbsp;&nbsp;background: white;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-margin"&gt;<br/>
+            &nbsp;&nbsp;&lt;div&gt;Element med en margin på 8px&lt;/div&gt;<br/>
+            &lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b><br/>
+        <small><i>Det yttre elementet har en grå bakgrund vilket framhävs när en margin sätts i det inre elementet.</i></small>
+        <div class="demonstration">
+          <div class="demo-margin">
+            <div>Element med en margin på 8px</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Referenser (läs vidare)</h3>
+        <a href="https://www.w3schools.com/cssref/pr_margin.asp">https://www.w3schools.com/cssref/pr_margin.asp</a>
+      </div>
+
+      <h2 id="border">Border (kantlinjer)</h2>
+      <p>
+        En border är en rymd på ett element som definierar gränsområdet och som kan utvidgas, den ligger <b>omkring innehållet</b> (content).
+      </p>
+
+      <div class="section">
+        <h3>border-[ top / left / bottom / right ]</h3>
+        <div>
+          Egenskapen specificerar bredden på en specific kantlinje (ovandsida, högersida, undersida eller vänstersida).
+        </div>
+
+        <pre>
+          <span>CSS (exempel)</span>
+          <code>
+            div {<br/>
+            &nbsp;&nbsp;border-top: 1px;<br/>
+            &nbsp;&nbsp;border-left: 1px;<br/>
+            &nbsp;&nbsp;border-bottom: 1px;<br/>
+            &nbsp;&nbsp;border-right: 1px;<br/>
+            }
+          </code>
+        </pre>
+      </div>
+
+      <div class="section">
+        <h3>border-color</h3>
+        <div>
+          Egenskapen specificerar färgen på en eller fler kantlinjer (ovandsida, högersida, undersida och vänstersida). Om endast ett värde sätts så delegeras värdet till alla sidor.
+        </div>
+
+        <pre>
+          <span>CSS (exempel)</span>
+          <code>
+            div {<br/>
+            &nbsp;&nbsp;border-width: black;<br/>
+            }<br/><br/>
+            p {<br/>
+            &nbsp;&nbsp;border-width: red green blue transparent;<br/>
+            }
+          </code>
+        </pre>
+      </div>
+
+      <div class="section">
+        <h3>border-style</h3>
+        <div>
+          Egenskapen specificerar stilen på en eller fler kantlinjer (ovandsida, högersida, undersida och vänstersida). Om endast ett värde sätts så delegeras värdet till alla sidor.
+        </div>
+
+        <pre>
+          <span>CSS (exempel)</span>
+          <code>
+            div {<br/>
+            &nbsp;&nbsp;border-style: dashed;<br/>
+            }<br/><br/>
+            p {<br/>
+            &nbsp;&nbsp;border-width: solid dashed solid dotted;<br/>
+            }
+          </code>
+        </pre>
+      </div>
+
+      <div class="section">
+        <h3>border-width</h3>
+        <div>
+          Egenskapen specificerar bredden på en eller fler kantlinjer (ovandsida, högersida, undersida och vänstersida). Om endast ett värde sätts så delegeras värdet till alla sidor.
+        </div>
+
+        <pre>
+          <span>CSS (exempel)</span>
+          <code>
+            div {<br/>
+            &nbsp;&nbsp;border-width: 4px;<br/>
+            }<br/><br/>
+            p {<br/>
+            &nbsp;&nbsp;border-width: 4px 8px 4px 8px;<br/>
+            }
+          </code>
+        </pre>
+      </div>
+
+      <div class="section">
+        <h3>border</h3>
+        <div>
+          Egenskapen är kort för <em>border-width</em>, <em>border-style</em> och <em>border-color</em>.
+        </div>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-border {<br/>
+            &nbsp;&nbsp;border: 4px solid black;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-border"&gt;<br/>
+            &nbsp;&nbsp;Ett element med en svart fylld kantlinje på 4px<br/>
+            &lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="demo-border">
+            Ett element med en svart fylld kantlinje på 4px
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Referenser (läs vidare)</h3>
+        <a href="https://www.w3schools.com/css/css_border.asp">https://www.w3schools.com/css/css_border.asp</a>
+      </div>
+
+      <h2 id="padding">Padding (paddning)</h2>
+      <p>
+        En "paddning" är en transparent rymd som går att utvdigas på ett element och som befinner <b>innanför</b> <em>gränsområdet</em>.
+      </p>
+
+      <div class="section">
+        <h3>padding-[ top / left / bottom / right ]:</h3>
+        <div>
+          Egenskapen specificerar explicit padding på ovandsida, högersida, undersida eller vänstersida.
+        </div>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            div {<br/>
+            &nbsp;&nbsp;padding-top: 8px;<br/>
+            &nbsp;&nbsp;padding-left: 2px;<br/>
+            &nbsp;&nbsp;padding-bottom: 8px;<br/>
+            &nbsp;&nbsp;padding-right: 2px;<br/>
+            }
+          </code>
+        </pre>
+      </div>
+
+      <div class="section">
+        <h3>padding:</h3>
+        <div>
+          Egenskapen är kort för <em>padding-top</em>, <em>padding-right</em>, <em>padding-bottom</em> och <em>padding-left</em>. Om endast ett värde sätts så delegeras värdet till alla sidor.
+        </div>
+
+        <div class="syntax">
+          <b>padding</b>: <mark>length/top</mark> | <mark>right</mark> | <mark>bottom</mark> | <mark>left</mark> | <em>initial</em> | <em>inherit</em>;
+        </div>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-padding {<br/>
+            &nbsp;&nbsp;padding: 12px;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-padding"&gt;<br/>
+            &nbsp;&nbsp;Element med en paddning på 12px<br/>
+            &lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b><br/>
+        <small><i>Ett element med grå bakgrund och ett innehåll som ligger innanför paddningens rymd.</i></small>
+        <div class="demonstration">
+          <div class="demo-padding">
+            Element med en paddning på 12px
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Referenser (läs vidare)</h3>
+        <a href="https://www.w3schools.com/css/css_padding.asp">https://www.w3schools.com/css/css_padding.asp</a>
+      </div>
+
+      <h2 id="outlines">Outlines</h2>
+      <p>
+        En outline är en rymd som går att utvdigas på ett element och som befinner sig <b>omkring</b> gränsområdet (border) men innanför margin. Outline är inte en del av elements dimension och påverkar inte dess storlek.
+      </p>
+
+      <div class="section">
+        <h3>outline:</h3>
+        <div>
+          Egenskapen är kort för <em>outline-width</em>, <em>outline-style</em> och <em>outline-color</em>.
+        </div>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-outline {<br/>
+            &nbsp;&nbsp;outline: 2px dashed black;<br/>
+            &nbsp;&nbsp;border: 4px solid #ccc;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-outline"&gt;<br/>
+            &nbsp;&nbsp;Element med en svart "dashed" outline på 2px utanför en grå border på 4px<br/>
+            &lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b><br/>
+        <div class="demonstration">
+          <small><i>Ett element med border och outline.</i></small>
+          <div class="demo-outline">
+            Element med en svart "dashed" outline på 2px utanför en grå border på 4px
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Referenser (läs vidare)</h3>
+        <a href="https://www.w3schools.com/cssref/pr_outline.asp">https://www.w3schools.com/cssref/pr_outline.asp</a>
+      </div>
+
+      <h2 id="related-properties">Relaterade attribut och egenskaper</h2>
+
+      <div class="section">
+        <h3>visibility</h3>
+        <p>
+          Egenskapen definierar huruvida ett element skall vara synligt (<em>visible</em>) eller inte (<em>hidden</em>).
+        </p>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-visibility {<br/>
+            &nbsp;&nbsp;visibility: hidden;<br/>
+            &nbsp;&nbsp;background: plum;<br/>
+            }<br/><br/>
+            .demo-visibility-toggle {<br/>
+            &nbsp;&nbsp;width: 100px;<br/>
+            &nbsp;&nbsp;height: 100px;<br/>
+            &nbsp;&nbsp;background: pink;<br/>
+            }<br/><br/>
+            .demo-visibility-toggle:hover .demo-visibility {<br/>
+            &nbsp;&nbsp;visibility: visible;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-visibility-toggle"&gt;<br/>
+            &nbsp;&nbsp;&lt;span&gt;Lägg över musen...&lt;/span&gt;&lt;br/&gt;<br/>
+            &nbsp;&nbsp;&lt;span class="demo-visibility"&gt;Hej världen!&lt;/span&gt;<br/>
+            &lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="demo-visibility-toggle">
+            <span>Lägg över musen...</span><br/>
+            <span class="demo-visibility">Hej världen!</span>
+          </div>
+        </div>
+
+        <div class="section references">
+          <h4>Referenser (läs vidare)</h4>
+          <a href="https://www.w3schools.com/cssref/pr_class_visibility.asp">https://www.w3schools.com/cssref/pr_class_visibility.asp</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>clip-path</h3>
+        <p>Egenskapen gör det möjligt att klippa ett element efter en basform (circle, ellipse, polygon etc) eller via en svg.</p>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-clip-path {<br/>
+            &nbsp;&nbsp;clip-path: circle(100%);<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;img class="demo-clip-path" src="../assets/dandelion.jpg" alt="Maskros"&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <img class="demo-clip-path" src="../assets/dandelion.jpg" alt="Maskros">
+        </div>
+
+        <div class="section references">
+          <h4>Referenser (läs vidare)</h4>
+          <a href="https://www.w3schools.com/cssref/css3_pr_clip-path.asp">https://www.w3schools.com/cssref/css3_pr_clip-path.asp</a>
+          <a href="https://css-tricks.com/almanac/properties/c/clip-path/">https://css-tricks.com/almanac/properties/c/clip-path/</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>display</h3>
+        <p>
+          Egenskapen specificerar hur ett element skall placeras och hur underelement eventuellt skall placeras ut; hur elementet skall presenteras.<br/>
+          De vanligaste är <em>block</em> och <em>inline</em>, där <em>block</em> alltid positioneras på ny rad och tar upp full möjlig bredd medan <em>inline</em> inte placeras på ny rad och tar endast den bredd som behövs.<br/>
+          Det finns ett flertal olika möjliga värden som möjliggör olika placeringar och layouts. Några av dessa gör det möjligt för mer avancerade placeringar så som <em>flex</em> och <em>grid</em>.
+        </p>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-flex {<br/>
+            &nbsp;&nbsp;display: flex;<br/>
+            &nbsp;&nbsp;align-items: center;<br/>
+            &nbsp;&nbsp;justify-content: center;<br/>
+            }<br/><br/>
+            .demo-grid {<br/>
+            &nbsp;&nbsp;display: grid;<br/>
+            &nbsp;&nbsp;grid-template-columns: max-content max-content;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div&gt;div 1 (block)&lt;/div&gt;<br/>
+            &lt;div&gt;div 2 (block)&lt;/div&gt;<br/><br/>
+            &lt;span&gt;span 1 (inline)&lt;/span&gt;<br/>
+            &lt;span&gt;span 2 (inline)&lt;/span&gt;<br/><br/>
+            &lt;div class="demo-flex"&gt;<br/>
+            &nbsp;&nbsp;&lt;div&gt;Centrerat element (flex)&lt;/div&gt;<br/>
+            &lt;/div&gt;<br/><br/>
+            &lt;div class="demo-grid"&gt;<br/>
+            &nbsp;&nbsp;&lt;div&gt;1:1 (grid)&lt;/div&gt;<br/>
+            &nbsp;&nbsp;&lt;div&gt;1:2 (grid)&lt;/div&gt;<br/>
+            &nbsp;&nbsp;&lt;div&gt;2:1 (grid)&lt;/div&gt;<br/>
+            &nbsp;&nbsp;&lt;div&gt;2:2 (grid)&lt;/div&gt;<br/>
+            &lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div>div 1 (block)</div>
+          <div>div 2 (block)</div>
+
+          <span>span 1 (inline)</span>
+          <span>span 2 (inline)</span>
+
+          <div class="demo-flex">
+            <div>Centrerat element (flex)</div>
+          </div>
+
+          <div class="demo-grid">
+            <div>1:1 (grid)</div>
+            <div>1:2 (grid)</div>
+            <div>2:1 (grid)</div>
+            <div>2:2 (grid)</div>
+          </div>
+        </div>
+
+        <div class="section references">
+          <h4>Referenser (läs vidare)</h4>
+          <a href="https://www.w3schools.com/cssref/pr_class_display.asp">https://www.w3schools.com/cssref/pr_class_display.asp</a>
+          <a href="https://www.w3schools.com/css/css_display_visibility.asp">https://www.w3schools.com/css/css_display_visibility.asp</a>
+          <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">https://css-tricks.com/snippets/css/complete-guide-grid/</a>
+          <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>overflow</h3>
+        <p>
+          Egenskapen specificierar vad som skall hända när innehåll i ett element svämmar över (går utanför bredden och höjden).
+          I dessa lägen kan man antingen välja att visa det med värdet <em>visible</em>, eller dölja det med <em>hidden</em>,
+          men det går även att explicit sätta en rullningslist (scrollbar) med värdet <em>scroll</em> som döljer innehållet men visar det allt eftersom det scrollas,
+          och slutligen går det implicit ha en scrollbar med värdet <em>auto</em> som endast visar en rullningslist om den behövs.
+          Det går även sätta huruvida en scrollbar skall vara horisontell, vertikal eller om båda skall användas (standard).
+        </p>
+
+        <div class="syntax">
+          <b>overflow</b>: <mark>visible</mark> | <mark>hidden</mark> | <mark>scroll</mark> | <mark>auto</mark> | <em>initial</em> | <em>inherit</em>;
+        </div>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-overflow-scrollbar {<br/>
+            &nbsp;&nbsp;width: 100px;<br/>
+            &nbsp;&nbsp;height: 100px;<br/>
+            &nbsp;&nbsp;border: 1px solid #888;<br/>
+            &nbsp;&nbsp;overflow: scroll;<br/>
+            }<br/><br/>
+            .demo-overflow-visible {<br/>
+            &nbsp;&nbsp;width: 100px;<br/>
+            &nbsp;&nbsp;height: 100px;<br/>
+            &nbsp;&nbsp;border: 1px solid #888;<br/>
+            &nbsp;&nbsp;overflow: visible;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-overflow-scrollbar"&gt;<br/>
+            &nbsp;&nbsp;Denna ruta innehåller text som inte får plats men kan scrolla med musen för att visa resterande text.<br/>
+            &lt;/div&gt;<br/>
+            <br/><br/>
+            &lt;div class="demo-overflow-visible"&gt;<br/>
+            &nbsp;&nbsp;Denna ruta innehåller text som inte får plats och flödas utanför elementet.<br/>
+            &lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="demo-overflow-scrollbar">
+            Denna ruta innehåller text som inte får plats men kan scrolla med musen för att visa resterande text.
+          </div>
+
+          <div class="demo-overflow-visible">
+            Denna ruta innehåller text som inte får plats och flödas utanför elementet.
+          </div>
+        </div>
+
+        <div class="section references">
+          <h4>Referenser (läs vidare)</h4>
+          <a href="https://www.w3schools.com/cssref/pr_pos_overflow.asp">https://www.w3schools.com/cssref/pr_pos_overflow.asp</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>transparens (med rgba och opacity)</h3>
+        <p>
+          En transparens eller genomskinlighet går att få till med attributet <em>opacity</em> samt för färger med färgenheten <em>rgba</em> (eller <em>hsla</em>) där "a" står för alpha vilket anger genomskinlighet och representeras med ett flytvärdet från 0 till 1. 
+        </p>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-opacity {<br/>
+            &nbsp;&nbsp;display: inline-block;<br/>
+            &nbsp;&nbsp;opacity: 0.5;<br/>
+            &nbsp;&nbsp;width: 100px;<br/>
+            &nbsp;&nbsp;height: 100px;<br/>
+            &nbsp;&nbsp;background: red;<br/>
+            }<br/><br/>
+            .demo-rgba {<br/>
+            &nbsp;&nbsp;display: inline-block;<br/>
+            &nbsp;&nbsp;width: 100px;<br/>
+            &nbsp;&nbsp;height: 100px;<br/>
+            &nbsp;&nbsp;background: rgba(0, 255, 0, 0.5);<br/>
+            }<br/>
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-opacity"&gt;&lt;/div&gt;<br/>
+            &lt;div class="demo-rgba"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="demo-opacity"></div>
+          <div class="demo-rgba"></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>border-radius</h3>
+        <p>Egenskapen definierar radius på elementets hörn, vilket resulterar till runda hörn.</p>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-border-radius-circle {<br/>
+            &nbsp;&nbsp;display: inline-block;<br/>
+            &nbsp;&nbsp;width: 100px;<br/>
+            &nbsp;&nbsp;height: 100px;<br/>
+            &nbsp;&nbsp;border-radius: 100%;<br/>
+            &nbsp;&nbsp;background: orange;<br/>
+            }<br/><br/>
+            .demo-border-radius-rounded {<br/>
+            &nbsp;&nbsp;display: inline-block;<br/>
+            &nbsp;&nbsp;width: 100px;<br/>
+            &nbsp;&nbsp;height: 100px;<br/>
+            &nbsp;&nbsp;border-radius: 20px;<br/>
+            &nbsp;&nbsp;background: red;<br/>
+            }<br/>
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-border-radius-circle"&gt;&lt;/div&gt;<br/>
+            &lt;div class="demo-border-radius-rounded"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="demo-border-radius-circle"></div>
+          <div class="demo-border-radius-rounded"></div>
+        </div>
+
+        <div class="section references">
+          <h4>Referenser (läs vidare)</h4>
+          <a href="https://www.w3schools.com/cssref/css3_pr_border-radius.asp">https://www.w3schools.com/cssref/css3_pr_border-radius.asp</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>background-image</h3>
+        <p>Egenskaper möjliggör att rendera bakgrunder utifrån CSS functioner, bl.a. <em>url()</em> kan användas för att rendera en bild från en fil. Det går även att rendera fler än en bakgrund genom att separera dem med ett komma.</p>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-background-image-multiple {<br/>
+            &nbsp;&nbsp;width: 300px;<br/>
+            &nbsp;&nbsp;height: 300px;<br/>
+            &nbsp;&nbsp;background-image: url(../assets/orange.jpg), url(../assets/dandelion.jpg);<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-background-image-multiple"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="demo-background-image-multiple"></div>
+        </div>
+
+        <div class="section references">
+          <h4>Referenser (läs vidare)</h4>
+          <a href="https://www.w3schools.com/css/css3_backgrounds.asp">https://www.w3schools.com/css/css3_backgrounds.asp</a>
+          <a href="https://www.w3schools.com/html/html_images_background.asp">https://www.w3schools.com/html/html_images_background.asp</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>box-shadow</h3>
+        <p>Egenskapen ger möjligt att lägga en eller fler skuggor på ett element. Vid flera skuggor så separeras dem med ett komma.</p>
+
+        <div class="syntax">
+          <b>box-shadow</b>: <mark>h-offset</mark> | <mark>v-offset</mark> | <mark>blur</mark> | <mark>spread</mark> | <mark>color</mark> | <em>inset</em> | <em>initial</em> | <em>inherit</em>;
+        </div>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-box-shadow {<br/>
+            &nbsp;&nbsp;width: 100px;<br/>
+            &nbsp;&nbsp;height: 100px;<br/>
+            &nbsp;&nbsp;box-shadow: 8px 8px 16px 5px #888; <br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-box-shadow"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="demo-box-shadow"></div>
+        </div>
+
+        <div class="section references">
+          <h4>Referenser (läs vidare)</h4>
+          <a href="https://www.w3schools.com/cssref/css3_pr_box-shadow.asp">https://www.w3schools.com/cssref/css3_pr_box-shadow.asp</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>linear-gradient</h3>
+        <p>
+          Egenskapen är en CSS function som genererar en bild som består av en progressiv övergång mellan en eller fler färger.<br/>
+          Varje segment separeras med ett komma och varje segment består av en färg och en frivillig position som kan vara en längd eller procent, det går även att ange en grad för att få till lutningar.
+        </p>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-linear-gradient {<br/>
+            &nbsp;&nbsp;width: 100px;<br/>
+            &nbsp;&nbsp;height: 100px;<br/>
+            &nbsp;&nbsp;background-image: linear-gradient(45deg, red 0%, green 50%, blue 100%);<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-linear-gradient"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="demo-linear-gradient"></div>
+        </div>
+
+        <div class="section references">
+          <h4>Referenser (läs vidare)</h4>
+          <a href="https://www.w3schools.com/css/css3_gradients.asp">https://www.w3schools.com/css/css3_gradients.asp</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>radial-gradient</h3>
+        <p>
+          Egenskapen är en CSS function som genererar en bild som består av en progressiv övergång mellan en eller fler färger som strålar från en källa/position.<br/>
+          Varje segment separeras med ett komma och varje segment består av en färg och en frivillig position som kan vara en längd eller procent. Det finns ett flertal möjliga attribut som justerar hur bilden genereras, som vilket form (shape) som skall användas, storlek och var den skall positioneras.
+        </p>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .demo-radial-gradient {<br/>
+            &nbsp;&nbsp;width: 100px;<br/>
+            &nbsp;&nbsp;height: 100px;<br/>
+            &nbsp;&nbsp;background-image: radial-gradient(red 0%, green 50%, blue 100%);<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="demo-radial-gradient"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="demo-radial-gradient"></div>
+        </div>
+
+        <div class="section references">
+          <h4>Referenser (läs vidare)</h4>
+          <a href="https://www.w3schools.com/cssref/func_radial-gradient.asp">https://www.w3schools.com/cssref/func_radial-gradient.asp</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

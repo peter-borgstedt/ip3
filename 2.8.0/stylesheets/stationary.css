@@ -1,0 +1,49 @@
+/* Medium screens (usually pads or older low resolution stationary or laptops) */
+@media screen and (min-width: 769px) {
+  body {
+    font-size: 1.25em;
+  }
+
+  p {
+    margin: 0.5em 0 1.5em 0;
+  }
+
+  nav {
+    flex-direction: row;
+    height: 50px;
+  }
+
+  nav > a {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5em;
+    padding: 0 0.5em 0 0.5em;
+    font-size: 0.80em;
+  }
+
+  nav > a:last-of-type {
+    margin-left: 0;
+  }
+
+  .columns {
+    column-count: 2;
+  }
+
+  .header {
+    flex: 1;
+    align-self: center;
+    font-size: 2vw;
+    margin-right: 0.5em;
+  }
+}
+
+/* Larger resolution (modern stationary, laptops or pads) */
+@media screen and (min-width: 1200px) {
+  nav > a {
+    font-size: 1em;
+  }
+
+  .header {
+    font-size: 1.2em;
+  }
+}

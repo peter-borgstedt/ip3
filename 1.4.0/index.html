@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>1.4 Formulär</title>
+  </head>
+  
+  <body>
+    <h1>1.4 Formulär</h1>
+
+    <section>
+      <h2>Send data form</h2>
+      <form method="get" enctype="text/plain" action="https://people.dsv.su.se/~pierre/courses/05_ass/ip2/2/2.2.1/perl/example.cgi">
+        <fieldset>
+          <legend>Profil</legend>
+          <fieldset>
+            <legend>Inloggningsuppgifter</legend>
+            <label for="namn">Användarnamn:</label><br/>
+            <input type="text" title="Måste vara alfabetiskt värde" id="namn" name="namn" placeholder="Ange ditt namn" pattern="[A-z0-9À-ž\s]+" required autofocus>
+            <br/>
+            <label for="password">Lösenord:</label><br/>
+            <input type="password" id="password" name="password" placeholder="Skriv lösenord här" required>
+            <br/><br/>
+            <fieldset>
+              <legend>Säkerhet</legend>
+              <select name="mfa" id="mfa">
+                <optgroup label="MFA">
+                  <option value="true">Aktivera</option>
+                  <option value="false">Inaktivera</option>
+                </optgroup>
+              </select>
+              <input type="button" value="Skapa QR kod">
+            </fieldset>
+          </fieldset>
+
+          <fieldset>
+            <legend>Kontaktinformation</legend>
+            <label for="email">Email:</label><br/>
+            <input type="email" id="email" name="email">
+            <br/>
+            <label for="homepage">Hemsida:</label><br/>
+            <input type="url" id="homepage" name="homepage">
+            <br/>
+            <label for="country">Land:</label><br/>
+            <input list="country-list" id="country" name="country">
+            <datalist id="country-list">
+              <option value="Sverige">
+              <option value="Norge">
+              <option value="Tyskland">
+              <option value="Spanien">
+              <option value="England">
+            </datalist>
+          </fieldset>
+
+          <fieldset>
+            <legend>Övrigt</legend>
+            <label for="decenium">Född i vilket decenium:</label><br/>
+            <input type="number" id="decenium" name="decenium" min="1920" max="2020" step="10">
+            <br/>
+            <label for="siblings">Antal syskon:</label><br/>
+            <input type="range" id="siblings" name="decenium" min="0" max="10" step="1">
+            <br/>
+            <label for="born-datetime-local">Född (lokal tid):</label><br/>
+            <!-- W3C Validator (Warning): The datetime-local input type is not supported in all browsers. Please be sure to test, and consider using a polyfill. -->
+            <input type="datetime-local" id="born-datetime-local" name="born-datetime-local">
+            <br/>
+            <label for="born-date">Dag född:</label><br/>
+            <!-- W3C Validator (Warning): The date input type is not supported in all browsers. Please be sure to test, and consider using a polyfill. -->
+            <input type="date" id="born-date" name="born-date">
+            <br/>
+            <label for="born-month">Månad född (och årtal):</label><br/>
+            <!-- W3C Validator (Warning): The month input type is not supported in all browsers. Please be sure to test, and consider using a polyfill. -->
+            <input type="month" id="born-month" name="born-month">
+            <br/>
+            <label for="born-week">Vecka född (och årtal):</label><br/>
+            <!-- W3C Validator (Warning): The week input type is not supported in all browsers. Please be sure to test, and consider using a polyfill. -->
+            <input type="week" id="born-week" name="born-week">
+            <br/>
+            <label for="born-time">Tid född:</label><br/>
+            <!-- W3C Validator (Warning): The time input type is not supported in all browsers. Please be sure to test, and consider using a polyfill. -->
+            <input type="time" id="born-time" name="born-time">
+          </fieldset>
+
+          <fieldset>
+            <legend>Detaljer</legend>
+            <label for="profile-image">Profilbild:</label><br/>
+            <input type="image" id="profile-image" name="profile-image" alt="Profilbild">
+            <br/><br/>
+            <label for="description">Beskrivning:</label><br/>
+            <textarea id="description" name="description" placeholder="Beskriv dig själv med några rader text"></textarea>
+            <br/><br/>
+            <fieldset>
+              <legend>Kön</legend>
+              <label for="male">Man</label>
+              <input type="radio" id="male" name="gender" value="man">
+              <label for="female">Kvinna</label>
+              <input type="radio" id="female" name="gender" value="kvinna">
+              <label for="female">Övrigt</label>
+              <input type="radio" id="other" name="gender" value="other">
+            </fieldset>
+          </fieldset>
+
+          <fieldset>
+            <legend>Intressen</legend>
+            <label for="sport">Idrott</label>
+            <input type="checkbox" id="sport" name="sport">
+            <br/>
+            <label for="computers">Datorer</label>
+            <input type="checkbox" id="computers" name="computers">
+            <br/>
+            <label for="food">Mat</label>
+            <input type="checkbox" id="food" name="food">
+            <br/>
+            <label for="traveling">Resa</label>
+            <input type="checkbox" id="traveling" name="traveling">
+          </fieldset>
+
+          <br/>
+          <input type="submit" value="Spara">
+          <input type="reset" value="Återställ">
+        </fieldset>
+      </form>
+    </section>
+
+    <section>
+      <h2>Ladda upp fil</h2>
+      <form method="post" enctype="multipart/form-data" action="https://people.dsv.su.se/~pierre/courses/05_ass/ip2/2/2.2.2/perl/example.cgi">
+        <fieldset>
+          <legend>Ladda upp</legend>
+          <input type="file" name="file"><br/>
+          <input type="submit" value="Skicka">
+        </fieldset>
+      </form>
+    </section>
+
+    <section>
+      <h2>Referenser (vidare läsning)</h2>
+      <ul>
+        <li><a href="https://www.w3schools.com/html/html_forms.asp">https://www.w3schools.com/html/html_forms.asp</a></li>
+        <li><a href="https://www.w3schools.com/tags/tag_input.asp">https://www.w3schools.com/tags/tag_input.asp</a></li>
+        <li><a href="https://www.w3schools.com/tags/tag_textarea.asp">https://www.w3schools.com/tags/tag_textarea.asp</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/image">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/image</a></li>
+        <li><a href="https://www.w3schools.com/tags">https://www.w3schools.com/tags</a></li>
+      </ul>
+    </section>
+  </body>
+</html>

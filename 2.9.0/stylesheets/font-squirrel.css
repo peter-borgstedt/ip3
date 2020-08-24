@@ -1,0 +1,10 @@
+@font-face {
+  font-family: AlexBrush;
+  src: url(../fonts/font-squirrel/AlexBrush-Regular.ttf);
+  font-style: normal;
+}
+
+p {
+  font-family: AlexBrush;
+  font-size: 28px;
+}

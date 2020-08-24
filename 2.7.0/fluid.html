@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>2.7 Sidlayout - Fluid</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/shared.css"> 
+    <link rel="stylesheet" type="text/css" href="stylesheets/fluid.css"> 
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <h1>2.7 Sidlayout - Fluid</h1>
+      </header>
+      <div class="columns">
+        <div class="column column--size-small">
+          <h2>Position</h2>
+          Denna del går igenom en del av de vanligaste egenskaperna för att positionera element.
+  
+          <h3>position</h3>
+          Egenskapen definierar hur positioneringen skall utföras för element.
+          Anges inget värde så används standardvärdet <em>static</em>, denna position har inga speciella egenskaper och positionerar enligt sidans normala flöde,
+          det går bland annat inte sätta <em>width</em>, <em>height</em>, <em>top</em>, <em>bottom</em>, <em>left</em> eller <em>right</em> med denna positionering.
+          Anges värdet <em>relative</em> så placeras elementet relativt från sin normala position.
+          Anges värdet <em>fixed</em> så positioneras elementet relativt till visningsområdet (viewport) och är alltid fixerad vid sin plats även om rullning (scroll) sker.
+          Anges värdet <em>absolute</em> så positioneras element relativt till närmsta positionerad ättling, hittas ingen så används <em>&lt;body&gt;</em>.
+          Anges värdet <em>sticky</em> så positioneras elementet baserat på användarens rullningsposition (scroll).
+
+          <h3>top</h3>
+          Egenskapen påverkar den vertikala positioneringen från ovansidan och har inget effekt på element med <em>display</em> satt till <em>static</em>, skillnader kan ske hur den beter sig beroende på vald position.
+
+          <h3>left</h3>
+          Egenskapen påverkar den horisontella positioneringen från vänstersida och har inget effekt på element med <em>display</em> satt till <em>static</em>, skillnader kan ske hur den beter sig beroende på vald position.
+
+          <h3>bottom</h3>
+          Egenskapen påverkar den vertikala positioneringen från undersidan och har inget effekt på element med <em>display</em> satt till <em>static</em>, skillnader kan ske hur den beter sig beroende på vald position.
+
+          <h3>right</h3>
+          Egenskapen påverkar den horisontella positioneringen från högersida och har inget effekt på element med <em>display</em> satt till <em>static</em>, skillnader kan ske hur den beter sig beroende på vald position.
+
+          <h3>z-index</h3>
+          Egenskapen definierar djupet och huruvida elementet lägger sig över eller under andra element vilket bestäms av satt index.
+
+          <h3>float</h3>
+          Egenskapen möjliggör att elementet flyter från vänster eller höger sida (se även uppgift 2.6.0).
+
+          <h3>clear</h3>
+          Egenskapen gör att element inte kan flyta från vänster, höger eller vid båda sidorna (se även uppgift 2.6.0).
+        </div>
+
+        <div class="column column--size-big">
+          <h2>Fluid Layout</h2>
+          Fluid layout är när en sida har sina sina element satta med enheten em,
+          vilket är ett mått på font storleken, 1em är aktuell font-storlek och 2em en fördubblad storlek.
+          Detta gör att vid en förändring av fönsterstörlek eller vid inzomning så ändras proportioner efter den dimension som fonten har,
+          och beror på satt <em>font-family</em> och stödet av fonter för den valda webläsaren.
+          <br/><br/>
+
+          <h2>Tabeller som layout</h2>
+          En tabell är inte lämplig för sidlayout eftersom de är väldigt långsamma.
+          Anledningen till detta är att webläsaren måste ladda ner det mesta av innehållet om inte allt för att rendera den ordentligt (p.g.a. den algoritm som används med egenskapen <em>table-layout</em>).
+          En tabell kräver betydligt mer element än andra sidlayouts och innebär långsammare laddning, rendering samt ökad bandbredd. En tabell kan även vara väldigt komplex att underhålla.
+          Tabeller är även inte lika flexibla som andra sidlayouts och att få en tabell att bli responsiv kan vara väldigt svårt. Det kan även bli svårare för at sökmotorer att kategorisera innehållet från en tabell.
+          Tabeller ger även inga bra resultat vid utskrifter.
+          <br/>
+          Tabeller är inte avsedda att användas som sidlayout.
+          <h3>Referenser (läs vidare)</h3>
+          <a href="https://www.smashingmagazine.com/2009/06/fixed-vs-fluid-vs-elastic-layout-whats-the-right-one-for-you">https://www.smashingmagazine.com/2009/06/fixed-vs-fluid-vs-elastic-layout-whats-the-right-one-for-you</a>
+          <a href="https://webmasters.stackexchange.com/a/6037">https://webmasters.stackexchange.com/a/6037</a>
+          <a href="https://www.lifewire.com/dont-use-tables-for-layout-3468941">https://www.lifewire.com/dont-use-tables-for-layout-3468941</a>
+          <a href="https://www.w3schools.com/css">https://www.w3schools.com/css</a>
+        </div>
+
+        <div class="column column--size-small">
+          <h2>Storlek</h2>
+          Denna del går kort igenom en del av de vanligaste egenskaperna för att bestämma storlekar på element.
+          Det finns ett flertal olika enheter för att bestämma storlekar så som <em>pixel</em>, <em>cm</em>, <em>inch</em>, <em>procent</em>,
+          <em>em</em> och presentationen kan bete sig olika beroende på vilken enhet som väljs speciellt vid inzoomning eller förändring av fönsterstorleken.
+
+          <h3>width</h3>
+          Egenskapen definierar bredden på elementet.
+
+          <h3>height</h3>
+          Egenskapen definierar höjden på elementet.
+
+          <h3>max-width</h3>
+          Egenskapen definierar maximum-bredden på elementet och kan inte bli större än det valda mått som angetts.
+
+          <h3>max-height</h3>
+          Egenskapen definierar maximum-höjden på elementet och kan inte bli större än det valda mått som angetts.
+
+          <h3>min-width</h3>
+          Egenskapen definierar minimum-bredden på elementet och kan inte bli mindre än det valda mått som angetts.
+
+          <h3>min-height</h3>
+          Egenskapen definierar minimum-höjden på elementet och kan inte bli mindre än det valda mått som angetts.
+
+          <h3>vertical-align</h3>
+          Egenskapen definierar hur elementet skall placeras vertikalt.
+          Endast inline-element stöds, d.v.s där egenskapen har <em>display</em> värdet <em>inline</em> och <em>inline-block</em>, även <em>table</em> stöds. Det går att placera element <em>top</em>, <em>middle</em> eller <em>bottom</em> med flera.
+        </div>
+      </div>
+
+      <div class="foto-area">
+        <div class="box">
+          <div class="box--header">
+            Bilder med applicerad CSS egenskaper beskriven i ovan text
+          </div>
+        </div>
+
+        <div class="box box--border">
+          <div class="box--image">
+            <img class="demo-1" src="../assets/dandelion.jpg" alt="Maskros">
+          </div>
+
+          <div class="box--description">
+            <div>left: 5%</div>
+            <div>top: 5%</div>
+            <div>vertical-align: top</div>
+          </div>
+        </div>
+
+        <div class="box box--border">
+          <div class="box--image text-align--right">
+            <img class="demo-2" src="../assets/dandelion.jpg" alt="Maskros">
+          </div>
+
+          <div class="box--description">
+            <div>right: 5%</div>
+            <div>bottom: 5%</div>
+            <div>vertical-align: bottom</div>
+            <div>text-align: center</div>
+          </div>
+        </div>
+
+        <div class="box box--border">
+          <div class="box--image text-align--center">
+            <img class="demo-3" src="../assets/orange.png" alt="Apelsin">
+          </div>
+          <div class="box--description">
+            <div>vertical-align: middle</div>
+            <div>text-align: center</div>
+          </div>
+        </div>
+
+        <div class="box box--border">
+          <div class="box--image text-align--center">
+            <img class="demo-4a" src="../assets/orange.png" alt="Apelsin">
+            <img class="demo-4b" src="../assets/orange.png" alt="Apelsin">
+            <img class="demo-4c" src="../assets/neuromancer.jpg" alt="Neuromancer">
+          </div>
+          <div class="box--description">
+            <div><b>orange.png (1)</b></div>
+            <div>width: 15%</div>
+            <div>top: 0</div>
+            <div>right: 0</div>
+            <div>bottom: 0</div>
+            <div>left: -15%</div>
+            <div>z-index: 1</div>
+            <br/>
+            <div><b>orange.png (2)</b></div>
+            <div>width: 15%</div>
+            <div>top: 0</div>
+            <div>right: -15%</div>
+            <div>bottom: 0</div>
+            <div>left: 0</div>
+            <div>z-index: 1</div>
+            <br/>
+            <div><b>neuromancer.jpg</b></div>
+            <div>vertical-align: middle</div>
+          </div>
+        </div>
+
+        <div class="box box--border">
+          <div class="box--image text-align--center">
+            <img class="demo-5a" src="../assets/neuromancer.jpg" alt="Neuromancer">
+            <img class="demo-5b" src="../assets/neuromancer.jpg" alt="Neuromancer">
+            <img class="demo-5c" src="../assets/neuromancer.jpg" alt="Neuromancer">
+            <span class="clearfix"></span> <!-- Clear last float -->
+          </div>
+
+          <div class="box--description">
+            <div><b>neuromancer.png (1)</b></div>
+            <div>height: 33.33%</div>
+            <div>float: right</div>
+            <br/>
+            <div><b>neuromancer.png (2)</b></div>
+            <div>height: 33.33%</div>
+            <div>float: left</div>
+            <div>clear: right</div>
+            <br/>
+            <div><b>neuromancer.png (3)</b></div>
+            <div>height: 33.33%</div>
+            <div>float: right</div>
+            <div>clear: left</div>
+          </div>
+        </div>
+
+        <div class="box box--border">
+          <div class="box--image text-align--center">
+            <img class="demo-6" src="../assets/dandelion.jpg" alt="Maskros">
+          </div>
+
+          <div class="box--description">
+            <div>max-width: 100px;</div>
+            <div>max-height: 100px;</div>
+            <div>max-width: 100px;</div>
+            <div>max-height: 100px;</div>
+            <div>vertical-align: bottom;</div>
+          </div>
+        </div>
+
+        <div class="box box--border">
+          <div class="box--content">
+            <div class="demo-7a"></div>
+            <div class="demo-7b"></div>
+            <div class="demo-7c"></div>
+          </div>
+
+          <div class="box--description">
+            <div><b>red square</b></div>
+            <div>display: inline-block;</div>
+            <div>width: 25%</div>
+            <div>height: 25%</div>
+            <br/>
+            <div><b>green square</b></div>
+            <div>display: inline-block;</div>
+            <div>width: 25%</div>
+            <div>height: 25%</div>
+            <br/>
+            <div><b>blue square</b></div>
+            <div>display: block;</div>
+            <div>width: 25%</div>
+            <div>height: 25%</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>3.4.4 Utvidgbara gränssnitt</title>
+    <script src="../lib/jquery-3.5.0.min.js"></script>
+    <script src="./scripts/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css"> 
+  </head>
+
+  <body>
+    <h1>3.4.4 Utvidgbara gränssnitt</h1>
+
+    <div id="container">
+      <div id="tabs">
+        <!-- Tab 1 -->
+        <div class="active">
+          <div class="has-tooltip">
+            <span>Sida 1</span>
+            <span class="tooltip">Tryck för sida ett...</span>
+          </div>
+          <template>
+            Visste du att om du lägger musen över tabbens titel så får du en tooltip.
+          </template>
+        </div>
+        <!-- Tab 2 -->
+        <div>
+          <div class="has-tooltip">
+            <span>Sida 1</span>
+            <span class="tooltip">Tryck för sida två...</span>
+          </div>
+          <template>
+            Den här sidan har bara två sidor och skulle nog behöva mer innehåll.
+          </template>
+        </div>
+        <!-- More tabs can be added here... -->
+      </div>
+
+      <div id="content">
+        <!-- Content from templates are injected here through java script code -->
+      </div>
+    </div>
+  </body>
+</html>

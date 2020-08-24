@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>3.2 DOM-objekt och jQuery</title>
+
+    <script src="../lib/jquery-3.5.0.min.js"></script>
+    <script src="./scripts/blog.js"></script>
+    <script src="./scripts/coordinates.js"></script>
+    <script src="./scripts/colorhover.js"></script>
+    <script src="./scripts/responsiveness.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css"> 
+  </head>
+
+  <body class="flex">
+    <!-- Responsiveness -->
+    <div class="content">
+      <!-- Blog -->
+      <div class="content-item blog">
+        <div id="post-counter">Totalt: 0</div>
+        <div id="posts" class="posts"></div>
+        <!--
+          Intentionally define onsubmit targeting a javascript-function in HTML for demo purpose,
+          it can and is probably better defined within the javascript instead (as an event listener)
+          by querying the form (by id) and using for example jquery.on('submit', functon() { ... }).
+  
+          Explicitly bind the function "this" context to the blog function object (to its origin) otherwise
+          the context will be the invoking one (ie. the form itself).
+        -->
+        <form id="post-form" class="section form" onsubmit="blog.addPost(event)">
+          <fieldset>
+            <label for="post-subject">Ämne</label>
+            <input
+              id="post-subject" name="subject" type="text" title="Titel med alfanumerisk text"
+              class="section-element" required
+            />
+  
+            <label for="post-message">Meddelande</label>
+            <textarea id="post-message" name="message" class="section-element" required></textarea>
+          </fieldset>
+
+          <div style="text-align: center; font-style: italic">Tryck Shift+Enter för snabbt posta!</div>
+          <button type="submit">Posta</button>
+        </form> 
+      </div>
+
+      <!-- Hover with custom color -->
+      <div id="color-hover-anchor" class="content-item color-hover">
+        <!-- W3 warning: not supported in all browsers (only new) -->
+        <!-- See browser support: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color#Browser_compatibility -->
+        <input id="color-picker" type="color" value="#FFFB00">
+        <span>Sätt en färg och lägg över musen!</span>
+      </div>
+
+      <!-- Coordinates of the mouse -->
+      <div class="content-item coordinates">
+        <span id="coordinates">X: -1, Y: -1</span>
+
+        <span style="float: right">
+          <input type="button" id="active-toggle-button" value="Ta bort lyssnare">
+          <input type="checkbox" id="mute">
+          <label for="mute">Stoppa</label>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>

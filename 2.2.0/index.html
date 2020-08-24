@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>2.2 Text och listor</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/layout.css"> 
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css"> 
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>2.2 Text och listor</h1>
+
+      <h2>Innehåll</h2>
+      <ul>
+        <li><a href="#font-family">Fontfamilj</a></li>
+        <li><a href="#units">Enheter</a></li>
+        <li><a href="#properties">Egenskaper</a></li>
+      </ul>
+
+      <div class="section">
+        <h2 id="font-family">Fontfamilj</h2>
+        <p>
+          Attributet <b>font-family</b> anger teckensnittet för ett element. Attributet kan innehålla flera teckensnitt som ett
+          fallback/reträttsystem, om webbläsaren inte stöder det första teckensnittet som angivits så försöker man med nästa teckensnitt.<br/>
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>font-family</h3>
+        <p>
+          Vid angivelse så anges först <em>family-name</em>, den font man vill ha, därefter en <em>generisk font-familj</em>.
+          Det går att ange flera genom att seperarera dem med komma, dessa används som fallback/reträtt om fonten inte hittas och utförs i den ordning man angivit dem.
+          Det går att ange font-familjer med citattecken om namnet skulle bestå av mellanrum.<br/><br/>
+          Attributet definieras primärt av två delar, <em>family-name</em> och <em>generic-family</em>.
+        </p>
+
+        <div class="syntax">
+          <b>font-family</b>: <mark>family-name</mark> | <mark>generic-family</mark> | <em>initial</em> | <em>inherit</em>;
+        </div>
+
+        <h4>family-name</h4>
+        <p>
+          Namnet på en specifik typsnittsfamilj, som "<em>Times New Roman</em>", "<em>Courier New</em>" och "<em>Arial</em>" m.fl.
+        </p>
+        
+        <h4>generic-family</h4>
+        <p>
+          Namnet på en generisk familj, "serif", "sans-serif" och "monospace" är alla en kategori med liknande font-familjer.<br/><br/>
+          <u>Sans</u> är en generisk familj som anger font-familjer med små linjer i kanterna på vissa tecken, ex. <em>Times New Roman</em>.<br/>
+          <u>Sans-serif</u> där <em>sans</em> betyder "utan" är en generisk familj som anger font-familjer utan små linjer i kanterna på tecken, ex. <em>Arial</em>.<br/>
+          <u>Monospace</u> är en generisk familj som anger font-familjer där alla tecken har samma bredd, ex. <em>Courier New</em>.<br/>
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>Exempel - Font med fallback/reträttsystem</h3>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .font-family-with-fallback {<br/>
+            &nbsp;&nbsp;font-family: Arial, Helvetica, sans-serif;<br/>
+            }<br/>
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;p class="font-family-with-fallback"&gt;<br/>
+            &nbsp;&nbsp;Vald font är Arial, om den inte finns används Helvetica annars en frivillig font från generisk familj Sans-serif.<br/>
+            &lt;/p&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <p class="font-family-with-fallback">
+            Vald font är Arial, om den inte finns används Helvetica annars en frivillig font från generisk familj Sans-serif.
+          </p>
+        </div>
+      </div>
+
+      <div class="section references">
+        <h3>Referenser (läs vidare)</h3>
+        <a href="https://www.w3schools.com/cssref/pr_font_font-family.asp">https://www.w3schools.com/cssref/pr_font_font-family.asp</a>  
+      </div>
+
+      <h2 id="units">Enheter</h2>
+      <p>
+        Det finns ett flertal olika enheter i CSS för att uttrycka storlek på, det finns absoluta och relativa enheter, nedanför ges exempel på några av de vanligaste. 
+      </p>
+
+      <div class="section">
+        <h3>Absoluta nyckelord</h3>
+        <p>
+          Nyckelord är utav en absolut storlek och baseras på användarens standardtypstorlek.
+        </p>
+      </div>
+
+      <div class="section">
+        <pre>
+          <span>CSS</span>
+          <code>
+            .unit-xx-small,<br/>
+            .unit-x-small,<br/>
+            .unit-small,<br/>
+            .unit-medium,<br/>
+            .unit-large,<br/>
+            .unit-x-large,<br/>
+            .unit-xx-large {<br/>
+            &nbsp;&nbsp;margin: 8px;<br/>
+            &nbsp;&nbsp;padding: 4px;<br/>
+            &nbsp;&nbsp;background-color: #eee;<br/>
+            &nbsp;&nbsp;border: solid 1px #ccc; <br/>
+            }<br/><br/>
+            .unit-xx-small {<br/>
+            &nbsp;&nbsp;font-size: xx-small;<br/>
+            }<br/><br/>
+            .unit-x-small {<br/>
+            &nbsp;&nbsp;font-size: x-small;<br/>
+            }<br/><br/>
+            .unit-small {<br/>
+            &nbsp;&nbsp;font-size: small;<br/>
+            }<br/><br/>
+            .unit-medium {<br/>
+            &nbsp;&nbsp;font-size: medium;<br/>
+            }<br/><br/>
+            .unit-large {<br/>
+            &nbsp;&nbsp;font-size: large;<br/>
+            }<br/><br/>
+            .unit-x-large {<br/>
+            &nbsp;&nbsp;font-size: x-large;<br/>
+            }<br/><br/>
+            .unit-xx-large {<br/>
+            &nbsp;&nbsp;font-size: xx-large;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="unit-xx-small">xx-small&lt;/div&gt;<br/>
+            &lt;div class="unit-x-small">x-small&lt;/div&gt;<br/>
+            &lt;div class="unit-small">small&lt;/div&gt;<br/>
+            &lt;div class="unit-medium">medium&lt;/div&gt;<br/>
+            &lt;div class="unit-large">large&lt;/div&gt;<br/>
+            &lt;div class="unit-x-large">x-large&lt;/div&gt;<br/>
+            &lt;div class="unit-xx-large">xx-large&lt;/div&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="unit-xx-small">xx-small</div>
+          <div class="unit-x-small">x-small</div>
+          <div class="unit-small">small</div>
+          <div class="unit-medium">medium</div>
+          <div class="unit-large">large</div>
+          <div class="unit-x-large">x-large</diV>
+          <div class="unit-xx-large">xx-large</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Procent (%)</h3>
+        <p>
+          Enhet anges i procent och är relativ till elementets storlek eller rymd.<br/>
+          För fonter kommer procent agera liknande som enheten <em>em</em>, see nedanför om dess definition.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>Emphemeral (em)</h3>
+        <p>
+          Enheten definieras som relativ till typsnittets storlek. 2em betyder 2 gånger av den aktuella storleken på teckensnittet. Värdet är relativt till förälderns teckensnittstorlek, som ett resultat kommer värdet att "kaskadera" om det används på barnelement.
+        </p>
+      </div>
+
+      <div class="section references">
+        <h3>Referenser (läs vidare)</h3>
+        <a href="https://cssreference.io/property/font-size/">https://cssreference.io/property/font-size/</a>
+        <a href="https://www.w3schools.com/css/css_units.asp">https://www.w3schools.com/css/css_units.asp</a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#absolute-size">https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#absolute-size</a>
+      </div>
+
+      <h2 id="properties">Egenskaper</h2>
+
+      <h3>Teckensnitt</h3>
+
+      <div class="section">
+        <h4>color</h4>
+        <p>
+          Anger fontfärg; färgen på texten. En färg kan anges med ett flertal enheter som <b>HEX</b>, <b>RGB</b>, <b>RGBA</b>, <b>HSL</b>, <b>HSLA</b> samt med fördefinierad nyckelord, såsom "<b>red</b>", "<b>green</b>" och "<b>blue</b>" m.fl.<br/><br/>
+          Exempel på färgen <em>vit</em> definierad med de olika färgenheterna:<br/>
+          <code>
+            color-white-hex {<br/>
+            &nbsp;&nbsp;color: #FFFFFF;<br/>
+            }<br/><br/>
+            color-white-rgb {<br/>
+            &nbsp;&nbsp;color: rgb(255, 255, 255);<br/>
+            }<br/><br/>
+            color-white-rgba {<br/>
+            &nbsp;&nbsp;color: rgba(255, 255, 255, 1);<br/>
+            }<br/><br/>
+            color-white-hsl {<br/>
+            &nbsp;&nbsp;color: hsl(0, 0%, 100%);<br/>
+            }<br/><br/>
+            color-white-hsla {<br/>
+            &nbsp;&nbsp;color: hsla(0, 0%, 100%, 1);<br/>
+            }<br/><br/>
+            color-white-keyword {<br/>
+            &nbsp;&nbsp;color: white;<br/>
+            }
+          </code>
+        </p>
+      </div>
+
+      <div class="section">
+        <h4>font</h4>
+        <p>Kort egenskap för <em>font-style</em>, <em>font-variant</em>, <em>font-weight</em>, <em>font-size/line-height</em> och <em>font-family</em>. Om inte alla anges så kommer de värden som saknas att implicit få ett standardvärde.</p>
+      </div>
+
+      <div class="section">
+        <h4>font-style</h4>
+        <p>Anger textstil, d.v.s. huruvida den skall vara kursiv, sne eller normal.</p>
+      </div>
+
+      <div class="section">
+        <h4>font-variant</h4>
+        <p>Anger om en text ska visas i ett teckensnitt med små versaler.</p>
+      </div>
+
+      <div class="section">
+        <h4>font-weight</h4>
+        <p>Anger hur tjocka eller tunna tecken ska vara.</p>
+      </div>
+
+      <div class="section">
+        <h4>font-size</h4>
+        <p>Anger storleken på ett teckensnitt.</p>
+      </div>
+
+      <div class="section">
+        <h4>line-height</h4>
+        <p>Anger höjden på en linje.</p>
+      </div>
+
+      <div class="section">
+        <h4>Referenser (läs vidare)</h4>
+        <a href="https://www.w3schools.com/css/css_font.asp">https://www.w3schools.com/css/css_font.asp</a>
+        <a href="https://www.w3schools.com/cssref/pr_font_font.asp">https://www.w3schools.com/cssref/pr_font_font.asp</a>
+        <a href="https://www.w3schools.com/cssref/pr_font_font-variant.asp">https://www.w3schools.com/cssref/pr_font_font-variant.asp</a>
+        <a href="https://www.w3schools.com/cssref/pr_font_font-style.asp">https://www.w3schools.com/cssref/pr_font_font-style.asp</a>
+        <a href="https://www.w3schools.com/html/html_colors.asp">https://www.w3schools.com/html/html_colors.asp</a>
+      </div>
+
+      <div class="section">
+        <h3>Exempel: på egenskaperna "font" och "color"</h3>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .font-and-color-property {<br/>
+            &nbsp;&nbsp;font: italic bold 18px Arial, sans-serif;<br/>
+            &nbsp;&nbsp;color: brown;<br/>
+            }<br/>
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;p class="font-and-color-property"&gt;<br/>
+            &nbsp;&nbsp;Denna text är kursiv, fet och har en textstorlek på 18pixlar. Vald font är Arial med sans-serif som reträtt.<br/>
+            &lt;/p&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <p class="font-and-color-property">
+            Denna text är brun, kursiv, fet och har en textstorlek på 18pixlar. Vald font är Arial med sans-serif som reträtt.
+          </p>
+        </div>
+      </div>
+
+      <h3>Listor</h3>
+
+      <div class="section">
+        <h3>list-style</h3>
+        <p>Kort egenskap för <em>list-style-type</em>, <em>list-style-position</em> och <em>list-style-image</em>. Om inte alla anges så kommer de värden som saknas att implicit få ett standardvärde.</p>
+      </div>
+
+      <div class="section">
+        <h3>Exempel: på egenskapen list-style</h3>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .list-type-property {<br/>
+            &nbsp;&nbsp;list-type: square inside<br/>
+            }<br/>
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;ul class="font-property"&gt;<br/>
+            &lt;li&gt;Äpple&lt;/li&gt;<br/>
+            &lt;li&gt;Päron&lt;/li&gt;<br/>
+            &lt;/ul&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <ul class="list-style-property">
+            <li>Äpple</li>
+            <li>Päron</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section references">
+        <h4>Referenser (läs vidare)</h4>
+        <a href="https://www.w3schools.com/cssref/pr_list-style.asp">https://www.w3schools.com/cssref/pr_list-style.asp</a>
+      </div>
+    </div>
+  </body>
+</html>

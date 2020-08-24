@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>2.5 Navigering</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/layout.css"> 
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css"> 
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>2.5 Navigering</h1>
+
+      <h2>Innehåll</h2>
+      <ul>
+        <li><a href="#hyperlink">Hyperlänkar</a></li>
+        <li><a href="#cursor">Cursor</a></li>
+      </ul>
+
+      <div class="section">
+        <h2 id="hyperlink">Hyperlänkar</h2>
+        <p>
+          Hyperlinkar eller länkar kan stylas med hjälp av de inbyggda psuedo-klasserna, vilka beskriver ett specifikt tillstånd för en länk.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>a:link</h3>
+        <div>
+          Aktuell när en länk ännu inte har besökts.
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>a:active</h3>
+        <div>
+          Aktuell när en länk är selekterad (intryckt eller inklickad).
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>a:visited</h3>
+        <div>
+          Aktuell när en länk redan har besökts (efter <em>:aktiv</em> går stadiet över till <em>:visited</em>)
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>a:hover</h3>
+        <div>
+          Aktuell när musen är positionerad över länken.
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Exempel - Länk stylad som knapp</h3>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            a:link-button.link {<br/>
+            &nbsp;&nbsp;display: inline-block;<br/>
+            &nbsp;&nbsp;background: #f5f5f5;<br/>
+            &nbsp;&nbsp;border: 1px solid #aaa;<br/>
+            &nbsp;&nbsp;border-radius: 8px;<br/>
+            &nbsp;&nbsp;padding: 8px;<br/>
+            &nbsp;&nbsp;text-decoration: none;<br/>
+            }<br/><br/>
+            a:active {<br/>
+            &nbsp;&nbsp;color: greenyellow;<br/>
+            }<br/><br/>
+            a:hover {<br/>
+            &nbsp;&nbsp;color: #222;<br/>
+            }<br/><br/>
+            a:active {<br/>
+            &nbsp;&nbsp;background: goldenrod;<br/>
+            &nbsp;&nbsp;color: black;<br/>
+            }<br/><br/>
+            a:visited {<br/>
+            &nbsp;&nbsp;background: #555;<br/>
+            &nbsp;&nbsp;color: white;<br/>
+            &nbsp;&nbsp;border-color: black;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;a class="link-button" href="https://en.wikipedia.org/wiki/Commodore_64"&gt;<br/>
+            &nbsp;&nbsp;Commodore 64<br/>
+            &lt;/a&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <a class="link-button" href="https://en.wikipedia.org/wiki/Commodore_64">Commodore 64</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Exempel - Länk som bild</h3>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            a.link-image {<br/>
+            &nbsp;&nbsp;display: inline-block;<br/>
+            &nbsp;&nbsp;background: #f5f5f5;<br/>
+            &nbsp;&nbsp;border: 1px solid #aaa;<br/>
+            &nbsp;&nbsp;border-radius: 8px;<br/>
+            &nbsp;&nbsp;padding: 8px;<br/>
+            }<br/><br/>
+            a.link-image img {<br/>
+            &nbsp;&nbsp;max-width: 200px;<br/>
+            }<br/><br/>
+            a.link-image:link,<br/>
+            a.link-image:link img {<br/>
+            &nbsp;&nbsp;opacity: 0.5;<br/>
+            &nbsp;&nbsp;color: greenyellow;<br/>
+            }<br/><br/>
+            a.link-image:hover,<br/>
+            a.link-image:hover img {<br/>
+            &nbsp;&nbsp;opacity: 1;<br/>
+            &nbsp;&nbsp;background: rgb(200, 220, 190);<br/>
+            &nbsp;&nbsp;color: #222;<br/>
+            }<br/><br/>
+            a.link-image:active,<br/>
+            a.link-image:active img {<br/>
+            &nbsp;&nbsp;opacity: 1;<br/>
+            &nbsp;&nbsp;background: goldenrod;<br/>
+            &nbsp;&nbsp;color: black;<br/>
+            }<br/><br/>
+            a.link-image:visited,<br/>
+            a.link-image:visited img {<br/>
+            &nbsp;&nbsp;opacity: 0.5;<br/>
+            &nbsp;&nbsp;background: #555;<br/>
+            &nbsp;&nbsp;color: white;<br/>
+            &nbsp;&nbsp;border-color: black;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;a class="link-image" href="https://en.wikipedia.org/wiki/Commodore_64"&gt;<br/>
+            &nbsp;&nbsp;&lt;img src="images/c64.png" alt="https://en.wikipedia.org/wiki/Commodore_64"&gt;<br/>
+            &lt;/a&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <a class="link-image" href="https://en.wikipedia.org/wiki/Commodore_64">
+            <img src="images/c64.png" alt="https://en.wikipedia.org/wiki/Commodore_64">
+          </a>
+        </div>
+      </div>
+
+      <div class="section references">
+        <h3>Referenser (läs vidare)</h3>
+        <a href="https://www.w3schools.com/css/css_pseudo_classes.asp">https://www.w3schools.com/css/css_pseudo_classes.asp</a>
+        <a href="https://www.w3schools.com/html/html_links.asp">https://www.w3schools.com/html/html_links.asp</a>
+      </div>
+
+      <h2 id="cursor">Cursor</h2>
+      <p>
+        Attributet <b>cursor</b> anger vilken musikon som skall användas när användaren interagerar med element. Det finns ett flertal inbyggda ikoner som kan användas och anges som text, det finns även möjlighet att välja en egen ikon genom att ange <b>url(http://min.bild.png)</b>.<br/>
+        Bytet av ikonen ger en tydlig indikation på hur det går att interagera med element utan att behöva ange beskrivande text huruvida man kan trycka, dra och rulla (scrolla).
+      </p>
+
+      <div class="section">
+        <h3>Exempel - Inbyggd markör samt egen vald bild som markör </h3>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            .cursor-crosshair,<br/>
+            .cursor-custom {<br/>
+            &nbsp;&nbsp;display: inline-flex;<br/>
+            &nbsp;&nbsp;width: 200px;<br/>
+            &nbsp;&nbsp;height: 200px;<br/>
+            &nbsp;&nbsp;border: 1px dashed #ccc;<br/>
+            &nbsp;&nbsp;align-items: center;<br/>
+            &nbsp;&nbsp;justify-content: center;<br/>
+            &nbsp;&nbsp;color: #888;<br/>
+            }<br/><br/>
+            a.cursor-drag {<br/>
+            &nbsp;&nbsp;cursor: drag;<br/>
+            }<br/><br/>
+            a.cursor-custom {<br/>
+            &nbsp;&nbsp;cursor: url(images/c64-logo.png);<br/>
+            }<br/><br/>  
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;div class="cursor-crosshair"&gt;&lt;div&gt;<br/>
+            &lt;div class="cursor-custom"&gt;&lt;div&gt;<br/>
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <div class="cursor-crosshair">Inbyggd (crosshair)</div>
+          <div class="cursor-custom">Egen (c64-logo.png)</div>
+        </div>
+      </div>
+
+      <div class="section references">
+        <h3>Referenser (läs vidare)</h3>
+        <a href="https://www.w3schools.com/cssref/pr_class_cursor.asp">https://www.w3schools.com/cssref/pr_class_cursor.asp</a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Basic_User_Interface/Using_URL_values_for_the_cursor_property">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Basic_User_Interface/Using_URL_values_for_the_cursor_property</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,216 @@
+* {
+  /* https://www.w3schools.com/css/css3_box-sizing.asp */
+  box-sizing: border-box; /* We want box sizing on all elements */
+}
+
+body {
+  display: flex;
+  font-family: Arial, Helvetica, Verdana;
+  background: #454C56;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 24px;
+}
+
+h2, h3 {
+  margin: 0;
+}
+
+h3 {
+  margin-top: 8px;
+}
+
+main {
+  background: white;
+  margin: 0 auto; /* Centering with margin */
+  width: 980px;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  margin: 4px 0 4px 0;
+}
+
+/**
+ * Flexbox is definitely what should be used for columns like this,
+ * but for fun I will do this a bit differently and unconvinient, but just as I've used flexbox
+ * alot in previous assignments.
+ */
+.column {
+  padding: 0 8px 0 8px;
+}
+
+.column--size-small {
+  width: 25%;
+}
+
+.column--size-big {
+  width: 50%;
+}
+
+.foto-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-top: 1px solid #888;
+  background-color: #F8F8F8;
+}
+
+.box {
+  /** Set line height for vertical-align to work propertly */
+  padding: 8px;
+  margin: 4px;
+}
+
+.box--border {
+  border: 1px solid #888;
+  box-shadow: 4px 4px 8px lightgray;
+  background: white;
+}
+
+.box--content, 
+.box--image {
+  /* Need to put this to relative to be able to set position absolute on images */
+  position: relative;
+  background: #F5F5F5;
+  width: 200px;
+  height: 200px;
+}
+
+.box--header {
+  font-size: 32px;
+  font-weight: bold;
+  width: 200px;
+  padding: 8px;
+}
+
+.box--content {
+  /* A hack to get rid of gaps for inline-elements created by empty spaces and new lines  */
+  font-size: 0px;
+}
+
+.box--image {
+  line-height: 200px;
+}
+
+.box--description {
+  position: relative;
+  padding: 0 8px 8px 8px;
+  font-style: italic;
+  color: #555;
+  line-height: initial; /* Need to be set as it is being inherited */
+}
+
+.clearfix:after {
+  content: '\00a0';
+  clear: both;
+}
+
+.text-align--right {
+  text-align: right;
+}
+
+.text-align--center {
+  text-align: center;
+}
+
+img {
+  width: 100px;
+}
+
+.demo-1 {
+  position: relative;
+  vertical-align: top;
+  top: 10px;
+  left: 10px;
+}
+
+.demo-2 {
+  position: relative;
+  vertical-align: bottom;
+  bottom: 10px;
+  right: 10px;
+}
+
+.demo-3 {
+  vertical-align: middle;
+}
+
+.demo-4a,
+.demo-4b {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 35px;
+  z-index: 1;
+}
+
+.demo-4a {
+  left: -45px;
+  right: 0;
+}
+
+.demo-4b {
+  left: 0;
+  right: -45px;
+}
+
+.demo-4c {
+  vertical-align: middle;
+}
+
+.demo-5a,
+.demo-5b,
+.demo-5c {
+  height: 33.33%;
+}
+
+.demo-5a {
+  float: right;
+}
+
+.demo-5b {
+  float: left;
+  clear: right;
+}
+
+.demo-5c {
+  clear: both;
+  float: right;
+}
+
+.demo-6 {
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  vertical-align: bottom;
+}
+
+.demo-7a,
+.demo-7b {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+.demo-7a {
+  background: red;
+}
+
+.demo-7b {
+  background: green;
+}
+
+.demo-7c {
+  width: 100px;
+  height: 100px;
+  background: blue;
+  line-height: initial;
+}

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>2.6 Tabeller och formulär</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/layout.css"> 
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css"> 
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>2.6 Tabeller och formulär</h1>
+
+      <h2>Innehåll</h2>
+      <ul>
+        <li><a href="#tables">Tabeller</a></li>
+        <li><a href="#forms">Formulär</a></li>
+      </ul>
+
+      <div class="section">
+        <h2 id="tables">Tabeller</h2>
+        <p>
+          Tabeller går att anpassa med ett flertal egna attribut, och bland de viktigare är <em>table-layout</em>.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>Table-Layout</h3>
+        <p>
+          Attributet <em>table-layout</em> anger hur en tabell skall lägga ut sina rader, kolumner och celler. Det finns två möjliga lägen, fixed och auto.
+        </p>
+
+        <h4>auto</h4>
+        <div>
+          Tabellens bredd och dess celler justeras för att passa innehållet och en kolumns storlek bestäms av dess största cell-innehåll. För att beräkna ut bredden behövs alla celler analyseras och är därmed långsammare än en fixerad layout.
+        </div>
+
+        <h4>fixed</h4>
+        <div>
+          Tabellens bredd bestäms av den satta bredden på kolumnerna, eller bredden på första raden av celler. Vid en fixerad layout behövs endast första raden för att rendera övriga rader, vilket är betydligt snabbare än att använda <em>auto</em>.
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Exempel - Fixed (och stylad)</h3>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            table.table-fixed {<br/>
+            &nbsp;&nbsp;table-layout: fixed;<br/>
+            &nbsp;&nbsp;border-collapse: separate;<br/>
+            &nbsp;&nbsp;border-spacing: 8px;<br/>
+            &nbsp;&nbsp;text-align: left;<br/>
+            }<br/><br/>
+            table.table-fixed,<br/>
+            table.table-fixed th,<br/>
+            table.table-fixed td {<br/>
+            &nbsp;&nbsp;border: 1px solid #555;<br/>
+            }<br/><br/>
+            table.table-fixed tr:first-child {<br/>
+            &nbsp;&nbsp;text-align: center;<br/>
+            &nbsp;&nbsp;background: rgb(240, 200, 250);<br/>
+            }<br/><br/>
+            table.table-fixed tr:nth-child(even) {<br/>
+            &nbsp;&nbsp;background: rgb(240, 230, 250);<br/>
+            }<br/><br/>
+            table.table-fixed tr:first-child > th:not(:first-child) {<br/>
+            &nbsp;&nbsp;width: 150px;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;table class="table-fixed"&gt;<br/>
+            &nbsp;&nbsp;&lt;tr&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;H1&lt;/th&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;H2&lt;/th&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;H3&lt;/th&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;H4&lt;/th&gt;<br/>
+            &nbsp;&nbsp;&lt;/tr&gt;<br/>
+            &nbsp;&nbsp;&lt;tr&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R1:C1&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R1:C2&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R1:C3&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R1:C4&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&lt;/tr&gt;<br/>
+            &nbsp;&nbsp;&lt;tr&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R2:C1&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R2:C2&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R2:C3&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R2:C4&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&lt;/tr&gt;<br/>
+            &nbsp;&nbsp;&lt;tr&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R3:C1&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R3:C2&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R3:C3&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R3:C4&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&lt;/tr&gt;<br/>
+            &nbsp;&nbsp;&lt;tr&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R4:C1&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R4:C2&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R4:C3&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R4:C4&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&lt;/tr&gt;<br/>
+            &lt;/table&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <table class="table-fixed">
+            <tr>
+              <th>H1</th>
+              <th>H2</th>
+              <th>H3</th>
+              <th>H4</th>
+            </tr>
+            <tr>
+              <td>R1:C1</td>
+              <td>R1:C2</td>
+              <td>R1:C3</td>
+              <td>R1:C4</td>
+            </tr>
+            <tr>
+              <td>R2:C1</td>
+              <td>R3:C2 - Texten skall inte expanderas</td>
+              <td>R2:C3</td>
+              <td>R2:C4</td>
+            </tr>
+            <tr>
+              <td>R3:C1 - Texten skall expanderas</td>
+              <td>R3:C2</td>
+              <td>R3:C3</td>
+              <td>R3:C4</td>
+            </tr>
+            <tr>
+              <td>R4:C1</td>
+              <td>R4:C2</td>
+              <td>R4:C3</td>
+              <td>R4:C4</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Exempel - Auto (och stylad)</h3>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            table.table-auto {<br/>
+            &nbsp;&nbsp;table-layout: auto;<br/>
+            &nbsp;&nbsp;border-collapse: collapse;<br/>
+            &nbsp;&nbsp;text-align: left;<br/>
+            &nbsp;&nbsp;border: 1px solid #555;<br/>
+            &nbsp;&nbsp;padding: 8px;<br/>
+            }<br/><br/>
+            table.table-auto tr {<br/>
+            &nbsp;&nbsp;height: 30px;<br/>
+            }<br/><br/>
+            table.table-auto tr:first-child {<br/>
+            &nbsp;&nbsp;vertical-align: bottom;<br/>
+            }<br/><br/>
+            table.table-auto tr:nth-child(even) {<br/>
+            &nbsp;&nbsp;background: #eee;<br/>
+            }<br/><br/>
+            table.table-auto th,<br/>
+            table.table-auto td {<br/>
+            &nbsp;&nbsp;padding: 0 8px 0 8px;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;table class="table-auto"&gt;<br/>
+            &nbsp;&nbsp;&lt;tr&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;H1&lt;/th&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;H2&lt;/th&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;H3&lt;/th&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;H4&lt;/th&gt;<br/>
+            &nbsp;&nbsp;&lt;/tr&gt;<br/>
+            &nbsp;&nbsp;&lt;tr&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R1:C1&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R1:C2&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R1:C3&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R1:C4&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&lt;/tr&gt;<br/>
+            &nbsp;&nbsp;&lt;tr&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R2:C1&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R2:C2&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R2:C3&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R2:C4&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&lt;/tr&gt;<br/>
+            &nbsp;&nbsp;&lt;tr&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R3:C1&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R3:C2&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R3:C3&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R3:C4&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&lt;/tr&gt;<br/>
+            &nbsp;&nbsp;&lt;tr&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R4:C1&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R4:C2&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R4:C3&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R4:C4&lt;/td&gt;<br/>
+            &nbsp;&nbsp;&lt;/tr&gt;<br/>
+            &lt;/table&gt;
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <table class="table-auto">
+            <tr>
+              <th>H1</th>
+              <th>H2</th>
+              <th>H3</th>
+              <th>H4</th>
+            </tr>
+            <tr>
+              <td>R1:C1</td>
+              <td>R1:C2</td>
+              <td>R1:C3</td>
+              <td>R1:C4</td>
+            </tr>
+            <tr>
+              <td>R2:C1</td>
+              <td>R3:C2 - Texten skall expanderas</td>
+              <td>R2:C3</td>
+              <td>R2:C4</td>
+            </tr>
+            <tr>
+              <td>R3:C1 - Texten skall expanderas</td>
+              <td>R3:C2</td>
+              <td>R3:C3</td>
+              <td>R3:C4</td>
+            </tr>
+            <tr>
+              <td>R4:C1</td>
+              <td>R4:C2</td>
+              <td>R4:C3</td>
+              <td>R4:C4</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="section references">
+        <h3>Referenser (läs vidare)</h3>
+        <a href="https://www.w3schools.com/css/css_table.asp">https://www.w3schools.com/css/css_table.asp</a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout">https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout</a>
+        <a href="https://www.w3schools.com/cssref/pr_tab_table-layout.asp">https://www.w3schools.com/cssref/pr_tab_table-layout.asp</a>
+        <a href="https://www.w3schools.com/html/html_tables.asp">https://www.w3schools.com/html/html_tables.asp</a>
+      </div>
+
+      <h2 id="forms">Formulär</h2>
+      <p>
+        Formulär består huvudsakligen av själva formuläret <em>&lt;form&gt;</em>, inmatningsfält <em>&lt;input&gt;</em>, textareor <em>&lt;textarea&gt;</em>, fältuppsättning <em>&lt;fieldset&gt;</em>, kort beskrivande översikt <em>&lt;legend&gt;</em> samt flera (vilka alla går att justera för rätt stil).
+      </p>
+
+      <div class="section">
+        <h3>Attribut selektorer</h3>
+        <div>
+          Det går via attributselektorer ange vilken typ av inmatningsfält <em>&lt;input&gt;</em> man vill styla.
+        </div>
+      </div>
+
+      <div class="section">
+        <h4>input[type=text]</h4>
+        <div>
+          Ger möjlighet att styla inmatningsfält av typen text.
+        </div>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            input[type="text"] {<br/>
+              &nbsp;&nbsp;width: 100%;<br/>
+              &nbsp;&nbsp;border: padding 8px;<br/>
+              &nbsp;&nbsp;border: 1px solid #888;<br/>
+              &nbsp;&nbsp;border-radius: 4px;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;input class="input-styled" type="text" placeholder="Stylat inmatningsfält"&gt;<br/>
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <input class="input-styled" type="text" placeholder="Stylat inmatningsfält">
+        </div>
+      </div>
+
+
+      <div class="section">
+        <h3>Exempel: på ett stylat formulär (och dess innehåll)</h3>
+
+        <pre>
+          <span>CSS</span>
+          <code>
+            form.form-styled {<br/>
+            &nbsp;&nbsp;display: flex;<br/>
+            &nbsp;&nbsp;flex-direction: column;<br/>
+            &nbsp;&nbsp;border: 1px solid #888;<br/>
+            &nbsp;&nbsp;background: whitesmoke;<br/>
+            &nbsp;&nbsp;padding: 8px;<br/>
+            &nbsp;&nbsp;border-radius: 2px;<br/>
+            &nbsp;&nbsp;width: 480px;<br/>
+            }<br/><br/>
+            form.form-styled input[type="email"],<br/>
+            form.form-styled input[type="password"] {<br/>
+            &nbsp;&nbsp;width: 100%;<br/>
+            &nbsp;&nbsp;padding: 8px;<br/>
+            &nbsp;&nbsp;border: 1px solid #888;<br/>
+            &nbsp;&nbsp;border-radius: 4px;<br/>
+            }<br/><br/>
+            form.form-styled input[type="submit"] {<br/>
+            &nbsp;&nbsp;width: 100px;<br/>
+            &nbsp;&nbsp;padding: 4px;<br/>
+            &nbsp;&nbsp;border: 1px solid #888;<br/>
+            &nbsp;&nbsp;border-radius: 4px;<br/>
+            }<br/><br/>
+            form.form-styled label {<br/>
+            &nbsp;&nbsp;display: block;<br/>
+            &nbsp;&nbsp;margin: 12px 0 4px 1px;<br/>
+            &nbsp;&nbsp;font-size: 14px;<br/>
+            &nbsp;&nbsp;font-weight: bold;<br/>
+            &nbsp;&nbsp;color: #555;<br/>
+            }<br/><br/>
+            form.form-styled legend {<br/>
+            &nbsp;&nbsp;margin: 0 0 8px 0;<br/>
+            &nbsp;&nbsp;text-align: center;<br/>
+            &nbsp;&nbsp;font-size: 22px;<br/>
+            &nbsp;&nbsp;color: #555;<br/>
+            }<br/><br/>
+            form.form-styled fieldset {<br/>
+            &nbsp;&nbsp;background: white;<br/>
+            &nbsp;&nbsp;border-radius: 2px;<br/>
+            &nbsp;&nbsp;border: 1px solid #888;<br/>
+            &nbsp;&nbsp;margin: 0;<br/>
+            }<br/><br/>
+            form.form-styled .button-container {<br/>
+            &nbsp;&nbsp;display: flex;<br/>
+            &nbsp;&nbsp;align-items: center;<br/>
+            &nbsp;&nbsp;justify-content: flex-end;<br/>
+            &nbsp;&nbsp;margin-top: 8px;<br/>
+            }
+          </code>
+        </pre>
+
+        <pre>
+          <span>HTML</span>
+          <code>
+            &lt;form class="form-styled"&gt;<br/>
+            &nbsp;&nbsp;&lt;fieldset&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;legend>Välkommen!&lt;/legend&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="email">Epost&lt;/label&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="email" id="email" name="email" placeholder="Epost"&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="password">Lösenord&lt;/label&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="password" id="password" name="password" placeholder="Lösenord"&gt;<br/>
+            &nbsp;&nbsp;&lt;/fieldset&gt;<br/>
+            &nbsp;&nbsp;&lt;div class="button-container"&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="Logga in"&gt;<br/>
+            &nbsp;&nbsp;&lt;/div&gt;<br/>
+            &lt;/form&gt;<br/>
+          </code>
+        </pre>
+
+        <b>Resultat</b>
+        <div class="demonstration">
+          <form class="form-styled">
+            <fieldset>
+              <legend>Välkommen!</legend>
+              <label for="email">Epost</label>
+              <input type="email" id="email" name="email" placeholder="Epost">
+              <label for="password">Lösenord</label>
+              <input type="password" id="password" name="password" placeholder="Lösenord">
+            </fieldset>
+            <div class="button-container">
+              <input type="submit" value="Logga in">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="section references">
+        <h3>Referenser (läs vidare)</h3>
+        <a href="https://www.w3schools.com/css/css_form.asp">https://www.w3schools.com/css/css_form.asp</a>
+        <a href="https://www.w3schools.com/css/css_attribute_selectors.asp">https://www.w3schools.com/css/css_attribute_selectors.asp</a>
+        <a href="https://www.w3schools.com/tags/tag_input.asp">https://www.w3schools.com/tags/tag_input.asp</a>
+        <a href="https://www.w3schools.com/html/html_forms.asp">https://www.w3schools.com/html/html_forms.asp</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>3.4.2 Bildhantering</title>
+    <script src="../lib/jquery-3.5.0.min.js"></script>
+    <script src="./scripts/canvas.js"></script>
+    <script src="./scripts/image-switch.js"></script>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/common.css"> 
+    <link rel="stylesheet" type="text/css" href="./stylesheets/canvas.css"> 
+    <link rel="stylesheet" type="text/css" href="./stylesheets/image-switch.css"> 
+  </head>
+
+  <body>
+    <h1>3.4.2 Bildhantering</h1>
+    <!--https://www.jqueryscript.net/animation/Basic-Image-Rollover-Effect-with-jQuery-HTML5-Hover-In-Out.html-->
+    <canvas width="320" height="240" id="canvas"></canvas>
+    <br/>
+    <div>
+      <button id="clear-canvas">Rensa</button>
+      <button id="save-canvas">Spara</button>
+    </div>
+
+    <h2>Line</h2>
+    <div class="draw-line-container">
+      <label for="line-color" class="text-align-left grid-span-two">color</label>
+      <label for="line-size" class="text-align-left grid-span-two">size</label>
+      <input id="line-color" class="grid-span-two" type="color" value="#2277AA">
+      <input id="line-size" class="grid-span-two" type="number" value="1">
+
+      <label for="x0">x0</label> <!-- Start point X -->
+      <label for="y0">y0</label> <!-- Start point Y -->
+      <label for="x1">x1</label> <!-- End point X -->
+      <label for="y1">y1</label> <!-- End point Y -->
+      <input id="x0" type="number" value="0">
+      <input id="y0" type="number" value="0">
+      <input id="x1" type="number" value="320">
+      <input id="y1" type="number" value="240">
+      <button id="draw-line-button">Rita</button>
+    </div>
+
+    <h2>Bésier Curve</h2>
+    <div class="draw-bezier-curve-container">
+      <label for="bezier-color" class="text-align-left grid-span-column-3-span-2">color</label>
+      <label for="bezier-size" class="text-align-left grid-span-column-5-span-2">size</label>
+      <input id="bezier-color" class="grid-span-column-3-span-2" type="color" value="#55AA55">
+      <input id="bezier-size" class="grid-span-column-5-span-2" type="number" value="1">
+      <div class="grid-span-two"></div> <!-- dummy fill -->
+
+      <label for="sx">sx</label> <!-- Start X -->
+      <label for="sy">sy</label>   <!-- Start Y -->
+      <label for="bx0">bx1</label> <!-- First Bézier curve point X -->
+      <label for="by0">by1</label> <!-- First Bézier curve point Y -->
+      <label for="bx1">bx1</label> <!-- Second Bézier curve point X -->
+      <label for="by1">by1</label> <!-- Second Bézier curve point X -->
+      <label for="ex">ex</label>   <!-- End Y -->
+      <label for="ey">ey</label>   <!-- End Y -->
+      <input id="sx"  type="number" value="0">
+      <input id="sy"  type="number" value="0">
+      <input id="bx0" type="number" value="80">
+      <input id="by0" type="number" value="320">
+      <input id="bx1" type="number" value="240">
+      <input id="by1" type="number" value="320">
+      <input id="ex"  type="number" value="320">
+      <input id="ey"  type="number" value="0">
+      <button id="draw-besier-curve-button">Rita</button>
+    </div>
+
+    <h2>Former</h2>
+    <div class="draw-shape-container">
+      <label id="shape-label" for="shape-select">Form</label>
+      <select id="shape-select">
+        <optgroup label="Former">
+          <option value="rectangle">Rektangel</option>
+          <option value="triangle">Triangel</option>
+          <option value="circle">Cirkel</option>
+        </optgroup>
+      </select>
+
+      <label for="shape-x">x</label>
+      <label for="shape-y">y</label>
+      <label for="shape-w">w</label>
+      <label for="shape-h">h</label>
+      <label for="shape-h">color</label>
+      <input type="number" id="shape-x" value="0">
+      <input type="number" id="shape-y" value="0">
+      <input type="number" id="shape-w" value="100">
+      <input type="number" id="shape-h" value="100">
+      <input type="color" id="shape-color" value="#880088">
+
+      <button id="draw-shape-button">Rita</button>
+    </div>
+
+    <h2>Mönster</h2>
+    <div class="draw-pattern-container">
+      <button id="draw-pattern-button">Rita</button>
+    </div>
+
+    <h2>Gradiant</h2>
+    <div class="draw-gradient-container">
+      <label for="gradient-color-1">Färg 1</label>
+      <label for="gradient-color-2">Färg 2</label>
+      <label for="gradient-color-3">Färg 3</label>
+      <input type="color" id="gradient-color-1" value="#FF0000">
+      <input type="color" id="gradient-color-2" value="#00FF00">
+      <input type="color" id="gradient-color-3" value="#0000FF">
+      <button id="draw-gradient-button">Rita</button>
+    </div>
+
+    <h2>Text</h2>
+    <div class="draw-text-container">
+      <label for="font">font</label>
+      <label for="font-size">size</label>
+      <label for="font-color">color</label>
+
+      <input id="font" value="Arial">
+      <input id="font-size" value="40">
+      <input id="font-color" type="color" value="#880088">
+
+      <label for="shadow-color" class="text-align-left">shadow color</label>
+      <label for="shadow-blur" class="text-align-left">shadow blur</label>
+      <label for="global-alpha" class="text-align-left">transparency</label>
+      <input id="shadow-color" type="color" value="#555555">
+      <input id="shadow-blur" type="number" value="18">
+      <input id="global-alpha" type="number" min="0" max="1" value="0.75">
+
+      <label class="align-left" for="text">text</label>
+      <input id="text" value="Hello World">
+
+      <button id="draw-text-button">Rita</button>
+    </div>
+
+    <h2>Bitmap</h2>
+    <div class="bitmap-container">
+      <label for="bitmap-x">x</label>
+      <label for="bitmap-y">y</label>
+      <label for="bitmap-w">w</label>
+      <label for="bitmap-h">h</label>
+      <input type="number" id="bitmap-x" value="0">
+      <input type="number" id="bitmap-y" value="0">
+      <input type="number" id="bitmap-w" value="140">
+      <input type="number" id="bitmap-h" value="120">
+      <button id="draw-bitmap-button">Rita</button>
+    </div>
+    <div class="bitmap-load-file">
+      <span><b>Bitmap (bild)</b></span>
+      <span id="bitmap-load-file-name"></span>
+      <button id="bitmap-load-file-button">Byt bild</button>
+    </div>
+
+    <h2>Bildbyte vid rollover</h2>
+    <div id="bitmap-placeholder">
+      <!--
+        As W3 validator do not accept img elements without some required
+        attributes like "src" this element will be injected through code
+        after the images have been preloaded
+      -->
+    </div>
+  </body>
+</html>

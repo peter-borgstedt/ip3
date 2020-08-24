@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>1.3 Semantiska element för text</title>
+  </head>
+  
+  <body>
+    <h1>1.3 Semantiska element för text</h1>
+
+    <section>
+      <h2>&lt;mark&gt;</h2>
+      <p>
+        Etiketten <b>&lt;mark&gt;</b> definierar markerad text. Använd taggen <b>&lt;mark&gt;</b> om du vill markera delar av din text.
+      </p>
+      <h3>Exempel</h3>
+      <p>
+        Genom att definiera mark-etiketten så markeras texten innanför elementet enligt följande &lt;mark&gt;text som nu markeras&lt;/mark&gt;.
+      </p>
+
+      <h3>Demo</h3>
+      <p>
+        Genom att definiera mark-etiketten så markeras texten innanför elementet enligt följande <mark>text som nu markeras</mark>.
+      </p>
+    </section>
+
+    <section>
+      <h2>&lt;time&gt; och attributet datetime</h2>
+      <p>
+        Elementet <b>&lt;time&gt;</b> är avsett för program att läsa av för att enklare omvandla värdet till ett tidsformat än om det vore text.
+        Attributet <b>datetime</b> används för att  översätta tiden till ett maskinläsbart format så att webbläsare kan exempelvis erbjuda datum-påminnelser via användarens kalender, och sökmotorer kan lättare producera smartare sökresultat med mera.
+      </p>
+
+      <h3>Exempel</h3>
+      <h4>Datum</h4>
+      <p>&lt;time datetime="1982"&gt;Året 1982&lt;/time&gt;</p>
+      <p>&lt;time datetime="1982-02"&gt;Februari året 1982&lt;/time&gt;</p>
+      <p>&lt;time datetime="1982-02-17"&gt;Februari 17:e året 1982&lt;/time&gt;</p>
+      <p>&lt;time datetime="02-17"&gt;Februari 17:e vilket år som helst&lt;/time&gt;</p>
+      <p>&lt;time datetime="1982-W20"&gt;Februari vecka 20&lt;/time&gt;</p>
+
+      <h4>Tid och datum</h4>
+      <p>&lt;time datetime="2020-01-01T00:00"&gt;Tolvslaget&lt;/time&gt;</p>
+      <p>Sist jag var ute och &lt;time datetime="2005-06-25 15:15"&gt;fiskade&lt;/time&gt; var det en solig sommardag.</p>
+          
+      <h4>Tid</h4>
+      <p>Klockan var &lt;time>12.30&lt;/time&gt; när blogginlägget skapades.</p>
+      <p>&lt;time datetime="08:00+02:00"&gt;Kl 08.00 UTC+2&lt;/time&gt;</p>
+
+      <h4>Varaktighet</h4>
+      <p>&lt;time datetime="P2D"&gt;Varaktighet på 2 dagar&lt;/time&gt;</p>
+
+      <h3>Demo</h3>
+      <em>Notera att inget kommer att renderas av browsern!</em>
+      <p><time datetime="1982">Året 1982</time>
+    </section>
+
+    <section>
+      <h2>&lt;wbr&gt;</h2>
+      <p>
+        Taggen <wbr> (<em>Word Break Opportunity</em>) anger var det i en text skulle vara lämpligt att lägga till en radbrytning.
+        Bör användas när ett ord är för långt som hint till webbläsaren att bryta raden på en specifik plats när innehållet inte ryms.
+      </p>
+      <h3>Exempel</h3> 
+      <p>
+        MittJätteLångaOrdSomAldrigVerkarTaSlutMenSomKanRadBrytas<b>&lt;wbr&gt;</b>GenomAttLäggaTillTaggenWbrVilketGörTricket.<br/>
+     </p>
+      <h3>Demo</h3> 
+       <p>
+        MittJätteLångaOrdSomAldrigVerkarTaSlutMenSomKanRadBrytas<wbr>GenomAttLäggaTillTaggenWbrVilketGörTricket.<br/>
+      </p>
+    </section>
+
+    <h2>Referenser (vidare läsning)</h2>
+    <ul>
+      <li><a href="https://www.w3schools.com/tags/tag_mark.asp">https://www.w3schools.com/tags/tag_mark.asp</a></li>
+      <li><a href="https://www.w3schools.com/tags/tag_time.asp">https://www.w3schools.com/tags/tag_time.asp</a></li>
+      <li><a href="https://www.w3schools.com/tags/att_time_datetime.asp">https://www.w3schools.com/tags/att_time_datetime.asp</a></li>
+      <li><a href="https://www.w3schools.com/tags/tag_wbr.asp">https://www.w3schools.com/tags/tag_wbr.asp</a></li>
+    </ul>
+  </body>
+</html>

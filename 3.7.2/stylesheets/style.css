@@ -1,0 +1,39 @@
+html, body {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 100;
+  font-size: 20px;
+  background: black;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.fake-input-char {
+  padding-left: 2px;
+}
+
+.cursor {
+  position: relative;
+  animation: 1s blink step-end infinite;
+  padding-bottom: 24px;
+  font-size: 24px;
+}
+
+.cursor::after {
+  content: '|';
+  position: absolute;
+  left: 8px;
+}
+
+@keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% { /* 0.5s */
+    color: white;
+  }
+}

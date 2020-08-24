@@ -1,0 +1,57 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.unit-xx-small,
+.unit-x-small,
+.unit-small,
+.unit-medium,
+.unit-large,
+.unit-x-large,
+.unit-xx-large {
+  margin: 8px;
+  padding: 4px;
+  background-color: #eee;
+  border: solid 1px #ccc; 
+}
+
+.unit-xx-small {
+  font-size: xx-small;
+}
+
+.unit-x-small {
+  font-size: x-small;
+}
+
+.unit-small {
+  font-size: small;
+}
+
+.unit-medium {
+  font-size: medium;
+}
+
+.unit-large {
+  font-size: large;
+}
+
+.unit-x-large {
+  font-size: x-large;
+}
+
+.unit-xx-large {
+  font-size: xx-large;
+}
+
+.font-family-with-fallback {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-and-color-property {
+  font: italic bold 18px Arial, sans-serif;
+  color: brown;
+}
+
+.list-style-property {
+  list-style: square inside;
+}

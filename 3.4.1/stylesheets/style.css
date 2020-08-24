@@ -1,0 +1,73 @@
+html, body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 125px 125px 125px;
+  grid-template-rows: max-content max-content;
+  gap: 8px;
+}
+
+body > div {
+  margin-top: 24px;
+}
+
+.hello-world {
+  grid-column: span 3;
+  background: plum;
+  padding: 8px;
+  text-align: center;
+  font-size: 20px;
+}
+
+/**
+ * Notice! We could use the id #animate here, but that will introduce an issue
+ * as styling properties using an id has a higher priority than styling properties
+ * using a class, which means we need to either set the CSS explicitly on the
+ * element (which has higher priority than the styling properties using id) or set
+ * the properties in the class as !important to have any effect. However using a
+ * class instead allow us to override properties later with other classes.
+ */
+.animate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  font-size: 18px;
+  background: lavenderblush;
+  border: 2px solid darkcyan;
+  cursor: pointer;
+}
+
+.do-animate {
+  font-size: 32px;
+  font-weight: bold;
+  transform: rotate(90deg);
+  animation: rotate 2s ease;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(90deg);
+    background: lightpink;
+  }
+  50% {
+    transform: rotate(90deg);
+    background: paleturquoise;
+  }
+  85% {
+    background: paleturquoise;
+  }
+  100% {
+    transform: rotate(1440deg);
+  }
+}

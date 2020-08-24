@@ -1,0 +1,125 @@
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content {
+  width: 75%;
+}
+
+.content-item:not(:first-child) {
+  margin-top: 8px;
+}
+
+/** Color hover */
+.color-hover {
+  background-color: #eee;
+  border: 1px dashed gray;
+  padding: 8px;
+}
+
+/** Blog */
+.form {
+  padding: 8px;
+  background-color: lightsteelblue;
+  border: 1px solid steelblue;
+}
+
+textarea, input[type=text] {
+  font-size: 16px;
+  border: 1px solid steelblue;
+  padding: 0 0 0 2px;
+  margin: 0;
+  outline: none;
+  resize: none;
+}
+
+textarea {
+  height: 50px;
+}
+
+/** Blog: post highlighting */
+.post-highlight-button {
+  vertical-align: middle;
+  font-size: 20px;
+  line-height: 14px;
+  color: gray;
+}
+
+.post-highlight-button-active {
+  color: red;
+}
+
+/** Blog: posts */
+.posts-empty {
+  text-align: center;
+  font-style: italic;
+  margin: 8px 0;
+}
+
+.posts > .post {
+  margin: 0 0 8px 0;
+}
+
+.post {
+  padding: 8px;
+  border: 1px solid #ccc;
+  background-color: whitesmoke;
+}
+
+.post-section:not(:last-child) {
+  margin: 0 0 8px 0;
+}
+
+.post-header {
+  font-weight: bold;
+}
+
+/** Generic classes for combinations */
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-right:not(:first-child) {
+  margin-left: 8px;
+}
+
+.float-clear {
+  clear: both;
+}
+
+.section {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.section > *:not(:last-child) {
+  margin: 0 0 8px 0;
+}
+
+.section-element {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+fieldset {
+  border: none;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

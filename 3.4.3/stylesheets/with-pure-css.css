@@ -1,0 +1,84 @@
+* {
+  /* https://www.w3schools.com/css/css3_box-sizing.asp */
+  box-sizing: border-box; /* We want box sizing on all elements */
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(255, 246, 224);
+  height: 100vh;
+  width: 100vw;
+}
+
+#container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#menus {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  height: 50px;
+  background: rgb(255, 246, 224);
+  border-bottom: 10px solid salmon;
+}
+
+.menu {
+  position: relative;
+  height: 50%;
+  padding: 10px 20px 20px 20px;
+  background: #fa8072;
+  transition: padding 0.1s ease-in-out;
+  margin-left: 10px;
+}
+
+.menu:first-child {
+  margin-left: 25px;
+}
+
+.menu:hover {
+  height: 100%;
+}
+
+.items {
+  display: none;
+  position: absolute;
+  min-width: max-content;
+  top: 100%;
+  left: 0;
+  background-color: saddlebrown;
+  border-top: 10px solid salmon;
+}
+
+.items a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.1s linear;
+}
+
+.items a:hover {
+  background-color: salmon;
+}
+
+.menu:hover .items {
+  display: block;
+}
+
+#content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  background: white;
+  border-top: 10px solid saddlebrown;
+}

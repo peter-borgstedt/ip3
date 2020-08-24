@@ -1,0 +1,55 @@
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 1.2em;
+  }
+
+  h1, h2 {
+    margin: 0 0 0.5em 0;
+  }
+  
+  h1 {
+    font-size: 1.4em;
+  }
+  
+  h2 {
+    font-size: 1.2em;
+  }
+
+  p {
+    margin: 0 0 1.5em 0;
+  }
+
+  nav {
+    flex-direction: column;
+/*    background: rgb(254, 255, 250); */
+    height: initial;
+  }
+
+  nav > a {
+    order: 1;
+    padding: 0.5em 0 0.5em 0;
+    margin: 0;
+    color: white;
+    font-size: 1.1em;
+    flex-wrap: wrap;
+  }
+
+  .header {
+    order: 0;
+    align-self: initial;
+    line-height: 50px;
+    vertical-align: middle;
+    font-size: 1.5em;
+    text-align: center;
+    background: #454C56;
+    margin: 0;
+  }
+
+  nav > * {
+    display: block;
+  }
+
+  .columns {
+    column-count: 1;
+  }
+}

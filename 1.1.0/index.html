@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>1.1 Grunderna i HTML5</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Grunderna i HTML5</h1>
+    </header>
+
+    <nav>
+      <h2>Innehåll</h2>
+      <b>Begrepp</b>
+      <ul>
+        <li>1.1 <a href="#doctype">Doctype</a></li>
+        <li>1.2 <a href="#character-encoding">Teckenkod</a></li>
+        <li>1.3 <a href="#language">Språk</a></li>
+        <li>1.4 <a href="#validation">Validering</a></li>
+        <li>1.5 <a href="#how-is-html-structured">Hur ett HTML-dokument är uppbyggt</a></li>
+      </ul>
+      <b>Exempel</b>
+      <ul>
+        <li>2.1 <a href="#example-structure">Struktur (body, head, html, title)</a></li>
+        <li>2.2 <a href="#example-meta-information">Metainformaton (vanliga meta-taggar)</a></li>
+        <li>2.3 <a href="#example-text">Text (blockquote, h1, h2, h3, h4, h5, h6, p, pre, span)</a></li>
+        <li>2.4 <a href="#example-hypertext">Hypertext (a)</a></li>
+        <li>2.5 <a href="#example-list">Oordnad, ordnad och beskriven lista</a></li>
+        <li>2.6 <a href="#example-table">Tabell (table, th, tr, td, caption)</a></li>
+        <li>2.7 <a href="#example-image">Bild (img)</a></li>
+        <li>2.8 <a href="#example-image-map">Bildkartor (area, map)</a></li>
+      </ul>
+    </nav>
+
+    <h2>Begrepp</h2>
+    <p><em>Denna del förklar vanligt förekommande begrepp inom HTML5.</em></p>
+
+    <section>
+      <h3 id="doctype">1.1 Doctype</h3>
+      <p>
+        En dokumenttypdeklaration, eller DOCTYPE, är en instruktion som associerar ett visst XML- eller SGML-dokument (exempel en webbsida).
+      </p>
+      <p>
+        <em>
+          Deklarationen &lt;!DOCTYPE&gt; måste vara det allra första i HTML-dokumentet innan &lt;html&gt; -taggen.<br/>
+          Deklarationen &lt;!DOCTYPE&gt; är inte en HTML-tagg; det är en instruktion till webbläsaren om vilken version av HTML sidan är skriven i.
+        </em>
+      </p>
+      <p>
+        I HTML 4.01 hänvisar deklarationen &lt;!DOCTYPE&gt; till en <a href="https://en.wikipedia.org/wiki/Document_type_declaration">DTD</a>. eftersom HTML 4.01 baserades på SGML. DTD anger reglerna för markeringsspråket så att webbläsarna visar innehållet korrekt.<br/>
+        HTML5 är inte baserat på SGML och kräver ingen hänvisning till en DTD därmed är DOCTYPE-deklaration mycket kortare, allt som behövs är taggnamnet på rot-elementet i dokumentet; <em>HTML</em>.
+      </p>
+
+      <h4>Exempel</h4>
+      <code>
+        &lt;DOCTYPE html&gt;<br/>
+        <br/>
+        &lt;html lang="sv"&gt;<br/>
+        &nbsp;&nbsp;...<br/>
+        &lt;/html&gt;
+      </code>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.w3schools.com/tags/tag_doctype.asp">https://www.w3schools.com/tags/tag_doctype.asp</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Document_type_declaration">https://en.wikipedia.org/wiki/Document_type_declaration</a></li>
+        <li><a href="https://www.htmlquick.com/tutorials/document-structure.html">https://www.htmlquick.com/tutorials/document-structure.html</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 id="character-encoding">1.2 Teckenkod</h3>
+      <p>
+        Teckenkodning anger storleken på tecken och är en "uppslagningstabell" som skall användas för att slå upp en symbol, varje tecken (unicode) är numerisk som representerar en symbol i tabellen.<br/>        
+        Teckenkodningen ASCII har en teckenstorlek på 7-bitar medan en utökad modell Latin 1 och ISO 8859-1 är på 8bitar (1kb) per tecken vilket ger en tabell med max 256 olika tecken. UTF-8 är multibyte och kan vara antingen 1-6kb (8-21 bitar) och ger en potentiell till 2,164,864 symboler.
+      </p>
+      <p>
+        Rekommendation är att använda minst UTF-8 som teckenkodning på en websida.
+      </p>
+      <p>
+        Teckenkodningen anges med ett meta-element och attributet <b>charset</b>, den skall alltid ligga under head-elementet.
+      </p>
+
+      <h4>Exempel</h4>
+      <code>
+        &lt;meta&gt;<br/>
+        &nbsp;&nbsp;&lt;meta charset="utf-8"/&gt;<br/>
+        &lt;/meta&gt;
+      </code>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.w3schools.com/tags/tag_meta.asp">https://www.w3schools.com/tags/tag_meta.asp</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 id="language">1.3 Språk</h3>
+      <p>
+        Attributet <b>lang</b> som sätts på rot-elementet <b>&lt;html&gt;</b> -taggen kan användas för att deklarera språket på en webbsida eller en del av en webbsida. Detta är avsett till att hjälpa sökmotorer och webbläsare.<br/>
+        Enligt W3C-rekommendationen bör du förklara det primära språket för varje webbsida med attributet lang inuti <b>&lt;html&gt;</b> -taggen.
+      </p>
+      <p>
+        ISO 639-1 definierar förkortningar för språk, i HTML och XHTML kan de användas som värden i attributen <b>lang</b>.<br/>
+      </p>
+
+      <h4>Exempel</h4>
+      <code>
+        &lt;html lang="sv"&gt;<br/>
+        &nbsp;&nbsp;...<br/>
+        &lt;/html&gt;
+      </code>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.w3schools.com/tags/tag_html.asp">https://www.w3schools.com/tags/tag_html.asp</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 id="validation">1.4 Validering</h3>
+      <p>
+        Validering avser att granska information så att den är rätt och följer riktlinjer som satts. W3C är en organisation som arbetar med att utveckla tekniska protokoll, standarder och programvara för webben. Idag finns det ett flertal standarder som W3C har satt, bland annat för 
+        HTML, XHTML och CSS.
+      </p>
+      
+      <blockquote cite="https://sv.wikipedia.org/wiki/W3C_Markup_Validation_Service">
+        <b>W3C Validator</b> är verktyg som tagits fram av <em>World Wide Web Consortium (W3C)</em> för kvalitetssäkring av webbsidor. Att validera en webbsida betyder att man kontrollerar så att sidans HTML- eller XHTML-kod följer reglerna som är definierade i den valda dokumenttypen. Dessa dokumenttyper är rekommendationer för WWW framtagna av W3C.
+      </blockquote>
+
+      <blockquote cite="https://sv.wikipedia.org/wiki/W3C_Markup_Validation_Service">
+        Validerings-processen jämförs ofta med att rättstava en text. Validatorn kollar först vilken dokumenttyp som är vald och kontrollerar sedan att kodens syntax stämmer överens med reglerna som är definierade för denna typ. Om validatorn upptäcker felaktig kod så visas ett varningsmeddelande och ibland även tips för hur man åtgärdar felet.
+      </blockquote>
+
+      <blockquote cite="https://sv.wikipedia.org/wiki/W3C_Markup_Validation_Service">
+        Validering är ett av flera kriterier från W3C gällandes kvalitetssäkring av webbsidor, och verktyget tar inte hänsyn till de övriga kriterierna.
+      </blockquote>
+
+      Se följande <a href="https://validator.w3.org/nu/#textarea">onlineverktyg</a> för att validera html enligt W3C-standard.
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://sv.wikipedia.org/wiki/W3C_Markup_Validation_Service">https://sv.wikipedia.org/wiki/W3C_Markup_Validation_Service</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 id="how-is-html-structured">1.5 Hur ett HTML-dokument är uppbyggt</h3>
+      <p>
+        HTML <em>(hypertext markup language)</em> är utformat för att skapa strukturerade dokument och ge semantisk mening. Ett HTML-dokument är strukturerad hierarkiskt med taggar och det finns en fundamental bas som måste följas.
+      </p>
+
+      <p>
+        Dessa fyra delar är basstrukturen för ett HTML-dokument:
+      </p>
+
+      <ul>
+        <li><a href="#doctype">DOCTYPE-deklarationen &lt;!DOCTYPE html&gt;</a></li>
+        <li><a href="#html">Huvudbehållare &lt;html&gt;</a></li>
+        <li><a href="#head">Huvuddel &lt;head&gt;</a></li> 
+        <li><a href="#body">Kroppsdel &lt;body&gt;</a></li> 
+      </ul>
+
+      <p>
+        Ytterligare detaljer och exempel finns att hitta i ett senare avsnitt som <a href="#example-structure">exemplifierar strukturen.</a>
+      </p>
+
+      <h4>DOCTYPE: &lt;!DOCTYPE html&gt;</h4>
+      <p>
+        Varje HTML-dokument måste börja med en grunddeklaration som identifierar dess typ, detta informerar webbläsarem i förväg vilken typ av dokument de håller på att behandla, vilket gör att de kan justera sina processmekanismer i enlighet.
+      </p>
+
+      <h4>Huvudbehållare: &lt;html&gt;</h4>
+      <p>
+        Huvudbehållaren är en plats där hela dokumentet kommer att falla in. Denna behållare infogas med <b>&lt;html&gt;</b> -taggen, och förutom att fungera som en behållare går det även att definiera vilket standardspråk som skall användas av dokumentet genom det globala attributet lang.
+      </p>
+
+      <h4>Huvuddelen: &lt;head&gt;</h4>
+      <p>
+        Huvudet är en behållare med metadata om dokumentet och kan innehålla följande taggar <em>(klicka på dem för mer detaljer)</em>.
+      <p>
+
+      <ul>
+        <!-- TODO: lägg till länk till beskrivngar nedan -->
+        <li><a href="#head-tag-title">&lt;title&gt;</a> (obligatorisk)
+        <li><a href="#head-tag-meta">&lt;meta&gt;</a></li>
+        <li><a href="#head-tag-style">&lt;style&gt;</a></li>
+        <li><a href="#head-tag-script">&lt;script&gt;</a></li>
+        <li><a href="#head-tag-noscript">&lt;noscript&gt;</a></li>
+        <li><a href="#head-tag-link">&lt;link&gt;</a></li>
+        <li><a href="#head-tag-base">&lt;base&gt;</a></li>
+      </ul>
+
+      <h5>Exempel</h5>
+      <code>
+        &lt;!DOCTYPE html&gt;<br/>
+        <br/>
+        &lt;html lang="sv"&gt;<br/>
+
+        &nbsp;&nbsp;&lt;head&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Min hemsida!&lt;/title&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br/><br/>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;style&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;html {<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; width: 100vw;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; height: 100vh;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/style&gt;<br/><br/>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" type="text/css" href="style.css"&gt;<br/><br/>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;script&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Hej världen!")<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/script&gt;<br/><br/>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="./app.js"&gt;&lt;/script&gt;<br/><br/>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;noscript&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Den här sidan fungerar inte propert utan javascript aktiverad.<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/noscript&gt;<br/><br/>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;base&gt; href="https://www.google.com" target="_blank"&lt;/base&gt;<br/>
+        &nbsp;&nbsp;&lt;/head&gt;<br/><br/>
+        &nbsp;&nbsp;&lt;body&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;...<br/>
+        &nbsp;&nbsp;&lt;/body&gt;<br/>
+        &lt;/html&gt;
+      </code>
+
+      <h4>Kroppsdel: &lt;body&gt;</h4>
+      <p>
+        Taggen definierar dokumentets kropp och omfattar allt innehåll i ett HTML-dokument, t.ex. rubriker, stycken, bilder, hyperlänkar, tabeller, listor etc.
+      </p>
+      <p>
+        Det kan endast finnas en entitet av elementet <b>body</b> i ett HTML-dokument.
+      </p>
+
+      <h5>Exempel</h5>
+      <code>
+        &lt;!DOCTYPE html&gt;<br/>
+        <br/>
+        &lt;html lang="sv"&gt;<br/>
+        &nbsp;&nbsp;&lt;head&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;...<br/>
+        &nbsp;&nbsp;&lt;/head&gt;<br/>
+        <br/>
+        &nbsp;&nbsp;&lt;body&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Hej världen!&lt;/p&gt;<br/>
+        &nbsp;&nbsp;&lt;/body&gt;<br/>
+        &lt;/html&gt;
+      </code>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.htmlquick.com/tutorials/document-structure.html">https://www.htmlquick.com/tutorials/document-structure.html</a></li>
+      </ul>
+    </section>
+
+    <h2>Exempel</h2>
+    <p><i>Denna del ger förklaringar och exempel för de vanligaste HTML-elementen och hur de kan användas.</i></p>
+
+    <hr>
+
+    <section>
+      <h3 id="example-structure">2.1 Struktur</h3>
+      <p>Strukturen för ett HTML dokument består av ett antal sektioner därav vissa är obligatoriska, nedanför ges detaljer och korta exempel på hur ett dokument skall strukturas upp och varför. Se ovan sektion för detaljer om grunderna i <a href="#how-is-html-structured">hur ett HTML-dokument är uppbyggt</a>.</p>
+      <div>
+        <h4>&lt;body&gt;</h4>
+        <p>
+          Elementet <b>&lt;body&gt;</b> definierar dokumentets kropp vilket innefattar allt innehåll som text, hyperlänkar, bilder, tabeller, listor etc.
+        </p>
+        <code>
+          &lt;body&gt;<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;... innehåll...<br/>
+          &lt;/body&gt;
+        </code>
+      </div>
+
+      <div>
+        <h4>&lt;head&gt;</h4>
+        <p>
+          Elementet <b>&lt;head&gt;</b> är en behållare för metadata om dokumentet och innehåller <em>titel</em> för dokumentet (krav), <em>skript</em>, <em>stilar</em>, <em>meta-deklaration</em> med mera.<br/>
+          Sektionen för huvudet är en behållare för metadata och kan bestå av följande element nedan.
+        </p>
+
+        <ul>
+          <li id="head-tag-title">
+            <p>
+              <b>&lt;title&gt; (dokumentets titel)</b><br/>
+              Beskriver kort det ämne som behandlas i dokumentet. Detta är ett obligatoriskt element.
+            </p>
+          </li>
+
+          <li id="head-tag-style">
+            <p>
+              <b>&lt;style&gt; (stildeklarationer)</b><br/>
+              Grupperar stildefinitioner som används för att ställa presentationsattribut för elementen i dokumentet.
+            </p>
+          </li>
+
+          <li id="head-tag-script">
+            <p>
+              <b>&lt;script&gt; (javascript)</b><br/>
+              Infogar logik vilket utökad funktionalitet vid exempelvis interaktion.
+            </p>
+          </li>
+
+          <li id="head-tag-noscript">
+            <p>
+              <b>&lt;noscript&gt; (javascript)</b><br/>
+              Visar innehållet inom taggen för webläsare som inte har eller som stängt av stödet för javascript.
+            </p>
+          </li>
+
+          <li id="head-tag-meta">
+            <p>
+              <b><a href="#example-meta-information">&lt;meta&gt; (metaförklaringar)</a></b><br/>
+              Definierar anpassade attribut och värden.
+            </p>
+          </li>
+
+          <li id="head-tag-link">
+            <p>
+              <b>&lt;link&gt; (relationsinformation)</b><br/>
+              Anger resurser som på något sätt är relaterade till dokumentet.
+            </p>
+          </li>
+
+          <li id="head-tag-base">
+            <p>
+              <b>&lt;base&gt; (relationsinformation)</b><br/>
+              Specificerar bas-url, ett mål för alla relativa webbadresser i ett dokument. Får endast finnas ett av detta element.
+            </p>
+          </li>
+        </ul>
+
+        <code>
+          &lt;head&gt;<br/>
+          &nbsp;&nbsp;... innehåll...<br/>
+          &lt;/head&gt;
+        </code>
+      </div>
+
+      <div>
+        <h4>&lt;html&gt;</h4>
+        <p>
+          Taggen &lt;html&gt; representerar roten i ett HTML-dokument. Taggen är behållaren för alla andra HTML-element (med undantag för &lt;! DOCTYPE&gt;).
+        </p>
+        <p>
+          Man bör alltid inkludera <b>lang</b> attributet i &lt;html&gt; för att hjälpa sökmotorer och webbläsare.
+        </p>
+        <code>
+          &lt;html&gt;<br/>
+          &nbsp;&nbsp;... innehåll...<br/>
+          &lt;/html&gt;
+        </code>
+      </div>
+
+      <div>
+        <h4>&lt;title&gt;</h4>
+        <p>
+          Taggen &lt;title&gt; krävs i alla HTML-dokument och den definierar dokumentets titel.<br/>
+          Elementet kommer definiera en titel i webbläsaren och i verktygsfältet när den läggs till som favoriter, titeln visas även vid sökmotorresultat, taggen definieras alltid inne i &lt;head&gt; -elementet.
+        </p>
+
+        <code>
+          &lt;head&gt;<br/>
+          &nbsp;&nbsp;&lt;title&gt;Titel på min websida&lt;/title&gt;<br/>
+          &lt;/head&gt;
+        </code>
+      </div>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.w3schools.com/tags/tag_base.asp">https://www.w3schools.com/tags/tag_base.asp</a></li>
+        <li><a href="https://www.w3schools.com/html/html_head.asp">https://www.w3schools.com/html/html_head.asp</a></li>
+        <li><a href="https://www.w3schools.com/js/js_whereto.asp">https://www.w3schools.com/js/js_whereto.asp</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 id="example-meta-information">2.2 Metainformation</h3>
+      <div>
+        <h4>&lt;meta&gt;</h4>
+        <p>
+          Metadata är data (information) om data.
+          Taggen <b>&lt;meta&gt;</b> ger metadata om HTML-dokumentet. Metadata kommer inte att visas på sidan, men kommer att kunna tolkas (parsas) av maskiner.
+          Meta-element används vanligtvis för att specificera sidbeskrivning, nyckelord, dokumentets författare, senast uppdatering etc.
+          Metadata användas av webbläsaren också för att exempelvis veta hur innehållet skall visas upp och även sökmotorer och andra webbtjänster nyttjar datat.
+        </p>
+
+        <h5>Referenser (vidare läsning)</h5>
+        <ul>
+          <li><a href="https://www.w3schools.com/tags/tag_meta.asp">www.w3schools.com</a></li>
+          <li><a href="https://www.metatags.org/all-meta-tags-overview">www.metatags.org</a></li>
+        </ul>
+
+        <h5>Exempel</h5>
+        <code>
+          &lt;head&gt;<br/>
+          &nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br/>
+          &nbsp;&nbsp;&lt;meta name="author" content="Peter Borgstedt"&gt;<br/>
+          &lt;/head&gt;
+        </code>
+
+        <dl>
+          <dt><b>Meta namn: author</b></dt>
+          <dd>
+            <p>
+              Meta-namnet <b>author</b> används för att signera författaren d.v.s. skaparen av websidan, det kan vara exempelvis namn på en eller fler individer eller ett företag.
+            </p>
+            <code>
+              &lt;head&gt;<br/>
+              &nbsp;&nbsp;&lt;meta name="author" content="Peter Borgstedt"&gt;<br/>
+              &lt;/head&gt;
+            </code>
+            <br/><br/>
+          </dd>
+
+          <dt><b>Meta namn: description</b></dt>
+          <dd>
+            <p>
+              Meta-namnet <b>description</b> används för att sammanfatta i text din webbsida. Sökmotorer visar vanligtvis metabeskrivningen i sökresultaten under din titel-tagg.
+            </p>
+            <code>
+              &lt;head&gt;<br/>
+              &nbsp;&nbsp;&lt;meta name="description" content="En sida med rik information om härliga medelhavsrätter"&gt;<br/>
+              &lt;/head&gt;
+            </code>
+            <br/><br/>
+          </dd>
+
+          <dt><b>Meta namn: generator</b></dt>
+          <dd>
+            <p>
+              Meta-namnet <b>generator</b> används för att ange namnet på det program som användes för att skapa/generera websidan. Detta berör oftast redigeringsvertkyg som <a href="https://sv.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a> och anges sällan för "handskrivna sidor".
+            </p>
+            <code>
+              &lt;head&gt;<br/>
+              &nbsp;&nbsp;&lt;meta name="generator" content="FrontPage 4.0"&gt;<br/>
+              &lt;/head&gt;
+            </code>
+            <br/><br/>
+          </dd>
+
+          <dt><b>Meta namn: keywords</b></dt>
+          <dd>
+            <p>
+              Meta-namnet <b>keywords</b> används inte längre och är <a href="https://support.seomanager.com/article/30-keywords-meta-field-is-no-longer-used-by-google">föråldrad</a>, den är inte längre en del av <a href="https://sv.wikipedia.org/wiki/S%C3%B6kmotoroptimering">SEO</a>. Tidigare användes denna för att specificera nyckelord som beskriver innehållet på websidan för att <a href="https://sv.wikipedia.org/wiki/Spindel_(internet)">spindlar</a> (a.k.a. spiders eller web crawlers) och dess sökmotor lättare skall kunna kategorisiera och ranka websidans innehåll. Nycklarna anges som en kommaseparerad lista med ord som beskriver innehållet på sidan.
+            </p>
+
+            <code>
+              &lt;head&gt;<br/>
+              &nbsp;&nbsp;&lt;meta name="keywords" content="medelhav, paella, fisk, rätter, mat, vin, dryck"&gt;<br/>
+              &lt;/head&gt;
+            </code>
+            <br/><br/>
+          </dd>
+
+          <dt><b>Meta namn: robot</b></dt>
+          <dd>
+            <p>
+              Meta-namnet <b>robot</b> används för att informera <a href="https://sv.wikipedia.org/wiki/Spindel_(internet)">spindlar</a> (web crawlers) och dess sökmotor hur de skall indexera webbsidan, exempelvis indexera endast första sidan. Genom att använda exempelvis <b>"noindex"</b> och <b>nofollow</b> så kommer indexering av sidan att ignoreras och därmed kommer den inte dyka upp i några sökresultat.
+            </p>
+
+            <p>Följande värden kan sättas:</p>
+            <ul>
+              <li>index (<i>sökroboten indexerar hela webbsidan</i>)</li>
+              <li>noindex (<i>sökroboten kommer INTE att indexera webbsidan</i>)</li>
+              <li>follow (<i>sökroboten följer alla länkarna på webbsidan</i>)</li>
+              <li>nofollow (<i>sökroboten följer INTE sidan och eventuella länkar som finns på sidan</i>)</li>
+              <li>noimageindex (<i>sökroboten kommer INTE indexera bilder på sidan</i>)</li>
+              <li>noarchive (<i>förhindrar att sökmotorerna visar en cache-lagrad kopia av sida i deras sökresultatlistor</i>)</li>
+              <li>nocache (<i>samma som noarchive men används endast av MSN/Live</i>)</li>
+              <li>nosnippet (<i>förhindrar att sökmotorerna visar en cache-kopia, text- eller videobitar från sidan i sökresultaten</i>)</li>
+              <li>notranslate (<i>förhindrar sökmotorer från att visa översättningar av sidan i sina sökresultat</i>)</li>
+              <li>noyaca (<i>förhindrar att sökresultatutdraget använder sidbeskrivningen från Yandex-katalogen</i>)</li>
+            </ul>
+
+            <code>
+              &lt;head&gt;<br/>
+              &nbsp;&nbsp;&lt;meta name="robots" content="noindex"&gt;<br/>
+              &nbsp;&nbsp;&lt;meta name="googlebot" content="noindex"&gt;<br/>
+              &lt;/head&gt;
+            </code>
+            <br/><br/>
+          </dd>
+
+          <dt><b>Meta attributet: http-equiv</b></dt>
+          <dd>
+            <p>
+              Meta-attributet <b>http-equiv</b> används i huvudsak för att simulera ett HTTP-svarshuvud (response header). Därför kan http-equiv-attributet användas inom ett meta-element för att definiera vissa inställningar som annars skulle kräva användning av ett HTTP-svarshuvud.
+            </p>
+
+            <code>
+              &lt;head&gt;<br/>
+              &nbsp;&nbsp;&lt;meta http-equiv="content-type" content="text/html; charset=UTF-8"&gt;<br/>
+              &lt;/head&gt;
+            </code>
+
+            <h6>Referenser (vidare läsning)</h6>
+            <a href="https://www.keycdn.com/support/http-equiv">https://www.keycdn.com/support/http-equiv</a>
+          </dd>
+        </dl>
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 id="example-text">2.3 Text</h3>
+      <div>
+        <h4>&lt;blockquote&gt;</h4>
+        <p>Avses att brukas vid angivelse av ett citat.</p>
+
+        <h5>Exempel</h5>
+        <code>
+          &lt;blockquote cite="https://www.quotes.com/important-quote"&gt;<br/>
+          &nbsp;&nbsp;Enligt implicita bestämmelser måste olivoljan i en medelhavsrätt vara av extra-virgin för att resultatet skall bli bra!<br/>
+          &lt;/blockquote&gt;
+        </code>
+
+        <h5>Demo</h5>
+        <div>
+          <blockquote cite="https://www.quotes.com/important-quote">
+            Enligt implicita bestämmelser måste olivoljan i en medelhavsrätt vara av extra-virgin för att resultatet skall bli bra!
+          </blockquote>
+        </div>
+      </div>
+
+      <div>
+        <h4>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;</h4>
+        <p>
+          Headers och dess storlekar. En header anger dess hierarkiska position i en struktur, H1 bör finnas högst upp i ett avsnitt medans H6 är djupast ner.<br/>
+        </p>
+
+        <h5>Exempel</h5>
+        <code>
+          &lt;h1&gt;Header storlek 1&lt;/header&gt;<br/>
+          &lt;h2&gt;Header storlek 2&lt;/header&gt;<br/>
+          &lt;h3&gt;Header storlek 3&lt;/header&gt;<br/>
+          &lt;h4&gt;Header storlek 4&lt;/header&gt;<br/>
+          &lt;h5&gt;Header storlek 5&lt;/header&gt;<br/>
+          &lt;h6&gt;Header storlek 6&lt;/header&gt;
+        </code>
+
+        <h5>Demo</h5>
+        <div>
+          <!--
+            From the output of https://validator.w3.org:
+            "Warning: Consider using the h1 element as a top-level heading only",
+
+            It is actually valid but discouraging, this is only a "demo example" of headers,
+            so we ignore it.
+            The encouraging way is to use the proper sections nesting level: 
+            https://www.w3.org/TR/2014/REC-html5-20141028/sections.html#headings-and-sections
+          -->
+          <h1>Header storlek 1</h1>
+          <h2>Header storlek 2</h2>
+          <h3>Header storlek 3</h3>
+          <h4>Header storlek 4</h4>
+          <h5>Header storlek 5</h5>
+          <h6>Header storlek 6</h6>
+        </div>
+      </div>
+
+      <div>
+        <h4>&lt;p&gt;</h4>
+        <p>Anger en paragraf med innehåll vilket generellt ger en radbrytning före och efter innhållet med ett extra utrymme ovan och nedanför.</p>
+
+        <h5>Exempel</h5>
+        <code>
+          &lt;p&gt;En paragraf med en massa text&lt;/p&gt;<br/>
+          &lt;p&gt;En till paragraf med ytterligare text&lt;/p&gt;
+        </code>
+
+        <h5>Demo</h5>
+        <div>
+          <p>En paragraf med en massa text</p>
+          <p>En till paragraf med ytterligare text</p>
+        </div>
+      </div>
+
+      <div>
+        <h4>&lt;pre&gt;</h4>
+        <p>Anger förformatterad text. All text som infogas visas i enlighet, d.v.s. med alla radbrytningar och mellanslag.</p>
+
+        <h5>Exempel</h5>
+        <code>
+          &lt;pre&gt;<br/>
+            Detta är fördefinierad text, allt som skrivs kommer även att visas på samma sätta<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;alla mellanslag som skrivs kommer tas med<br/>
+            <br/>
+            <br/>
+            även radbrytningar...<br/>
+          &lt;/pre&gt;
+        </code>
+
+        <h5>Demo</h5>
+        <div>
+          <pre>
+Detta är fördefinierad text, allt som skrivs kommer även att visas på samma sätta
+    alla mellanslag som skrivs kommer tas med
+
+
+även radbrytningar...
+          </pre>
+        </div>
+      </div>
+
+      <div>
+        <h4>&lt;span&gt;</h4>
+        <p>Anger ett spann av innehåll och utför ingen radbrytning.</p>
+
+        <h5>Exempel</h5>
+        <code>
+          &lt;span&gt;Ett spann av text, &lt;/span&gt;&lt;span&gt;och ytterligare ett spann av text&lt;/span&gt;
+        </code>
+
+        <h5>Demo</h5>
+        <div>
+          <span>Ett spann av text, </span><span>och ytterligare ett spann av text</span>
+        </div>
+      </div>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.w3schools.com/tags/tag_blockquote.asp">https://www.w3schools.com/tags/tag_blockquote.asp</a></li>
+        <li><a href="https://www.w3schools.com/html/html_headings.asp">https://www.w3schools.com/html/html_headings.asp</a></li>
+        <li><a href="https://www.w3schools.com/tags/tag_p.asp">https://www.w3schools.com/tags/tag_p.asp</a></li>
+        <li><a href="https://www.w3schools.com/tags/tag_pre.asp">https://www.w3schools.com/tags/tag_pre.asp</a></li>
+        <li><a href="https://www.w3schools.com/tags/tag_span.asp">https://www.w3schools.com/tags/tag_span.asp</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 id="example-hypertext">2.4 Hypertext &lt;a&gt;</h3>
+      <p>
+        Taggen &lt;a&gt; definierar en hyperlänk som används för att länka en sida från en annan. Det viktigaste attributet för &lt;a&gt; elementet är <b>href</b> som indikerar länkens destination.
+      </p>
+
+      <h4>Absoluta länkar</h4>
+      <p>
+        En länk kan defineras med en <a href="https://it-ord.idg.se/ord/absolut-lank">absolute</a> sökväg vilket definierar fulla sökvägen till målet.<br/>
+      </p>
+
+      <h5>Exempel</h5>
+      <code>
+        &lt;a href="https://www.google.com"&gt;Absolute link&lt;/a&gt;
+      </code>
+
+      <h5>Demo</h5>
+      <div>
+        <a href="https://www.google.com">Absolute link</a>
+      </div>
+
+      <h4>Relativa länkar</h4>
+      <p>
+        En länk kan även definieras med en <a href="https://it-ord.idg.se/ord/relativ-lank">relative</a> sökväg vilket definieras med en syntax som beskriver var ifrån målet blir utifrån en befintlig källa.
+      </p>
+
+      <ul>
+        <li>Två punkter och slash "../" används för att kliva upp ett steg i sökvägens hierarki.</li>
+        <li>En slash och text "/paella" används för att kliva ner ett steg i sökvägens hierarki.</li>
+      </ul>
+
+      <p>
+        Om den absoluta källan är <em>https://www.comida.es/platos/</em> så blir en pålagd relativa sökväg <b>"/paella"</b> ekvivalent till <em>http://www.comida.es/platos/paella</em>.<br/>
+        Om den absoluta källan är <em>https://www.comida.es/platos/</em> så blir en pålagd relativa sökväg <b>"../"</b> ekvivalent till <em>http://www.comida.es</em>.
+      </p>
+
+      <h5>Exempel</h5>
+      <code>
+        &lt;div&gt;&lt;a href="../../index.html"&gt;Relativ länk&lt;/a&gt; (två nivåer upp i hierarkin)&lt;div/&gt;<br/>
+        &lt;div&gt;&lt;a href="level1/level2/level3/index.html"&gt;Relativ länk&lt;/a&gt; (tre nivåer ner i hierarkin)&lt;div/&gt;
+      </code>
+
+      <h5>Demo</h5>
+      <div>
+        <div><a href="../../index.html">Relativ länk</a> (två nivåer upp i hierarkin)</div>
+        <div><a href="level1/level2/level3/index.html">Relativ länk</a> (tre nivåer ner i hierarkin)</div>
+      </div>
+
+      <h4>Länk mot ankare</h4>
+      <p>
+        En länk kan skapas som pekar mot en del i dokumentet (websidan), med en så kallad ankare. När användaren trycker på länken så kommer positionen i rullningslistan (scrollbar) att positioneras till det element som ankaren definierats för.
+        För att möjliggöra att ett element agerar som ankare så anger man ett <b>id</b> och i länken anger man med attributet <b>href</b> namnet på <b>id</b> med prefixet <b>#</b>, d.v.s. om <b>id</b> är <em>"list-of-fruits"</em> så anges <em>"#list-of-fruits"</em>.
+      </p>
+
+      <h5>Exempel</h5>
+      <code>
+        &lt;a href="mailto:peter_borgstedt@hotmail.com"&gt;Gå till lista med frukter&lt;/a&gt;<br/>
+        &lt;div id="list-of-fruits"&gt;<br/>
+        &nbsp;&nbsp;... en lista med frukter ...<br/>
+        &lt;/div&gt;
+      </code>
+
+      <h5>Demo</h5>
+      <div>
+        <a href="#list-of-fruits">Gå till lista med frukter</a>
+        <div id="list-of-fruits">... en lista med frukter ...</div>
+      </div>
+
+      <h4>Bild som länk (istället för text)</h4>
+      <p>En bild kan användas istället för text genom att bädda in ett bild-element innanför &lt;a&gt; taggen.</p>
+
+      <h5>Exempel</h5>
+      <code>
+        &lt;a href="https://www.google.com"&gt;<br/>
+        &nbsp;&nbsp;&lt;img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google logo" width="200"&gt;<br/>
+        &lt;/a&gt;
+      </code>
+
+      <h5>Demo</h5>
+      <div>
+        <a href="https://www.google.com">
+          <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google logo" width="200">
+        </a>
+      </div>
+
+      <h4>Länk mot emailadress</h4>
+      <p>
+        En länk kan skapas som pekar mot en emailadress. När användaren trycker kommer den standard-applikation som används i operativssytemet för email att öppnas upp (oftast) ett nytt brev med den givna adressen ifylld.
+        När man anger en emailadress används prefixet <em>mailto:</em> före emailadressen.<br/>
+      </p>
+
+      <h5>Exempel</h5>
+      <code>
+        &lt;a href="mailto:peter_borgstedt@hotmail.com"&gt;Peter Borgstedt&lt;/a&gt;
+      </code>
+
+      <h5>Demo</h5>
+      <div>
+        <a href="mailto:peter_borgstedt@hotmail.com">Peter Borgstedt</a>
+      </div>
+
+      <h4>Länk mot ett specifikt protokoll</h4>
+      <p>
+        En länk kan även peka mot en address med ett specifikt protokoll. Detta öppnar oftast den standard-applikation som används i operativssytemet för protokollet med given adress.<br/>
+        När man anger en länk med ett protokolls adress används protokollet som prefix <em>ftp:</em> före resterande address.<br/>
+        Notera att <b>http</b> är även ett protokoll därmed anger man prefixet <em>http:</em>
+      </p>
+
+      <h5>Exempel</h5>
+      <code>
+        &lt;a href="ftp://ftp.com">Gå till ftp&lt;/a&gt;<br/>
+        &lt;a href="sftp://secureftp.com">Gå till säker ftp&lt;/a&gt;
+      </code>
+
+      <h5>Demo</h5>
+      <div>
+        <a href="ftp://ftp.com">Gå till ftp</a><br/>
+        <a href="sftp://secureftp.com">Gå till säker ftp</a>
+      </div>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.w3schools.com/html/html_links.asp">https://www.w3schools.com/html/html_links.asp</a></li>
+        <li><a href="https://www.w3schools.com/tags/att_a_href.asp">https://www.w3schools.com/tags/att_a_href.asp</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 id="example-list">2.5 Oordnad, ordnad och beskriven lista</h3>
+
+      <h4>Oordnad lista</h4>
+      <p>En <em>oordnad lista</em> visas med en punkt vilket tydliggör att listan inte nödvändigtvis är sorterad.</p>
+      <code>&lt;ul&gt;&lt;/ul&gt;</code> anger start och slut på en oordnad lista.<br/>
+      <code>&lt;li&gt;&lt;/li&gt;</code> anger start och slut på en oordnad artikel (list-föremål).<br/>
+
+      <h5>Exempel</h5>
+      <code>
+        &lt;ul&gt;<br/>
+        &nbsp;&nbsp;&lt;li&gt;Äpple&lt;/li&gt;<br/>
+        &nbsp;&nbsp;&lt;li&gt;Päron&lt;/li&gt;<br/>
+        &nbsp;&nbsp;&lt;li&gt;Apelsin&lt;/li&gt;<br/>
+        &nbsp;&nbsp;&lt;li&gt;Mango&lt;/li&gt;<br/>
+        &lt;/ul&gt;<br/>
+      </code>
+
+      <h5>Demo</h5>
+      <div>
+        <ul>
+          <li>Äpple</li>
+          <li>Päron</li>
+          <li>Apelsin</li>
+          <li>Mango</li>
+        </ul>
+      </div>
+
+      <h4>Ordnad lista</h4>
+      <p>En <em>ordnad lista</em> visas med numrering vilket tydliggör att listan är sorterad enligt en viss ordning.</p>
+      <p>
+        <code>&lt;ol&gt;&lt;/ol&gt;</code> anger start och slut på en ordnad lista.<br/>
+        <code>&lt;li&gt;&lt;/li&gt;</code> anger start och slut på en ordnad artikel (list-föremål).
+      </p>
+
+      <h5>Exempel</h5>
+      <code>
+        &lt;ol&gt;<br/>
+        &nbsp;&nbsp;&lt;li&gt;Äpple&lt;/li&gt;<br/>
+        &nbsp;&nbsp;&lt;li&gt;Päron&lt;/li&gt;<br/>
+        &nbsp;&nbsp;&lt;li&gt;Apelsin&lt;/li&gt;<br/>
+        &nbsp;&nbsp;&lt;li&gt;Mango&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+      </code>
+
+      <h5>Demo</h5>
+      <div>
+        <ol>
+          <li>Äpple</li>
+          <li>Päron</li>
+          <li>Apelsin</li>
+          <li>Mango</li>
+        </ol>
+      </div>
+
+      <h4>Beskrivande lista</h4>
+      <p>En <em>beskriven lista</em> visar artiklar med en följd beskrivning.</p>
+      <p>
+        <em>&lt;dl&gt;...&lt;/dl&gt;</em> anger start och slut på en beskrivande lista.<br/>
+        <em>&lt;dt&gt;...&lt;/dt&gt;</em> anger start och slut på en artikel (list-föremål).<br/>
+        <em>&lt;dd&gt;...&lt;/dd&gt;</em> anger start och slut på en beskrivning för en artikel.<br/>
+      </p>
+
+      <h5>Exempel</h5>
+      <code>
+        &lt;dl&gt;<br/>
+        &nbsp;&nbsp;&lt;dt&gt;Äpple&lt;/dt&gt;<br/>
+        &nbsp;&nbsp;&lt;dd&gt;Äpplen är oftast gröna men röda finns också&lt;/dd&gt;<br/>
+        &nbsp;&nbsp;&lt;dt&gt;Päron&lt;/dt&gt;<br/>
+        &nbsp;&nbsp;&lt;dd&gt;Päron är avlånga och har många varianter&lt;/dd&gt;<br/>
+        &nbsp;&nbsp;&lt;dt&gt;Apelsin&lt;/dt&gt;<br/>
+        &nbsp;&nbsp;&lt;dd&gt;Apelsiner i Europa kommer oftast från området Valencia i Spanien&lt;/dd&gt;<br/>
+        &nbsp;&nbsp;&lt;dt&gt;Mango&lt;/dt&gt;<br/>
+        &nbsp;&nbsp;&lt;dd&gt;Mangon kan vara hård och måste mogna lite innan man äter den&lt;/dd&gt;<br/>
+        &lt;/dl&gt;
+      </code>
+
+      <h5>Demo</h5>
+      <div>
+        <dl>
+          <dt>Äpple</dt>
+          <dd>Äpplen är oftast gröna men röda finns också</dd>
+          <dt>Päron</dt>
+          <dd>Päron är avlånga och har många varianter</dd>
+          <dt>Apelsin</dt>
+          <dd>Apelsiner i Europa kommer oftast från området Valencia i Spanien</dd>
+          <dt>Mango</dt>
+          <dd>Mangon kan vara hård och måste mogna lite innan man äter den</dd>
+        </dl>
+      </div>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.w3schools.com/html/html_lists.asp">https://www.w3schools.com/html/html_lists.asp</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 id="example-table">2.6 Tabell</h3>
+      <p>En tabell består huvusakligen av rader med data. Den första raden anger kolumner även kallad huvud (header).</p>
+      <p>Det går även att ange en caption som exempelvis kan beskriva innehållet.</p>
+      <p>
+        <em>&lt;table&gt;...&lt;/table&gt;</em> anger start och slut på en tabell.<br/>
+        <em>&lt;tr&gt;...&lt;/tr&gt;</em> anger start och slut på en rad.<br/>
+        <em>&lt;th&gt;...&lt;/th&gt;</em> anger start och slut på en kolumn (header).<br/>
+        <em>&lt;td&gt;...&lt;/td&gt;</em> anger start och slut på data för en kolumn i en rad.<br/>
+        <em>&lt;caption&gt;...&lt;/caption&gt;</em> anger en beskrivning, denne måste anges först inuti taggen &lt;table&gt;.<br/>
+      </p>
+      <h4>Example</h4>
+      <code>
+        &lt;table&gt;<br/>
+        &nbsp;&nbsp;&lt;caption&gt;Lista på individer och deras favoritfärg&lt;/caption&gt;<br/>
+        &nbsp;&nbsp;&lt;tr&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Peter&lt;/th&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Grön&lt;/th&gt;<br/>
+        &nbsp;&nbsp;&lt;/tr&gt;<br/>
+        &nbsp;&nbsp;&lt;tr&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Alicia&lt;/th&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Orange&lt;/th&gt;<br/>
+        &nbsp;&nbsp;&lt;/tr&gt;<br/>
+        &nbsp;&nbsp;&lt;tr&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Carmen&lt;/th&gt;<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Rosa&lt;/th&gt;<br/>
+        &nbsp;&nbsp;&lt;/tr&gt;<br/>
+        &lt;/table&gt;
+      </code>
+
+      <h4>Demo</h4>
+      <div>
+        <table>
+          <caption>Lista på individer och deras favoritfärg</caption>
+          <tr>
+            <th>Namn</th>
+            <th>Efternamn</th>
+          </tr>
+          <tr>
+            <td>Peter</td>
+            <td>Grön</td>
+          </tr>
+          <tr>
+            <td>Alicia</td>
+            <td>Orange</td>
+          </tr>
+          <tr>
+            <td>Carmen</td>
+            <td>Rosa</td>
+          </tr>
+        </table>
+      </div>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.w3schools.com/html/html_tables.asp">https://www.w3schools.com/html/html_tables.asp</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 id="example-image">2.7 Bild</h3>
+      <p>En bild kan visas med taggen <b>&lt;img&gt;</b> och med attributet <em>src</em> som anger bildkällan. Taggen är tom, d.v.s. den behövs inte stängas med &lt;/img&gt;.</p>
+      <p>Med attributet <b>alt</b> så kan man ange en alternativ text som beskriver bilden om den inte kan visas.</p>
+
+      <h4>Exempel</h4>
+      <code>
+        &lt;img "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="En bild på Googles logo"&gt;
+      </code>
+
+      <h4>Demo</h4>
+      <div>
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="En bild på Googles logo">
+      </div>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.w3schools.com/tags/tag_img.asp">https://www.w3schools.com/tags/tag_img.asp</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 id="example-image-map">2.8 Bildkartor</h3>
+      <p>Bildkartor består av en bild där sektioner som anges med koordinater (en geomtri) blir klickbar mot en länk. Det kan ses lite som en hybrid av en bild &lt;img&gt; och en länk &lt;a&gt;.</p>
+      <p>
+        <em>&lt;map&gt;...&lt;/map&gt;</em> anger start och slut på en bildkarta.<br/>
+        <em>&lt;area&gt;...&lt;/area&gt;</em> anger start och slut på en sektion i en bildkarta.<br/>
+      </p>
+
+      <h4>Viktiga attribut för &lt;area&gt;</h4>
+      <p>
+        <b>shape</b>=<em>"circel"</em> anger vilken typ av geometri som skall användas för området. Det går att välja <b>rect</b> (rectangle), <b>circel</b> och <b>poly</b> (polygon).<br/>
+        <b>coords</b>=<em>"20,30,40,50"</em> anger koordinater för geometrin.<br/>
+        <b>alt</b>=<em>"En bildkarta med köksredskap"</em> anger en alternativ text när bilden inte kan visas.<br/>
+        <b>href</b>=<em>"/kastruller.html"</em> anger en url som öppnas vid klick.<br/>
+      </p>
+
+      <h4>Exempel</h4>
+      <code>
+        &lt;img src="https://www.vippng.com/png/detail/147-1470388_spoon-fork-knife.png" alt="Bild med gaffel, kniv och sked" usemap="#image-map"&gt;<br/>
+        &lt;map name="image-map"&gt;<br/>
+        &nbsp;&nbsp;&lt;area alt="gaffel" href="fork.html" coords="188,119,335,1115" shape="rect"&lt;/area&gt;<br/>
+        &nbsp;&nbsp;&lt;area alt="kniv" href="knife.html" coords="370,35,508,1116" shape="rect"&lt;/area&gt;<br/>
+        &nbsp;&nbsp;&lt;area alt="sked" href="spoon.html" coords="517,126,730,1113" shape="rect"&lt;/area&gt;<br/>
+        &lt;/map&gt;<br/>
+      </code>
+
+      <h4>Demo</h4>
+      <div>
+        <img src="https://www.vippng.com/png/detail/147-1470388_spoon-fork-knife.png" alt="Bild med gaffel, kniv och sked" usemap="#image-map" width="300">
+        <map name="image-map">
+          <area alt="gaffel" href="fork.html" coords="65,40,110,360" shape="rect">
+          <area alt="kniv" href="knife.html" coords="120,10,165,360" shape="rect">
+          <area alt="sked" href="spoon.html" coords="170,35,240,360" shape="rect">
+        </map>
+      </div>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.w3schools.com/html/html_images_imagemap.asp">https://www.w3schools.com/html/html_images_imagemap.asp</a></li>
+      </ul>
+    </section>
+  </body>
+</html>

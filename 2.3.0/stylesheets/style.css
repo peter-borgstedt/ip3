@@ -1,0 +1,123 @@
+.demo-margin {
+  display: inline-block;
+  background: #ccc;
+}
+
+.demo-margin > div {
+  margin: 12px;
+  background: white;
+}
+
+.demo-border {
+  border: 4px solid black;
+}
+
+.demo-padding {
+  padding: 12px;
+  background: #ccc;
+}
+
+.demo-outline {
+  outline: 2px dashed black;
+  border: 4px solid #ccc;
+}
+
+.demo-opacity {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: red;
+  opacity: 0.5;
+}
+
+.demo-rgba {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: rgba(0, 255, 0, 0.5);
+}
+
+.demo-border-radius-circle {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: orange;
+  border-radius: 100%;
+}
+
+.demo-border-radius-rounded {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: red;
+  border-radius: 20px;
+}
+
+.demo-box-shadow {
+  width: 100px;
+  height: 100px;
+  box-shadow: 8px 8px 16px 5px #888;
+}
+
+.demo-visibility {
+  visibility: hidden;
+  background: plum;
+}
+
+.demo-visibility-toggle {
+  width: 100px;
+  height: 100px;
+  background: pink;
+}
+
+.demo-visibility-toggle:hover .demo-visibility {
+  visibility: visible;
+}
+
+.demo-clip-path {
+  clip-path: circle(50%);
+  height: 100px;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: max-content max-content;
+}
+
+.demo-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-linear-gradient {
+  width: 100px;
+  height: 100px;
+  background-image: linear-gradient(45deg, red 0%, green 50%, blue 100%);
+}
+
+.demo-radial-gradient {
+  width: 100px;
+  height: 100px;
+  background-image: radial-gradient(red 0%, green 50%, blue 100%);
+}
+
+.demo-overflow-scrollbar {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #888;
+  overflow: scroll;
+}
+
+.demo-overflow-visible {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #888;
+  overflow: visible;
+}
+
+.demo-background-image-multiple {
+  width: 300px;
+  height: 300px;
+  background-image: url(../assets/orange.png), url(../assets/dandelion.jpg);
+}

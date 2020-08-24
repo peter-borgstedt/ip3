@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+
+<!--
+  Note that this page does not use any CSS as it was uncertain whether that was allowed
+  in the description of the assigbnment, its just stated HTML-5, but as its a task for
+  explaining the CSS structure and parts of it there are no need for any styling.
+-->
+
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>2.1 Grunderna i CSS 3</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>2.1 Grunderna i CSS 3</h1>
+    </header>
+
+    <nav>
+      <h2>Innehåll</h2>
+      <b>Begrepp</b>
+      <ul>
+        <li>1.1 <a href="#external-linked-style-sheets">Externt länkad CSS-fil och dess fördelar</a></li>
+        <li>1.2 <a href="#inheritance">Arv</a></li>
+        <li>1.3 <a href="#cascade">Kaskad (cascade)</a></li>
+        <li>1.4 <a href="#selectors">Selektorer</a></li>
+        <li>1.5 <a href="#units">Enheter</a></li>
+        <li>1.6 <a href="#css-document-structure">Hur ett CSS-dokument är uppbyggt</a></li>
+      </ul>
+      <br/>
+      <b>Vidare läsning</b>
+      <ul>
+        <li>2.0 <a href="#further-reading-links">Länkar</a></li>
+      </ul> 
+    </nav>
+
+    <h2>Begrepp</h2>
+    <p><em>Denna del förklar strukturen och vanligt förekommande begrepp inom CSS.</em></p>
+
+    <section id="external-linked-style-sheets">
+      <h3>1.1 Externt länkad CSS-fil och dess fördelar</h3>
+      <p>
+        Externa stilark tillåter dig att helt separera all CSS från din HTML och istället sparas i en separat fil. Dessa kan laddas in med en referens i en eller fler HTML-dokumentet.
+        <br/>
+        Fördelarna med seperationen är att HTML dokumentet förblir och utgör HTML-strukturen medan CSS-filen utgör stylning. Underhållet blir betydligen lättare och filernas mer kompakt och lättläst.
+      </p>
+
+      <h4>Summering av väsentliga fördelarna med att använda en extern formatmall</h4>
+      <ul>
+        <li>Allt lagras i en eller uppdelad i fler CSS filer (modularisering)</li>
+        <li>Ökad överskådlighet</li>
+        <li>Möjligt att återanvända stylningen för fler websidor</li>
+        <li>När en uppdatering sker så återspeglas ändringarna på alla sidor som refererar till stilarket</li>
+        <li>Minskar underhållet av större webbplatser</li>
+        <li>Sidor laddas snabbare när CSS-filerna cachas (därmed sjunker bandbredden</li>
+        <li>Utseendet och känslan kan totalt förändras utfrån en eller fler CSS-filer</li>
+      </ul>
+
+      <h4>Exempel</h4>
+      <code>
+        &lt;head&gt;<br/>
+        &nbsp;&nbsp;&lt;link rel="stylesheet" type="text/css" href="style.css"&gt;<br/>
+        &lt;/head&gt;
+      </code>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.tomjepson.co.uk/why-should-i-use-an-external-stylesheet">https://www.tomjepson.co.uk/why-should-i-use-an-external-stylesheet</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section id="inheritance">
+      <h3>1.2 Arv</h3>
+      <p>
+        Arv anger attribut som är inställda på överordnade element och ärvs av underordnade element (barn/ättlingar), men där vissa undantag finns då inget ärvs.<br/>
+        Om en färg och teckensnittsfamilj sätts på ett överordnat element så kommer alla underordnade element också att presenteras med den färg och teckensnitt, såvida inte andra färger och teckensnittvärden sätts även på dessa.
+      </p>
+
+      <p>
+        Notera att vissa attribut inte ärver, vissa egenskaper har det initiella värdet satt till <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance#Non-inherited_properties">non-inherited</a> och därmed ärvs egenskapen inte från sin föräldrar såvida det sätts att så skall ske explicit.
+      </p>
+
+      <p>
+        Det går explicit ange att ett attribut skall ärvas från sin förälder genom att ange <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance">inherit</a> som värde för attributet.
+      </p>
+
+      <div>
+        <h4>Exempel</h4>
+
+        <b><small>I texten kommer &lt;emp&gt; -taggen att ärva färgen från paragrafen och bli gul.</small></b>
+        <br/>
+
+        <code>
+          p {<br/>
+          &nbsp;&nbsp;color: yellow;<br/>
+          }
+        </code>
+
+        <br/><br/>
+
+        <code>
+          &lt;p&gt;<br/>
+          &nbsp;&nbsp;Det här är en paragraf med &lt;em&gt;emphasized text&lt;/em&gt; i den.<br/>
+          &lt;/p&gt;
+        </code>
+      </div>
+
+      <div>
+        <h4>Referenser (vidare läsning)</h4>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance">https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance">https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <section id="cascade">
+      <h3>1.3 Cascade</h3>
+
+      <p>
+        Stil-definitioner skrivs i block och dessa block kan definiera en och samma <a href="#selector">selektor</a> (klass, id, element etc) i ett dokument.
+        Kaskad (cascade) är en del av grunden för hur flödet d.v.s. ordningen av dessa block läses in, det betonas även av namnet CSS som står för "Cascade Style Sheets".
+      </p>
+
+      <p>
+        Kaskaden (cascade) bestämmer ordningen och det slutliga resultatet av stylningen för ett element.
+      </p>
+
+      <p>
+        Ordningen bestäms även av vissa grundläggande bestämmelser, bland annat <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#Origin_of_CSS_declarations">origin</a> vilket anger vilken källa stylningen är ifrån (se tabell nedan).<br/>
+        Resultatet för en given <b>orgin</b> bestäms av den ordning defintionsblock skrivs i. Om ett block med definitioner för ett element definieras högst så kommer senare eventuella block för samma element längre ner att skrivas över befintliga attribut och sammanfogas (slå ihop) med de övriga.<br/>
+        Ordningen kan även styras genom att sätta en prioriterings/betydelseflagga (tyngd) <b>!important</b> efter definitionen, därefter kommer den givna stylningen för attributet att väga tyngre om inte senare överlagring även anger <b>!important</b>. Denna del styrs även av <b>kaskad-ordnings-reglerna</b> satta för <b>origin</b> (se tabell nedan).
+      </p>
+
+      <div>
+        <h4>Origins</h4>
+
+        <small><b>User-agent stylesheets</b></small><br/>
+        Webbläsaren har en grundläggande formatmall som ger ett standardformat för alla dokument.
+
+        <br/><br/>
+
+        <small><b>Author stylesheets</b></small><br/>
+        Den vanligaste typen av stylesheet vilket innehåller formatmallar som definierar stilar för den aktuella webbsidan eller webbplatsen.
+
+        <br/><br/>
+
+        <small><b>User stylesheets</b></small><br/>
+        Användaren (klienten) på webbplatsen kan välja att åsidosätta stilar i många webbläsare med ett anpassat format utformat efter användarens önskemål.
+      </div>
+ 
+      <div>
+        <h4>Orderschema för kaskad (cascade order)</h4>
+        Kaskaden är i stigande ordning, vilket innebär att viktiga värden från ett användardefinierat formatmall har företräde framför normala värden som kommer från användaragentens formatmall.
+        <br/><br/>
+
+        <table>
+          <tr>
+            <th>Origin</th>
+            <th>Importance</th>
+          </tr>
+          <tr>
+            <td>user agent</td><td>normal</td>
+          </tr>
+          <tr>
+            <td>user</td>
+            <td>normal</td>
+          </tr>
+          <tr>
+            <td>author</td>
+            <td>normal</td>
+          </tr>
+          <tr>
+            <td>animations</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>author</td>
+            <td>!important</td>
+          </tr>
+          <tr>
+            <td>user</td>
+            <td>!important</td>
+          </tr>
+          <tr>
+            <td>user agent</td>
+            <td>!important</td>
+          </tr>
+          <tr>
+            <td>transitions</td>
+            <td>-</td>
+          </tr>
+        </table> 
+      </div>
+
+      <div>
+        <h4>Exempel (inom samma origin)</h4>
+
+        <p>
+          <small><b><i>1. Ordningen av blocken avgör och resultatet blir en fontstorlek på 18px.</i></b></small>
+        </p>
+
+        <code>
+          h1 {<br/>
+          &nbsp;&nbsp;font-size: 14px;<br/>
+          }<br/>
+          <br/>
+          h1 {<br/>
+          &nbsp;&nbsp;font-size: 18px;<br/>
+          }<br/>
+        </code>
+
+        <p>
+          <small><b><i>2. Ordningen avgörs av betydelseflaggan !imortant vilket väger tyngre och resultatet blir en fontstorlek på 14px.</i></b></small>
+        </p>
+
+        <code>
+          h1 {<br/>
+          &nbsp;&nbsp;font-size: 14px !important;<br/>
+          }<br/>
+          <br/>
+          h1 {<br/>
+          &nbsp;&nbsp;font-size: 18px;<br/>
+          }<br/>
+        </code>
+      </div>
+
+      <div>
+        <h4>Referenser (vidare läsning)</h4>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade">https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance">https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#Origin_of_CSS_declarations">https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#Origin_of_CSS_declarations</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <section id="selectors">
+      <h3>1.4 Selektorer</h3>
+      <p>
+        Selektorer används för att fånga upp element med specifika attribut eller tillstånd för att därefter kunna utföra definitioner d.v.s. stylning på dem.
+      </p>
+
+      <div>
+        <h4>Tag (element) selektor</h4>
+        <p>
+          Används för att selektera upp element av en specifik tagg.
+        </p>
+
+        <h5>Exempel</h5>
+
+        <p>
+          <small><b><i>1. Visar texten med rosa färg för element med taggen &lt;div&gt;</i></b></small>
+        </p>
+
+        <code>
+          div {<br/>
+          &nbsp;&nbsp;color: pink;<br/>
+          }
+        </code>
+
+        <p>
+          <small><b><i>2. Texten visas med grön färg för element med taggen &lt;a&gt;</i></b></small>
+        </p>
+
+        <code>
+          a {<br/>
+          &nbsp;&nbsp;color: green;<br/>
+          }
+        </code>
+
+        <h5>Referenser (vidare läsning)</h5>
+        <ul>
+          <li><a href="https://www.w3schools.com/cssref/sel_element.asp">https://www.w3schools.com/cssref/sel_element.asp</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Type_selectors">https://developer.mozilla.org/en-US/docs/Web/CSS/Type_selectors</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Attribut-selektor</h4>
+        <p>
+          Används för att selektera alla element som har ett specifikt attribut eller värde i attributet.
+        </p>
+
+        <h5>Exempel</h5>
+
+        <p>
+          <small><b><i>1. Texten visas med röd färg om attributet "title" finns i taggen &lt;a&gt;</i></b></small>
+        </p>
+
+        <code>
+          a[title] {<br/>
+          &nbsp;&nbsp;color: red;<br/>
+          }
+        </code>
+
+        <p>
+          <small><b><i>2. Texten visas med blå färg om attributet href innehåller länken "http://www.google.com" i taggen &lt;a&gt;</i></b></small>
+        </p>
+
+        <code>
+          a[href="http://www.google.com"] {<br/>
+          &nbsp;&nbsp;color: blue;<br/>
+          }
+        </code>
+
+        <h5>Referenser (vidare läsning)</h5>
+        <ul>
+          <li><a href="https://www.w3schools.com/cssref/sel_attribute.asp">https://www.w3schools.com/cssref/sel_attribute.asp</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Klass-selektor</h4>
+        <p>
+          En selektor som används för att selektera element med en specifik klass.
+        </p>
+
+        <h5>Exempel</h5>
+
+        <p>
+          <small><b><i>1. Alla element med klassen "min-klass" får sin texten färgad med blå färg. För element med taggen &lt;a&gt; och som har klassen "min-klass" så blir även typsnittsstorleken 12px.</i></b></small>
+        </p>
+
+        <code>
+          .min-klass {<br/>
+          &nbsp;&nbsp;color: blue;<br/>
+          }<br/><br/>
+          a.min-klass {<br/>
+          &nbsp;&nbsp;font-size: 12px;<br/>
+          }
+        </code>
+
+        <br/><br/>
+
+        <p>
+          <small><b><i>2. Texten visas med blå färg för alla element som har antingen klassen "klass-1" eller "klass-2". För element som har klassen "klass-2" så visas även typsnittsstorleken med 14px.</i></b></small>
+        </p>
+
+        <code>
+          .klass-1, .klass-2 {<br/>
+          &nbsp;&nbsp;color: blue;<br/>
+          }<br/><br/>
+          .klass-2 {<br/>
+          &nbsp;&nbsp;font-size: 14px;<br/>
+          }
+        </code>
+
+        <h5>Referenser (vidare läsning)</h5>
+        <ul>
+          <li><a href="https://www.w3schools.com/cssref/sel_class.asp">https://www.w3schools.com/cssref/sel_class.asp</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors">https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Id-selektor</h4>
+        <p>
+          Selekterar ett element med ett specifikt <b>id</b>. Attributet <b>id</b> skall vara unikt för ett element och man skall inte ange samma <b>id</b> för andra element även om vissa browsers stödjer det.
+        </p>
+
+        <h5>Exempel</h5>
+
+        <p>
+          <small><b><i>1. Texten visas kursiv för elementet av taggen &lt;div&gt; med id "mitt-id".</i></b></small>
+        </p>
+
+        <code>
+          div#mitt-id {<br/>
+          &nbsp;&nbsp;font-style: italic;<br/>
+          }<br/>
+        </code>
+
+        <br/>
+
+        <p>
+          <small><b><i>2. Texten visas med gul färg för elementet med id "mitt-id".</i></b></small>
+        </p>
+
+        <code>
+          #mitt-id {<br/>
+          &nbsp;&nbsp;color: yellow;<br/>
+          }
+        </code>
+
+        <h5>Referenser (vidare läsning)</h5>
+        <ul>
+          <li><a href="https://www.w3schools.com/cssref/sel_id.asp">https://www.w3schools.com/cssref/sel_id.asp</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors">https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Barn (child) -selektor</h4>
+        <p>
+          En selektor som används för att matcha alla element som är barn till ett specificerat element.<br/>
+          Operanden på vänster sida av ">" är selektor för föräldern och operanden till höger sida är selektor för element som härstammar en nivå ner från föräldern.<br/>
+          Selektionen sker endast på en nivå, d.v.s. ättlingar av dessa barn ingår inte i selekteringen, däremot kan barnens ättlingarna ärva satta attribut från sin förälder.
+        </p>
+
+        <h5>Exempel</h5>
+
+        <p>
+          <small><b><i>Texten visas med röd färg för alla element med taggen &lt;a&gt; som explicit har en förälder av taggen &lt;div&gt;</i></b></small>
+        </p>
+
+        <code>
+          div > a {<br/>
+          &nbsp;&nbsp;color: red;<br/>
+          }
+        </code>
+
+        <h5>Referenser (vidare läsning)</h5>
+        <ul>
+          <li><a href="https://www.w3schools.com/cssref/sel_element_gt.asp">https://www.w3schools.com/cssref/sel_element_gt.asp</a></li>
+          <li><a href="https://css-tricks.com/child-and-sibling-selectors">https://css-tricks.com/child-and-sibling-selectors</a></li>
+          <li><a href="https://stackoverflow.com/a/33443055">https://stackoverflow.com/a/33443055</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Ättling (descendant) -selektor</h4>
+        <p>
+          En selektor som används för att matcha alla ättlingar som härstammar från en förälder, d.v.s. barn och även ättlingar till dessa barn osv.<br/>
+          Selekteringen sker d.v.s. på flera nivåer från föräldern ner till djupaste nivå av ättlingar.<br/>
+          Det är en distinkt skillnad mellan ättlig och barn -selektorer, och valet av en ättling när den inte behövs kan minska prestandan.
+        </p>
+
+        <h5>Exempel</h5>
+        <p>
+          <small><b><i>Texten visas med lila färg för alla ättlingar med taggen &lt;a&gt; som härstammar på något vis av taggen &lt;div&gt;</i></b></small>
+        </p>
+
+        <code>
+          div a {<br/>
+          &nbsp;&nbsp;color: purple;<br/>
+          }
+        </code>
+
+        <h5>Referenser (vidare läsning)</h5>
+        <ul>
+          <li><a href="https://www.w3schools.com/cssref/sel_element_element.asp">https://www.w3schools.com/cssref/sel_element_element.asp</a></li>
+          <li><a href="https://css-tricks.com/child-and-sibling-selectors">https://css-tricks.com/child-and-sibling-selectors</a></li>
+          <li><a href="https://stackoverflow.com/a/33443055">https://stackoverflow.com/a/33443055</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Intill (adjacent) -selektor</h4>
+        <p>
+          En selektor som används för att matcha ett element direkt efter ett specifikt elementet där båda elementet har samma förälder.
+        </p>
+
+        <h5>Exempel</h5>
+        <p>
+          <small><b><i>Texten visas med brun färg för element av taggen &lt;a&gt; som precis kommer efter element av taggen &lt;div&gt; där båda har samma förälder</i></b></small>
+        </p>
+
+        <code>
+          div + a {<br/>
+          &nbsp;&nbsp;color: brown;<br/>
+          }
+        </code>
+
+        <h5>Referenser (vidare läsning)</h5>
+        <ul>
+          <li><a href="https://www.w3schools.com/cssref/sel_element_pluss.asp">https://www.w3schools.com/cssref/sel_element_pluss.asp</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator">https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator</a></li>
+          <li><a href="https://css-tricks.com/child-and-sibling-selectors">https://css-tricks.com/child-and-sibling-selectors</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Ytterligare läsning runt selektorer</h4>
+        <ul>
+          <li><a href="https://www.w3schools.com/css/css_selectors.asp">https://www.w3schools.com/css/css_selectors.asp</a></li>
+          <li><a href="https://www.w3schools.com/cssref/css_selectors.asp">https://www.w3schools.com/cssref/css_selectors.asp</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <section id="units">
+      <h3>1.5 Enheter</h3>
+
+      <div>
+        <h4>Absoluta</h4>
+        <p>En absolut enhet anger ett exakt mått.</p>
+
+        <table>
+          <tr>
+            <th>Enhet</th>
+            <th>Förklaring</th>
+          </tr>
+          <tr>
+            <td>in</td>
+            <td>Enheten definieras som tum (inches); 1in = 96px = 2.54cm</td>
+          </tr>
+          <tr>
+            <td>cm</td>
+            <td>Enheten definieras som centimeter</td>
+          </tr>
+          <tr>
+            <td>mm</td>
+            <td>Enheten definieras som millimeter</td>
+          </tr>
+          <tr>
+            <td>pt</td>
+            <td>Enheten definieras som points; 1pt = 1/72 of 1in</td>
+          </tr>
+          <tr>
+            <td>pc</td>
+            <td>Enheten definieras som picas; 1pc = 12 pt</td>
+          </tr>
+          <tr>
+            <td>px</td>
+            <td>Enheten definieras som pixels; 1px = 1/96th of 1in</td>
+          </tr>
+        </table>
+      </div>
+
+      <div>
+        <h4>Relativa</h4>
+        <p>En relativ enhet anger ett mått som avgörs av ett eller flera faktorer.</p>
+
+        <table>
+          <tr>
+            <th>Enhet</th>
+            <th>Förklaring</th>
+          </tr>
+          <tr>
+            <td>em</td>
+            <td>Enheten definieras som relativ till typsnittets storlek. 2em betyder 2 gånger av den satta storleken för det aktuella teckensnittet; är storleken 14px så blir 2em 28px.</td>
+          </tr>
+          <tr>
+            <td>ex</td>
+            <td>Enheten definieras som x-höjden för det aktuella teckensnittet eller hälften av en em; x-höjden på teckensnittet är höjden på små bokstäver.</td>
+          </tr>
+          <tr>
+            <td>%</td>
+            <td>Enheten definieras som procent av elementets rymd eller storlek.</td>
+          </tr>
+        </table> 
+      </div>
+
+      <h4>Exempel</h4>
+      <code>
+        p {<br/>
+        &nbsp;&nbsp;font-size: 14px;<br/>
+        }<br/><br/>
+        div {<br/>
+        &nbsp;&nbsp;width: 2em:<br/>
+        }<br/><br/>
+        span {<br/>
+        &nbsp;&nbsp;height: 50%;<br/>
+        }
+      </code>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://www.w3schools.com/css/css_units.asp">https://www.w3schools.com/css/css_units.asp</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section id="css-document-structure">
+      <h3>1.6 Hur ett CSS-dokument uppbyggt</h3>
+      <p>
+        Ett CSS dokument är uppbyggt av en eller fler <b>block</b> som definieras av <b>klämmer-parenteser</b> (curly brackets).<br/>
+        Före blocket anges en eller fler <a href="#selectors">selektorer</a> och innanför <b>klämmer-paranteserna</b> anger man attribut som skall appliceras för de element som selekterats utifrån de selektorer som angivits.<br/>
+        Varje block definieras med egenskaper för hur elementen skall se ut. Det finns ett flertal bestämmelser på hur dessa egenskaper läses in, mer detaljer runt detta går att läsas i föregående delar:
+      </p>
+
+      <ul>
+        <li><a href="#inheritance">Arv</a></li>
+        <li><a href="#cascade">Kaskad (cascade)</a></li>
+      </ul>
+
+      <p>
+        Det går även att applicera ett stilblock för fler selektorer genom att separera dem med ett komma (,).
+      </p>
+
+      <h4>Syntax (för ett block med stilregler):</h4>
+      <p>
+        <b>selector</b> <i>(, ...)</i> { <b>property</b>: value; ... }
+      </p>
+
+      <h4>Exempel</h4>
+      <code>
+        a {<br/>
+        &nbsp;&nbsp;color: orange;<br/>
+        }<br/><br/>
+        div, p, a {<br/>
+        &nbsp;&nbsp;font-family: "Times New Roman", Times, serif;<br/>
+        &nbsp;&nbsp;font-size: 14px;<br/>
+        }
+      </code>
+
+      <h4>Referenser (vidare läsning)</h4>
+      <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_is_structured">https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_is_structured</a></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <h2>Vidare läsning</h2>
+
+    <section id="further-reading-links">
+      <h3>2.0 Vidare läsning</h3>
+
+      <p>
+        <b>Hur bakgrundsfärger (backgrounds) kan sättas med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_background.asp">https://www.w3schools.com/css/css_background.asp</a>
+      </p>
+
+      <p>
+        <b>Hur kantramar (borders) kan sättas med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_border.asp">https://www.w3schools.com/css/css_border.asp"</a>
+      </p>
+
+      <p>
+        <b>Hur man använder och sätter marginaler (margins) med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_margin.asp">https://www.w3schools.com/css/css_margin.asp</a>
+      </p>
+
+      <p>
+        <b>Hur man använder och sätter fyllnad (padding) med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_padding.asp">https://www.w3schools.com/css/css_padding.asp</a>
+      </p>
+
+      <p>
+        <b>Hur höjd och bredd (dimension) kan sättas på element med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_dimension.asp">https://www.w3schools.com/css/css_dimension.asp</a>
+      </p>
+
+      <p>
+        <b>Hur yttre kantramar (outline) kan sättas med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_outline.asp">https://www.w3schools.com/css/css_outline.asp</a>
+      </p>
+
+      <p>
+        <b>Hur det går att sätta typsnitt (fonts) med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_font.asp">https://www.w3schools.com/css/css_font.asp</a>
+      </p>
+
+      <p>
+        <b>Hur det går att visa ikoner (icons) med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_icons.asp">https://www.w3schools.com/css/css_icons.asp</a>
+      </p>
+
+      <p>
+        <b>Olika möjligheter att positionera (position) element med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_positioning.asp">https://www.w3schools.com/css/css_positioning.asp</a>
+      </p>
+
+      <p>
+        <b>Hur det går att positionera samt formatera innehåll (via attributet float) med CSS </b><br/>
+        <a href="https://www.w3schools.com/css/css_float.asp">https://www.w3schools.com/css/css_float.asp</a>
+      </p>
+
+      <p>
+        <b>Hur det går att justera (align) innehåll med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_align.asp">https://www.w3schools.com/css/css_align.asp</a>
+      </p>
+
+      <p>
+        <b>Hur det går att färga utifrån tillstånd (som musevent) via psuedo-klasser med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_pseudo_classes.asp">https://www.w3schools.com/css/css_pseudo_classes.asp</a>
+      </p>
+
+      <p>
+        <b>Hur det går att sätta stil på delar av ett element via psuedo-element med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_pseudo_elements.asp">https://www.w3schools.com/css/css_pseudo_elements.asp</a>
+      </p>
+
+      <p>
+        <b>Hur det går att sätta genomskinlighet (opacity) med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_image_transparency.asp">https://www.w3schools.com/css/css_image_transparency.asp</a>
+      </p>
+
+      <p>
+        <b>Hur det går att bygga en drop-down-lista (dropdowns) med CSS</b><br/>
+        <a href="https://www.w3schools.com/css/css_dropdowns.asp">https://www.w3schools.com/css/css_dropdowns.asp</a>
+      </p>
+
+      <h4>Och ännu fler möjligheter via CSS går att läsa på följande länkar</h4>
+      <ul>
+        <li><a href="https://www.w3schools.com/css">https://www.w3schools.com/css</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">https://developer.mozilla.org/en-US/docs/Web/CSS</a></li>
+      </ul>
+    </section>
+  </body>
+</html>

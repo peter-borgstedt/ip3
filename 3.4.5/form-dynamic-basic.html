@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>3.4.5 Formulärhantering</title>
+    <script src="../lib/jquery-3.5.0.min.js"></script>
+    <script src="./scripts/common.js"></script>
+    <script src="./scripts/basic.js"></script>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/common.css"> 
+  </head>
+
+  <body>
+    <h1>3.4.5 Formulärhantering</h1>
+
+    <!-- Validation will be done programatically, thus setting 'novalidate' -->
+    <form id="form" autocomplete="off" onsubmit="save(event)" novalidate>
+      <div class="grid-layout-2">
+        <label for="forename">Förnamn</label>
+        <input type="text" id="forename" name="forename" placeholder="Förnamn" required autofocus>
+
+        <label for="surname">Efternamn</label>
+        <input type="text" id="surname" name="surname" placeholder="Efternamn" required>
+
+        <label for="age">Ålder</label>
+        <input type="text" id="age" name="age" placeholder="Ålder">
+
+        <fieldset id="interests" class="grid-span-2">
+          <legend>Intressen</legend>
+
+          <input type="checkbox" id="interest-sport" name="interest" value="sport" onchange="onSelect(event, 'sport-sub-form')">
+          <label for="interest-sport">Sport</label>
+
+          <input type="checkbox" id="interest-food" name="interest" value="food" onchange="onSelect(event, 'food-sub-form')">
+          <label for="interest-food">Mat</label>
+
+          <input type="checkbox" id="interest-music" name="interest" value="music" onchange="onSelect(event, 'music-sub-form')">
+          <label for="interest-music">Musik</label>
+
+          <input type="checkbox" id="interest-art" name="interest" value="art" onchange="onSelect(event, 'art-sub-form')">
+          <label for="interest-art">Konst</label>
+        </fieldset>
+      </div>
+
+      <div id="sport-sub-form" class="grid-layout-3">
+        <fieldset class="grid-span-3">
+          <legend>Favorit sport</legend>
+
+          <input type="checkbox" id="genre-sport-1" name="genre-sport" value="football">
+          <label for="genre-sport-1">Fotboll</label>
+
+          <input type="checkbox" id="genre-sport-2" name="genre-sport" value="tennis">
+          <label for="genre-sport-2">Tennis</label>
+
+          <input type="checkbox" id="genre-sport-3" name="genre-sport" value="cycling">
+          <label for="genre-sport-3">Cykling</label>
+
+          <input type="checkbox" id="genre-sport-4" name="genre-sport" value="swimming">
+          <label for="genre-sport-4">Simning</label>
+        </fieldset>
+
+        <label for="genre-sport-entity-input">Favorit atleter</label>
+        <input type="text" id="genre-sport-entity-input" placeholder="Namn på atlet" required data-no-validation-on-submit>
+        <button onclick="addListItem(event, 'genre-sport-entity-input', 'genre-sport-entity-list')">+</button>
+
+        <fieldset class="grid-span-3">
+          <legend>Atleter</legend>
+          <div id="genre-sport-entity-list" class="item-list" data-name="genre-sport-entities">Tomt...</div>
+        </fieldset>
+      </div>
+
+      <div id="food-sub-form" class="grid-layout-3">
+        <fieldset form="form" class="grid-span-3">
+          <legend>Favorit matkultur</legend>
+
+          <input type="checkbox" id="genre-food-1" name="genre-food" value="japanese">
+          <label for="genre-food-1">Japanskt</label>
+
+          <input type="checkbox" id="genre-food-2" name="genre-food" value="swedish">
+          <label for="genre-food-2">Svenskt</label>
+
+          <input type="checkbox" id="genre-food-3" name="genre-food" value="italian">
+          <label for="genre-food-3">Italienskt</label>
+
+          <input type="checkbox" id="genre-food-4" name="genre-food" value="spanish">
+          <label for="genre-food-4">Spanskt</label>
+        </fieldset>
+
+        <label for="genre-food-entity-input">Favorit kock</label>
+        <input type="text" id="genre-food-entity-input" placeholder="Namn på kock" required data-no-validation-on-submit>
+        <button onclick="addListItem(event, 'genre-food-entity-input', 'genre-food-entity-list')">+</button>
+
+        <fieldset class="grid-span-3">
+          <legend>Kockar</legend>
+          <div id="genre-food-entity-list" class="item-list" data-name="genre-food-entities">Tomt...</div>
+        </fieldset>
+      </div>
+
+      <div id="music-sub-form" class="grid-layout-3">
+        <fieldset class="grid-span-3">
+          <legend>Favorit genre</legend>
+          <input type="checkbox" id="genre-music-1" name="genre-music" value="classical">
+          <label for="genre-music-1">Klassisk</label>
+
+          <input type="checkbox" id="genre-music-2" name="genre-music" value="pop">
+          <label for="genre-music-2">Pop</label>
+
+          <input type="checkbox" id="genre-music-3" name="genre-music" value="rock">
+          <label for="genre-music-3">Rock</label>
+
+          <input type="checkbox" id="genre-music-4" name="genre-music" value="hiphop">
+          <label for="genre-music-4">Hiphop</label>
+        </fieldset>
+
+        <label for="genre-music-entity-input">Favorit artister</label>
+        <input type="text" id="genre-music-entity-input" placeholder="Namn på arist" required data-no-validation-on-submit>
+        <button onclick="addListItem(event, 'genre-music-entity-input', 'genre-music-entity-list')">+</button>
+
+        <fieldset class="grid-span-3">
+          <legend>Artists</legend>
+          <div id="genre-music-entity-list" class="item-list" data-name="genre-music-entities">Tomt...</div>
+        </fieldset>
+      </div>
+
+      <div id="art-sub-form" class="grid-layout-3">
+        <fieldset class="grid-span-3">
+          <legend>Favoriserad konststil</legend>
+          <input type="checkbox" id="genre-art-1" name="genre-art" value="impressionism">
+          <label for="genre-art-1">Impressionism</label>
+
+          <input type="checkbox" id="genre-art-2" name="genre-art" value="avant-garde">
+          <label for="genre-art-2">Avantgarde</label>
+
+          <input type="checkbox" id="genre-art-3" name="genre-art" value="baroque">
+          <label for="genre-art-3">Barock</label>
+
+          <input type="checkbox" id="genre-art-4" name="genre-art" value="classicism">
+          <label for="genre-art-4">Klassicism</label>
+        </fieldset>
+
+        <label for="genre-art-entity-input">Favorit artister</label>
+        <input type="text" id="genre-art-entity-input" placeholder="Namn på arist" required data-no-validation-on-submit>
+        <button onclick="addListItem(event, 'genre-art-entity-input', 'genre-art-entity-list')">+</button>
+
+        <fieldset class="grid-span-3">
+          <legend>Artists</legend>
+          <div id="genre-art-entity-list" class="item-list" data-name="genre-art-entities">Tomt...</div>
+        </fieldset>
+      </div>
+
+      <input id="form-button" type="submit" value="Spara">
+    </form>
+  </body>
+</html>

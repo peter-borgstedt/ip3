@@ -1,0 +1,9 @@
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+  display: grid;
+  grid-template-columns: max-content 200px;
+  gap: 8px;
+}
