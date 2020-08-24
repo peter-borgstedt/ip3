@@ -123,3 +123,8 @@ fieldset {
   flex-direction: row;
   justify-content: center;
 }
+
+.post-hint {
+  text-align: center;
+  font-style: italic;
+}
