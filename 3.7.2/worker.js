@@ -16,13 +16,13 @@
  * Typically a place to handle heavier asynchronous tasks like doing request
  * calls to end points, streaming of data (until all is collected),
  * and then sending a message with some data when all is done.
- * 
+ *
  * Web workers can continue working when the browser has been closed,
  * making it able to retrieve and collect data to next time.
- * 
+ *
  * Web workers also is able to handle offline mode thus making it
  * possible to do some offline handling.
- * 
+ *
  * Web workers are a main part of progressive web technology which is
  * in my own opinion the future of web and mobile development.
  *

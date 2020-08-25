@@ -7,7 +7,7 @@
  * A simple static web page with three pages, images and minor content.
  * Displays connections status whether user has internet connection, if the
  * site is reachable (site is down or up).
- * 
+ *
  * Application Cache is now deprecated and not recommended to be used,
  * also parts in the manifest related to the application cache is deprecated,
  * such as the section headers (CACHE, NETWORK, FALLBACK).
@@ -25,7 +25,10 @@
  * https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers
  * https://developer.mozilla.org/en-US/docs/Web/API/Navigator/connection
  * https://stackoverflow.com/a/189443
+ *
+ * @author <a href="mailto:pebo6883@student.su.se">Peter Borgstedt</a>
  */
+
 /** Register or updates an existing service worker */
 const registerServiceWorker = () => {
   navigator.serviceWorker.register('./worker.js')

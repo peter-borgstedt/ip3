@@ -4,7 +4,7 @@
  * IP3 (IB908C), VT 2020 Web Development, Client Side
  *
  * Assignment: 3.1,
- * Grunderna i JavaScript.
+ * Basics in JavaScript.
  *
  * Using JavsScript with ES6 features.
  *
@@ -26,6 +26,8 @@
  * a function() and possible these also need to bind "this" differently, fat-arrow function does not have it
  * and has a different scope than a function which uses a local one.
  * There are alot of tools that transpile between versions that can be used as well.
+ *
+ * @author <a href="mailto:pebo6883@student.su.se">Peter Borgstedt</a>
  */
 
 /**

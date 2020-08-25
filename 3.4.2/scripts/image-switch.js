@@ -2,8 +2,8 @@
  * IP3 (IB908C), VT 2020 Web Development, Client Side
  *
  * Assignment: 3.4.2,
- * Bildhantering.
- * 
+ * Image management.
+ *
  * Features:
  * - Preloading of images
  * - Image rollover effect (using hover and attr with JQuery)

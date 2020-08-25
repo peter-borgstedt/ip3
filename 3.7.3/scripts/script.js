@@ -12,6 +12,8 @@
  * https://medium.com/@yanai101/popstate-and-history-api-the-missing-part-dc49f75676d
  * https://github.com/whatwg/html/issues/2174
  * https://stackoverflow.com/a/4585031
+ *
+ * @author <a href="mailto:pebo6883@student.su.se">Peter Borgstedt</a>
  */
 
 /**

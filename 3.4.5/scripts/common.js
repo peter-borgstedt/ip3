@@ -3,19 +3,20 @@
  *
  * Assignment: 3.4.5,
  * Form management.
- * 
- * 
+ *
  * When submitting a form elements of item, it will be part of the
  * collected data, so we want to use this kind of element for the list,
  * so they get collected.
  *
  * A hidden field let web developers include data that cannot be seen or
  * modified by users when a form is submitted.
- * 
+ *
  * References:
  * https://www.w3schools.com/tags/att_input_type_hidden.asp
  * https://stackoverflow.com/questions/10777970/can-i-mark-a-field-invalid-from-javascript
  * https://www.w3schools.com/js/js_validation.asp
+ *
+ * @author <a href="mailto:pebo6883@student.su.se">Peter Borgstedt</a>
  */
 
 let entityIndex = 0; /** Global index for entities, avoid issues when removing items */

@@ -4,7 +4,7 @@
  * IP3 (IB908C), VT 2020 Web Development, Client Side
  *
  * Assignment: 3.3,
- * Window object (Webbläsar-objekt)
+ * Window object (Webbläsarobjekt)
  *
  * Open and closes a window by asking the client to confirm.
  * If the window is already open or closed it alerts the user of it.

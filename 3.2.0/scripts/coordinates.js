@@ -4,7 +4,7 @@
  * IP3 (IB908C), VT 2020 Web Development, Client Side
  *
  * Assignment: 3.2,
- * DOM-object och jQuery.
+ * DOM-object and jQuery.
  *
  * Using JavaScript with ES6 features.
  *

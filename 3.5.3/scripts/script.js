@@ -3,7 +3,7 @@
  *
  * Assignment: 3.5.3,
  * Database storage (using DbIndex API)
- * 
+ *
  * Displays a table with people which can be altered by either adding or removal.
  *
  * Features:

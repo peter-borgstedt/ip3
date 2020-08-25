@@ -5,13 +5,13 @@
  * Navigation.
  *
  * A simple page with a drop down menu implemented with jQuery and CSS.
- * 
+ *
  * Features:
  * - Hover with jQuery
  * - Animate with jQuery
  * - Animate stop with jQuery
  * - CSS with jQuery
- * 
+ *
  * My personal opinion is not to use jQuery with any animation or with any CSS at all,
  * to be frank actually do not use jQuery at all, its a library that is a bit unnecessary
  * today, it just makes things worse and harder to write code, once upon a time it was
@@ -23,6 +23,8 @@
  * https://api.jquery.com/animate
  * https://api.jquery.com/stop/
  * https://stackoverflow.com/a/24762848
+ *
+ * @author <a href="mailto:pebo6883@student.su.se">Peter Borgstedt</a>
  */
 $(document).ready(() => {
   for (const menu of Array.from($('.menu')).map((menu) => $(menu))) {

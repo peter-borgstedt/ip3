@@ -6,10 +6,12 @@
  *
  * A simple page with a tabbing panel using the HTMLTemplateElement
  * and tooltip using the visibility styling property.
- * 
+ *
  * References:
  * https://www.w3schools.com/css/css_tooltip.asp
  * https://www.w3schools.com/howto/howto_js_tabs.asp
+ *
+ * @author <a href="mailto:pebo6883@student.su.se">Peter Borgstedt</a>
  */
 
 /**

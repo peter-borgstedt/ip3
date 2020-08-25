@@ -11,6 +11,8 @@
  * https://www.w3schools.com/tags/att_input_type_hidden.asp
  * https://stackoverflow.com/questions/10777970/can-i-mark-a-field-invalid-from-javascript
  * https://www.w3schools.com/js/js_validation.asp
+ *
+ * @author <a href="mailto:pebo6883@student.su.se">Peter Borgstedt</a>
  */
 
 /**

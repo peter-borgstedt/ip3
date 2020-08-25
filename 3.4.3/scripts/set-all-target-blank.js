@@ -13,7 +13,7 @@
  * https://www.w3schools.com/howto/howto_css_dropdown.asp
  * https://www.w3schools.com/css/css_dropdowns.asp
  * https://www.w3schools.com/tags/att_a_target.asp
- * 
+ *
  * @author <a href="mailto:pebo6883@student.su.se">Peter Borgstedt</a>
  */
 

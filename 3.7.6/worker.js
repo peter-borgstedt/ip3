@@ -3,7 +3,7 @@
  *
  * Assignment: 3.7.6,
  * Offline Application
- * 
+ *
  * A service worker using the Cache API to store and load resources.
  * Keep tracks of cache version if any future changes occurs, when that happens
  * the version is incremented to maybe v2, that will be detected on the clients and

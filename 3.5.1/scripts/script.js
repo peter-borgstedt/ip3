@@ -2,7 +2,7 @@
  * IP3 (IB908C), VT 2020 Web Development, Client Side
  *
  * Assignment: 3.5.1,
- * Webblagring (web storage using the API for session- and local storage)
+ * Web storage (using the API for session- and local storage)
  *
  * @author <a href="mailto:pebo6883@student.su.se">Peter Borgstedt</a>
  */

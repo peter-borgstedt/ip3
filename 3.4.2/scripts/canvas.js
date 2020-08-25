@@ -2,8 +2,8 @@
  * IP3 (IB908C), VT 2020 Web Development, Client Side
  *
  * Assignment: 3.4.2,
- * Bildhantering.
- * 
+ * Image management.
+ *
  * Features:
  * - Drawing linear (straight) lines
  * - Drawing bézier curves
@@ -185,7 +185,7 @@ const drawPattern = (context, x, y, width, height) => {
 }
 
 /**
- * 
+ * Draw bitmap
  * @param {CanvasRenderingContext2D} context The canvas 2D context
  * @param {Number} x Start X position (horizontal)
  * @param {Number} y Start Y postion (vertical)

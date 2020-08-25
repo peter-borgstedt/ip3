@@ -2,7 +2,10 @@
 .history
 
 # Build
-bin
+dist
 
 # Misc
 .DS_Store
+index.css
+index.html
+makefile
